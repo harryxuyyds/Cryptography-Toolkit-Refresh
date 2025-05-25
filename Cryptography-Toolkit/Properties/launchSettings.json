@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Cryptography-Toolkit (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Cryptography-Toolkit (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
