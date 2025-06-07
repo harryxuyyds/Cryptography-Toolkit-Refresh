@@ -15,6 +15,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Cryptography_Toolkit.Pages;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -27,6 +28,7 @@ namespace Cryptography_Toolkit
     public partial class App : Application
     {
         private Window? _window;
+        public static Window? MainWindow { get; private set; }
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -44,6 +46,11 @@ namespace Cryptography_Toolkit
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
             _window = new MainWindow();
+            MainWindow = _window;
+            
+            // 创建 NavigationRootPage 实例并设置为窗口内容
+            NavigationRootPage rootPage = new NavigationRootPage();
+            _window.Content = rootPage;
             _window.Activate();
         }
     }
