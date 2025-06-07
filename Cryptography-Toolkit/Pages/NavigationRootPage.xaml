@@ -33,20 +33,13 @@
                 <Image
                     Width="18"
                     VerticalAlignment="Center"
-                    Source="ms-appx:///Assets/Square150x150Logo.png" />
+                    Source="ms-appx:///Assets/Square44x44Logo.png" />
                 <TextBlock
                     x:Name="AppTitle"
                     Margin="12,0,0,0"
                     VerticalAlignment="Center"
                     Style="{StaticResource CaptionTextBlockStyle}"
-                    Text="Dev" />
-                <TextBox
-                    x:Name="AppTitleBarTextBox"
-                    Height="40"
-                    MinWidth="300"
-                    Margin="16,0,0,0"
-                    PlaceholderText="Enter any text"
-                    Visibility="Collapsed" />
+                    Text="{x:Bind AppTitleText}" />
             </StackPanel>
         </Border>
 
@@ -70,7 +63,7 @@
             </NavigationView.Resources>
             <NavigationView.AutoSuggestBox>
                 <AutoSuggestBox
-                    x:Name="controlsSearchBox"
+                    x:Name="ComponentsSearchBox"
                     MinWidth="200"
                     VerticalAlignment="Center"
                     x:FieldModifier="public"
@@ -86,140 +79,21 @@
             </NavigationView.AutoSuggestBox>
 
             <Frame
-                x:Name="rootFrame"/>
+                x:Name="RootFrame"/>
             <NavigationView.MenuItems>
                 <NavigationViewItem
                     x:Name="Home"
                     AutomationProperties.AutomationId="Home"
                     Content="Home"
                     Icon="Home" />
-                <NavigationViewItem
-                    x:Name="FundamentalsItem"
-                    AutomationProperties.AutomationId="FundamentalsItem"
-                    Content="Fundamentals"
-                    Tag="Fundamentals">
-                    <NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xE8F1;" />
-                    </NavigationViewItem.Icon>
-                    <NavigationViewItem.MenuItems>
-                        <NavigationViewItem
-                            x:Name="XamlResourcesPage"
-                            AutomationProperties.AutomationId="XamlResources"
-                            Content="Resources"
-                            Tag="XamlResources" />
-                        <NavigationViewItem
-                            x:Name="XamlStylesPage"
-                            AutomationProperties.AutomationId="XamlStyles"
-                            Content="Styles"
-                            Tag="XamlStyles" />
-                        <NavigationViewItem
-                            x:Name="BindingPage"
-                            AutomationProperties.AutomationId="Binding"
-                            Content="Binding"
-                            Tag="Binding" />
-                        <NavigationViewItem
-                            x:Name="TemplatesPage"
-                            AutomationProperties.AutomationId="Templates"
-                            Content="Templates"
-                            Tag="Templates" />
-                        <NavigationViewItem
-                            x:Name="CustomUserControlsPage"
-                            AutomationProperties.AutomationId="CustomUserControls"
-                            Content="Custom &amp; User Controls"
-                            Tag="CustomUserControls" />
-                        <NavigationViewItem
-                            x:Name="ScratchPadPage"
-                            AutomationProperties.AutomationId="ScratchPad"
-                            Content="Scratch Pad"
-                            Tag="ScratchPad" />
-                    </NavigationViewItem.MenuItems>
-                </NavigationViewItem>
 
-                <NavigationViewItem
-                    x:Name="DesignItem"
-                    AutomationProperties.AutomationId="DesignItem"
-                    Content="Design"
-                    Tag="Design">
+                <NavigationViewItemHeader Content="Components" />
+                <NavigationViewItem x:Name="FavoritesItem" Content="Favorites">
                     <NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xEB3C;" />
+                        <FontIcon Glyph="&#xE734;" />
                     </NavigationViewItem.Icon>
-                    <NavigationViewItem.MenuItems>
-                        <NavigationViewItem
-                            x:Name="ColorItem"
-                            AutomationProperties.AutomationId="Color"
-                            Content="Color"
-                            Tag="Color">
-                            <NavigationViewItem.Icon>
-                                <FontIcon Glyph="&#xE790;" />
-                            </NavigationViewItem.Icon>
-                        </NavigationViewItem>
-                        <NavigationViewItem
-                            x:Name="GeometryItem"
-                            AutomationProperties.AutomationId="Geometry"
-                            Content="Geometry"
-                            Tag="Geometry">
-                            <NavigationViewItem.Icon>
-                                <FontIcon Glyph="&#xE743;" />
-                            </NavigationViewItem.Icon>
-                        </NavigationViewItem>
-                        <NavigationViewItem
-                            x:Name="IconographyItem"
-                            AutomationProperties.AutomationId="Iconography"
-                            Content="Iconography"
-                            Tag="Iconography">
-                            <NavigationViewItem.Icon>
-                                <FontIcon Glyph="&#xED58;" />
-                            </NavigationViewItem.Icon>
-                        </NavigationViewItem>
-                        <NavigationViewItem
-                            x:Name="SpacingItem"
-                            AutomationProperties.AutomationId="Spacing"
-                            Content="Spacing"
-                            Tag="Spacing">
-                            <NavigationViewItem.Icon>
-                                <FontIcon Glyph="&#xE8A9;" />
-                            </NavigationViewItem.Icon>
-                        </NavigationViewItem>
-                        <NavigationViewItem
-                            x:Name="TypographyItem"
-                            AutomationProperties.AutomationId="Typography"
-                            Content="Typography"
-                            Tag="Typography">
-                            <NavigationViewItem.Icon>
-                                <FontIcon Glyph="&#xE8D2;" />
-                            </NavigationViewItem.Icon>
-                        </NavigationViewItem>
-                    </NavigationViewItem.MenuItems>
                 </NavigationViewItem>
-
-                <NavigationViewItem
-                    x:Name="AccessibilityItem"
-                    AutomationProperties.AutomationId="AccessibilityItem"
-                    Content="Accessibility"
-                    Tag="Accessibility">
-                    <NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xE776;" />
-                    </NavigationViewItem.Icon>
-                    <NavigationViewItem.MenuItems>
-                        <NavigationViewItem
-                            x:Name="AccessibilityScreenReaderPage"
-                            AutomationProperties.AutomationId="AccessibilityScreenReader"
-                            Content="Screen reader support"
-                            Tag="AccessibilityScreenReader" />
-                        <NavigationViewItem
-                            x:Name="AccessibilityKeyboardPage"
-                            AutomationProperties.AutomationId="AccessibilityKeyboard"
-                            Content="Keyboard support"
-                            Tag="AccessibilityKeyboard" />
-                        <NavigationViewItem
-                            x:Name="AccessibilityContrastPage"
-                            AutomationProperties.AutomationId="AccessibilityColorContrast"
-                            Content="Color contrast"
-                            Tag="AccessibilityColorContrast" />
-                    </NavigationViewItem.MenuItems>
-                </NavigationViewItem>
-                <NavigationViewItemHeader Content="Controls" />
-                <NavigationViewItem x:Name="AllControlsItem" Content="All">
+                <NavigationViewItem x:Name="AllComponentsItem" Content="All">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE8A9;" />
                     </NavigationViewItem.Icon>

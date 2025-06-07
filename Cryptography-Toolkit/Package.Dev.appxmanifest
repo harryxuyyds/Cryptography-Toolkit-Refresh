@@ -8,14 +8,14 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="HayiStudio.CryptographyToolkit"
-    Publisher="CN=HarryXu"
+    Name="HayiStudio.CryptographyToolkit.Dev"
+    Publisher="CN=HayiStudio-HarryXu"
     Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="6b7e990b-0b06-4573-b25d-3dd08adee300" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Cryptography Toolkit</DisplayName>
+    <DisplayName>Cryptography Toolkit Dev</DisplayName>
     <PublisherDisplayName>HarryXu</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -34,8 +34,8 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="Cryptography Toolkit"
-        Description="Cryptography Toolkit"
+        DisplayName="Cryptography Toolkit Dev"
+        Description="Cryptography Toolkit Dev"
         BackgroundColor="transparent"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png">

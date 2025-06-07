@@ -31,6 +31,7 @@ public sealed partial class NavigationRootPage : Page
         
         // 订阅 NavigationView 的 DisplayModeChanged 事件
         NavigationViewControl.DisplayModeChanged += NavigationViewControl_OnDisplayModeChanged;
+
     }
 
     private void NavigationRootPage_Loaded(object sender, RoutedEventArgs e)
@@ -42,6 +43,18 @@ public sealed partial class NavigationRootPage : Page
             {
                 var titleBar = appWindow.TitleBar;
                 titleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
+
+                // 设置窗口标题
+                if (App.MainWindow != null) // 添加空引用检查
+                {
+                    App.MainWindow.Title = AppTitleText;
+                }
+
+                // 更新 XAML 中的 AppTitle TextBlock
+                if (AppTitle != null)
+                {
+                    AppTitle.Text = AppTitleText;
+                }
             }
         }
 
@@ -82,4 +95,17 @@ public sealed partial class NavigationRootPage : Page
             VisualStateManager.GoToState(this, "Activated", true);
         }
     }
+
+    public string AppTitleText
+    {
+        get
+        {
+#if DEBUG
+            return "Cryptography Toolkit Dev";
+#else
+            return "Cryptography Toolkit";
+#endif
+        }
+    }
+
 }
