@@ -98,8 +98,127 @@
                         <FontIcon Glyph="&#xE8A9;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
+                <NavigationViewItem  Content="Simple Symmetric Encryption" Tag="SimpleSymmetricEncryptionPage">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE929;" />
+                    </NavigationViewItem.Icon>
+                    <NavigationViewItem.MenuItems>
+                        <NavigationViewItem  Content="Substitution Cipher" Tag="SubstitutionCipherPage" />
+                        <NavigationViewItem  Content="Shift Cipher" Tag="ShiftCipherPage" />
+                        <NavigationViewItem  Content="Affine Cipher" Tag="AffineCipherPage" />
+                    </NavigationViewItem.MenuItems>
+                </NavigationViewItem>
+                <NavigationViewItem  Content="Stream Ciphers" Tag="StreamCiphersPage">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE93E;" />
+                    </NavigationViewItem.Icon>
+                    <NavigationViewItem.MenuItems>
+                        <NavigationViewItem  Content="Shift Register-Based Stream Ciphers" Tag="ShiftRegisterBasedStreamCiphersPage" />
+                        <NavigationViewItem  Content="Salsa20" Tag="Salsa20Page" />
+                        <NavigationViewItem  Content="ChaCha" Tag="ChaChaPage" />
+                        <NavigationViewItem  Content="Trivium" Tag="TriviumPage" />
+                    </NavigationViewItem.MenuItems>
+                </NavigationViewItem>
+                <NavigationViewItem  Content="Data Encryption Standard" Tag="DataEncryptionStandardPage">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE72E;" />
+                    </NavigationViewItem.Icon>
+                    <NavigationViewItem.MenuItems>
+                        <NavigationViewItem  Content="Internal Structure of DES" Tag="InternalStructureDESPage" />
+                        <NavigationViewItem  Content="Decryption of DES" Tag="DecryptionDESPage" />
+                        <NavigationViewItem  Content="Triple DES (3DES) and DESX" Tag="TripleDESPage" />
+                        <NavigationViewItem  Content="Lightweight Cipher PRESENT" Tag="LightweightCipherPRESENTPage" />
+                    </NavigationViewItem.MenuItems>
+                </NavigationViewItem>
+                <NavigationViewItem  Content="Advanced Encryption Standard" Tag="AdvancedEncryptionStandardPage">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE752;" />
+                    </NavigationViewItem.Icon>
+                    <NavigationViewItem.MenuItems>
+                        <NavigationViewItem  Content="Galois Fields" Tag="GaloisFieldsPage" />
+                        <NavigationViewItem  Content="Internal Structure of AES" Tag="InternalStructureAESPage" />
+                        <NavigationViewItem  Content="Decryption of AES" Tag="DecryptionAESPage" />
+                    </NavigationViewItem.MenuItems>
+                </NavigationViewItem>
+                <NavigationViewItem  Content="More About Block Ciphers" Tag="MoreAboutBlockCiphersPage">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE7BC;" />
+                    </NavigationViewItem.Icon>
+                    <NavigationViewItem.MenuItems>
+                        <NavigationViewItem  Content="Modes of Operation for Encryption" Tag="ModesOperationEncryptionPage" />
+                        <NavigationViewItem  Content="Modes of Operation for Authentication" Tag="ModesOperationAuthenticationPage" />
+                    </NavigationViewItem.MenuItems>
+                </NavigationViewItem>
+                <NavigationViewItem  Content="Public-Key Cryptography" Tag="PublicKeyCryptographyPage">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE8D7;" />
+                    </NavigationViewItem.Icon>
+                    <NavigationViewItem.MenuItems>
+                        <NavigationViewItem  Content="Essential Number Theory" Tag="EssentialNumberTheoryPage" />
+                        <NavigationViewItem  Content="Public-Key Algorithm Families" Tag="PublicKeyAlgorithmFamiliesPage" />
+                    </NavigationViewItem.MenuItems>
+                </NavigationViewItem>
+                <NavigationViewItem  Content="RSA Cryptosystem" Tag="RSACryptosystemPage">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xF146;" />
+                    </NavigationViewItem.Icon>
+                    <NavigationViewItem.MenuItems>
+                        <NavigationViewItem  Content="Encryption and Decryption of RSA" Tag="EncryptionDecryptionRSAPage" />
+                        <NavigationViewItem  Content="Speed-Up Techniques for RSA" Tag="SpeedUpTechniquesRSAPage" />
+                        <NavigationViewItem  Content="Primality Tests" Tag="PrimalityTestsPage" />
+                    </NavigationViewItem.MenuItems>
+                </NavigationViewItem>
+                <NavigationViewItem  Content="Discrete Logarithm Schemes" Tag="DiscreteLogarithmSchemesPage">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xF147;" />
+                    </NavigationViewItem.Icon>
+                    <NavigationViewItem.MenuItems>
+                        <NavigationViewItem  Content="Generic DL Algorithms" Tag="GenericDLAlgorithmsPage" />
+                        <NavigationViewItem  Content="Diffie–Hellman Key Exchange" Tag="DiffieHellmanKeyExchangePage" />
+                        <NavigationViewItem  Content="Elgamal Encryption Scheme" Tag="ElgamalEncryptionSchemePage" />
+                    </NavigationViewItem.MenuItems>
+                </NavigationViewItem>
+                <NavigationViewItem  Content="Elliptic Curve (EC) Schemes" Tag="ECSchemesPage">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xF148;" />
+                    </NavigationViewItem.Icon>
+                    <NavigationViewItem.MenuItems>
+                        <NavigationViewItem  Content="Definition of Elliptic Curves" Tag="DefinitionEllipticCurvesPage" />
+                        <NavigationViewItem  Content="Group Operations on Elliptic Curves" Tag="GroupOperationsEllipticCurvesPage" />
+                    </NavigationViewItem.MenuItems>
+                </NavigationViewItem>
+                <NavigationViewItem  Content="Digital Signatures" Tag="DigitalSignaturesPage">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xEF3F;" />
+                    </NavigationViewItem.Icon>
+                    <NavigationViewItem.MenuItems>
+                        <NavigationViewItem  Content="RSA Signature Scheme" Tag="RSASignatureSchemePage" />
+                        <NavigationViewItem  Content="Elgamal Digital Signature Scheme" Tag="ElgamalDigitalSignatureSchemePage" />
+                        <NavigationViewItem  Content="Digital Signature Algorithm" Tag="DigitalSignatureAlgorithmPage" />
+                        <NavigationViewItem  Content="Elliptic Curve Digital Signature Algorithm" Tag="EllipticCurveDigitalSignatureAlgorithmPage" />
+                    </NavigationViewItem.MenuItems>
+                </NavigationViewItem>
+                <NavigationViewItem  Content="Hash Functions" Tag="HashFunctionsPage">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xF003;" />
+                    </NavigationViewItem.Icon>
+
+                </NavigationViewItem>
+                <NavigationViewItem  Content="Message Authentication Codes" Tag="MessageAuthenticationCodesPage">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE8F2;" />
+                    </NavigationViewItem.Icon>
+
+                </NavigationViewItem>
+                <NavigationViewItem  Content="Key Management" Tag="KeyManagementPage">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE912;" />
+                    </NavigationViewItem.Icon>
+
+                </NavigationViewItem>
             </NavigationView.MenuItems>
         </NavigationView>
+
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="TitleBarStates">
                 <VisualState x:Name="Default" />
