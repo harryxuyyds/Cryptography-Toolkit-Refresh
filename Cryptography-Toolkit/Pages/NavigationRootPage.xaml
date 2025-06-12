@@ -49,6 +49,7 @@
             Grid.Column="1"
             Canvas.ZIndex="0"
             DisplayModeChanged="NavigationViewControl_OnDisplayModeChanged"
+            SelectionChanged="NavigationViewControl_OnSelectionChanged"
             IsTabStop="False"
             IsTitleBarAutoPaddingEnabled="True">
 
@@ -84,6 +85,7 @@
                 <NavigationViewItem
                     x:Name="Home"
                     AutomationProperties.AutomationId="Home"
+                    Tag="HomePage"
                     Content="Home"
                     Icon="Home" />
 

@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -12,7 +10,11 @@ using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Animation;
 using Microsoft.UI.Xaml.Navigation;
+using Windows.Foundation;
+using Windows.Foundation.Collections;
+using Windows.UI.ApplicationSettings;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -28,7 +30,7 @@ public sealed partial class NavigationRootPage : Page
     {
         InitializeComponent();
         this.Loaded += NavigationRootPage_Loaded;
-        
+
         // ¶©ÔÄ NavigationView µÄ DisplayModeChanged ÊÂ¼þ
         NavigationViewControl.DisplayModeChanged += NavigationViewControl_OnDisplayModeChanged;
 
@@ -39,6 +41,7 @@ public sealed partial class NavigationRootPage : Page
         if (AppWindowTitleBar.IsCustomizationSupported())
         {
             var appWindow = App.MainWindow?.AppWindow;
+            RootFrame.Navigate(typeof(Cryptography_Toolkit.Pages.HomePage));
             if (appWindow != null)
             {
                 var titleBar = appWindow.TitleBar;
@@ -108,4 +111,32 @@ public sealed partial class NavigationRootPage : Page
         }
     }
 
+    private void NavigationViewControl_OnSelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+    {
+        if (args.IsSettingsSelected)
+        {
+            sender.Header = "Toolkit Settings";
+            // RootFrame.Navigate(typeof(Cryptography_Toolkit.Pages.ToolkitSettingsPage));
+        }
+        else
+        {
+            var selectedItem = (Microsoft.UI.Xaml.Controls.NavigationViewItem)args.SelectedItem;
+            string selectedItemTag = (string)selectedItem.Tag;
+            string selectedItemContent = (string)selectedItem.Content;
+            // sender.Header = selectedItemContent;
+            string pageName = "Cryptography_Toolkit.Pages." + selectedItemTag;
+
+            // Ensure the pageType is not null before navigating
+            Type? pageType = Type.GetType(pageName);
+            if (pageType != null)
+            {
+                RootFrame.Navigate(pageType);
+            }
+            else
+            {
+                // Handle the case where the page type could not be resolved
+                throw new InvalidOperationException($"Page type '{pageName}' could not be resolved.");
+            }
+        }
+    }
 }

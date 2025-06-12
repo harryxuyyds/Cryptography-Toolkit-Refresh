@@ -46,12 +46,13 @@
 
                     <TextBlock AutomationProperties.AutomationId="__ClickableAreaTextBlock" />
                     <StackPanel
-                    Margin="36,0,0,0"
-                    VerticalAlignment="Center"
-                    Orientation="Vertical">
+                        Margin="36,0,0,0"
+                        VerticalAlignment="Center"
+                        Orientation="Vertical">
                         <TextBlock
-                        x:Name="smallHeaderText"
-                        Text="Cryptography Toolkit Dev" />
+                            x:Name="smallHeaderText"
+                            Text="Cryptography Toolkit Dev" />
+                        <TextBlock Text="{StaticResource AppTitleName}" Style="{StaticResource TitleLargeTextBlockStyle}"/>
                     </StackPanel>
                 </Grid>
             </GridView.Header>
