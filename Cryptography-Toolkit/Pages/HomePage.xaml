@@ -30,13 +30,13 @@
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
         <GridView
-        x:Name="itemGridView"
-        Padding="24,0,24,0"
-        AutomationProperties.AutomationId="ItemGridView"
-        AutomationProperties.Name="Items In Group"
-        IsItemClickEnabled="True"
-        IsSwipeEnabled="False"
-        SelectionMode="None">
+            x:Name="itemGridView"
+            Padding="24,0,24,0"
+            AutomationProperties.AutomationId="ItemGridView"
+            AutomationProperties.Name="Items In Group"
+            IsItemClickEnabled="True"
+            IsSwipeEnabled="False"
+            SelectionMode="None">
             <GridView.Header>
                 <Grid x:Name="HeaderGrid" Margin="-24,0,-24,0">
                     <Grid.RowDefinitions>
@@ -57,12 +57,6 @@
                 </Grid>
             </GridView.Header>
 
-            <GridView.GroupStyle>
-                <GroupStyle>
-                    <GroupStyle.HeaderTemplate>
-                    </GroupStyle.HeaderTemplate>
-                </GroupStyle>
-            </GridView.GroupStyle>
         </GridView>
     </Grid>
 </Page>
