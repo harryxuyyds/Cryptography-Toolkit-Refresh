@@ -13,8 +13,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Pages\AffineCipherPage.xaml" />
     <None Remove="Pages\HomePage.xaml" />
     <None Remove="Pages\NavigationRootPage.xaml" />
+    <None Remove="Pages\ShiftRegisterBasedStreamCiphersPage.xaml" />
+    <None Remove="Pages\ToolkitSettingsPage.xaml" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.Dev.appxmanifest">
@@ -47,6 +50,21 @@
     <PackageReference Include="CommunityToolkit.WinUI.Controls.SettingsControls" Version="8.2.250402" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.4188" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.7.250513003" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\ShiftRegisterBasedStreamCiphersPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\ToolkitSettingsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\AffineCipherPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Pages\HomePage.xaml">

@@ -115,8 +115,8 @@ public sealed partial class NavigationRootPage : Page
     {
         if (args.IsSettingsSelected)
         {
-            sender.Header = "Toolkit Settings";
-            // RootFrame.Navigate(typeof(Cryptography_Toolkit.Pages.ToolkitSettingsPage));
+            // sender.Header = "Toolkit Settings";
+            RootFrame.Navigate(typeof(Cryptography_Toolkit.Pages.ToolkitSettingsPage));
         }
         else
         {
