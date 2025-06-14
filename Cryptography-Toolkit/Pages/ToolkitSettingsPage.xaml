@@ -38,10 +38,10 @@
                    Margin="0,8,0,8" />
 
         <controls:SettingsExpander Description="© 2025. Hayi Studio. All rights reserved."
-                                   Header="Cryptography Toolkit"
+                                   Header="{StaticResource AppTitleName}"
                                    HeaderIcon="{winUi:BitmapIcon Source=ms-appx:///Assets/Square44x44Logo.png}">
             <TextBlock Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                       Text="Version 2.0.0-Refresh" />
+                       Text="{StaticResource AppVersionName}" />
             <controls:SettingsExpander.Items>
                 <controls:SettingsCard HorizontalContentAlignment="Left"
                                        ContentAlignment="Left">

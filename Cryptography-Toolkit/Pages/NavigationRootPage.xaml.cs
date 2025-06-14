@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -26,6 +27,8 @@ namespace Cryptography_Toolkit.Pages;
 /// </summary>
 public sealed partial class NavigationRootPage : Page
 {
+    private List<(string Tag, string Title)> _allPages;
+
     public NavigationRootPage()
     {
         InitializeComponent();
@@ -33,7 +36,32 @@ public sealed partial class NavigationRootPage : Page
 
         // 订阅 NavigationView 的 DisplayModeChanged 事件
         NavigationViewControl.DisplayModeChanged += NavigationViewControl_OnDisplayModeChanged;
+        NavigationViewControl.SelectionChanged += NavigationViewControl_OnSelectionChanged;
 
+        // 初始化所有页面数据
+        _allPages = new List<(string Tag, string Title)>();
+        foreach (NavigationViewItem item in NavigationViewControl.MenuItems.OfType<NavigationViewItem>())
+        {
+            if (item.Tag != null)
+            {
+                _allPages.Add((item.Tag.ToString(), item.Content.ToString()));
+            }
+            if (item.MenuItems.Count > 0)
+            {
+                foreach (NavigationViewItem subItem in item.MenuItems.OfType<NavigationViewItem>())
+                {
+                    if (subItem.Tag != null)
+                    {
+                        _allPages.Add((subItem.Tag.ToString(), subItem.Content.ToString()));
+                    }
+                }
+            }
+        }
+
+        // 设置AutoSuggestBox事件处理
+        ComponentsSearchBox.TextChanged += ComponentsSearchBox_TextChanged;
+        ComponentsSearchBox.SuggestionChosen += ComponentsSearchBox_SuggestionChosen;
+        ComponentsSearchBox.QuerySubmitted += ComponentsSearchBox_QuerySubmitted;
     }
 
     private void NavigationRootPage_Loaded(object sender, RoutedEventArgs e)
@@ -41,7 +69,9 @@ public sealed partial class NavigationRootPage : Page
         if (AppWindowTitleBar.IsCustomizationSupported())
         {
             var appWindow = App.MainWindow?.AppWindow;
-            RootFrame.Navigate(typeof(Cryptography_Toolkit.Pages.HomePage));
+            // RootFrame.Navigate(typeof(Cryptography_Toolkit.Pages.HomePage));
+            NavigateToPage("HomePage"); // 传入目标页面的Tag
+
             if (appWindow != null)
             {
                 var titleBar = appWindow.TitleBar;
@@ -115,28 +145,161 @@ public sealed partial class NavigationRootPage : Page
     {
         if (args.IsSettingsSelected)
         {
-            // sender.Header = "Toolkit Settings";
             RootFrame.Navigate(typeof(Cryptography_Toolkit.Pages.ToolkitSettingsPage));
+            return;
         }
-        else
-        {
-            var selectedItem = (Microsoft.UI.Xaml.Controls.NavigationViewItem)args.SelectedItem;
-            string selectedItemTag = (string)selectedItem.Tag;
-            string selectedItemContent = (string)selectedItem.Content;
-            // sender.Header = selectedItemContent;
-            string pageName = "Cryptography_Toolkit.Pages." + selectedItemTag;
 
-            // Ensure the pageType is not null before navigating
-            Type? pageType = Type.GetType(pageName);
-            if (pageType != null)
+        if (args.SelectedItem is not NavigationViewItem selectedItem)
+        {
+            return;
+        }
+
+        string? selectedItemTag = selectedItem.Tag?.ToString();
+        if (string.IsNullOrEmpty(selectedItemTag))
+        {
+            return;
+        }
+
+        string pageName = $"Cryptography_Toolkit.Pages.{selectedItemTag}";
+        
+        Type? pageType = Type.GetType(pageName);
+        
+        if (pageType == null)
+        {
+            Debug.WriteLine($"无法找到页面类型: {pageName}");
+            return;
+        }
+
+        RootFrame.Navigate(pageType, null, new DrillInNavigationTransitionInfo());
+    }
+
+    public void NavigateToPage(string tag)
+    {
+        // NavigationViewControl.SelectionChanged -= NavigationViewControl_OnSelectionChanged;
+        var matchingItem = FindMenuItemRecursively(tag, NavigationViewControl.MenuItems);
+        if (matchingItem != null)
+        {
+            NavigationViewControl.SelectedItem = matchingItem;
+        }
+        // NavigationViewControl.SelectionChanged += NavigationViewControl_OnSelectionChanged;
+    }
+
+    private NavigationViewItem? FindMenuItemRecursively(string tag, IList<object> menuItems)
+    {
+        foreach (var item in menuItems)
+        {
+            if (item is NavigationViewItem navItem)
             {
-                RootFrame.Navigate(pageType);
+                // 检查当前项
+                if (navItem.Tag?.ToString() == tag)
+                {
+                    return navItem;
+                }
+
+                // 递归检查子项
+                if (navItem.MenuItems.Count > 0)
+                {
+                    var childResult = FindMenuItemRecursively(tag, navItem.MenuItems);
+                    if (childResult != null)
+                    {
+                        // 如果在子项中找到匹配项，展开父项
+                        navItem.IsExpanded = true;
+                        return childResult;
+                    }
+                }
             }
-            else
+        }
+        return null;
+    }
+
+    private void NavigationViewControl_BackRequested(NavigationView sender, NavigationViewBackRequestedEventArgs args)
+    {
+        if (RootFrame.CanGoBack)
+        {
+            RootFrame.GoBack();
+
+            // 获取当前页面类型
+            if (RootFrame.Content is Page currentPage)
             {
-                // Handle the case where the page type could not be resolved
-                throw new InvalidOperationException($"Page type '{pageName}' could not be resolved.");
+                // 根据页面类型查找对应的 NavigationViewItem
+                var matchingItem = FindNavigationViewItemByPageType(currentPage.GetType());
+                if (matchingItem != null)
+                {
+                    // 更新选中项
+                    NavigationViewControl.SelectedItem = matchingItem;
+                }
             }
+        }
+    }
+
+    // 修复方法：使用 null-forgiving 运算符 (!) 明确告知编译器此处返回 null 是预期行为。
+    private NavigationViewItem? FindNavigationViewItemByPageType(Type pageType)
+    {
+        foreach (var item in NavigationViewControl.MenuItems)
+        {
+            if (item is NavigationViewItem navigationViewItem)
+            {
+                string? tag = navigationViewItem.Tag?.ToString();
+                if (!string.IsNullOrEmpty(tag) && tag == pageType.Name)
+                {
+                    return navigationViewItem;
+                }
+
+                // 检查子项
+                if (navigationViewItem.MenuItems.Count > 0)
+                {
+                    foreach (var subItem in navigationViewItem.MenuItems)
+                    {
+                        if (subItem is NavigationViewItem subNavItem)
+                        {
+                                string? subTag = subNavItem.Tag?.ToString();
+                            if (!string.IsNullOrEmpty(subTag) && subTag == pageType.Name)
+                            {
+                                return subNavItem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // 修复方法：抛出异常以避免返回 null。
+        throw new InvalidOperationException($"未找到与页面类型 {pageType.Name} 对应的 NavigationViewItem。");
+    }
+
+    private void ComponentsSearchBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+    {
+        if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
+        {
+            var suggestions = _allPages
+                .Where(p => p.Title.Contains(sender.Text, StringComparison.OrdinalIgnoreCase))
+                .Select(p => p.Title)
+                .ToList();
+            
+            sender.ItemsSource = suggestions;
+        }
+    }
+
+    private void ComponentsSearchBox_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
+    {
+        if (args.SelectedItem is string selectedTitle)
+        {
+            sender.Text = selectedTitle;
+        }
+    }
+
+    private void ComponentsSearchBox_QuerySubmitted(AutoSuggestBox sender, AutoSuggestBoxQuerySubmittedEventArgs args)
+    {
+        string queryText = args.QueryText;
+        var matchingPage = _allPages.FirstOrDefault(p => 
+            p.Title.Equals(queryText, StringComparison.OrdinalIgnoreCase));
+            
+        if (matchingPage != default)
+        {
+            // 导航到选中的页面
+            RootFrame.Navigate(Type.GetType($"Cryptography_Toolkit.Pages.{matchingPage.Tag}"));
+            NavigationViewControl.SelectedItem = NavigationViewControl.MenuItems
+                .OfType<NavigationViewItem>()
+                .FirstOrDefault(n => n.Tag?.ToString() == matchingPage.Tag);
         }
     }
 }

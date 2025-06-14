@@ -29,14 +29,13 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        <GridView
-            x:Name="itemGridView"
-            Padding="24,0,24,0"
-            AutomationProperties.AutomationId="ItemGridView"
-            AutomationProperties.Name="Items In Group"
-            IsItemClickEnabled="True"
-            IsSwipeEnabled="False"
-            SelectionMode="None">
+        <GridView   x:Name="ItemGridView"
+                    Padding="24,0,24,0"
+                    AutomationProperties.AutomationId="ItemGridView"
+                    AutomationProperties.Name="Items In Group"
+                    IsItemClickEnabled="True"
+                    IsSwipeEnabled="False"
+                    SelectionMode="None">
             <GridView.Header>
                 <Grid x:Name="HeaderGrid" Margin="-24,0,-24,0">
                     <Grid.RowDefinitions>
@@ -50,8 +49,8 @@
                         VerticalAlignment="Center"
                         Orientation="Vertical">
                         <TextBlock
-                            x:Name="smallHeaderText"
-                            Text="Cryptography Toolkit Dev" />
+                            x:Name="SmallHeaderText"
+                            Text="{StaticResource AppVersionName}" />
                         <TextBlock Text="{StaticResource AppTitleName}" Style="{StaticResource TitleLargeTextBlockStyle}"/>
                     </StackPanel>
                 </Grid>

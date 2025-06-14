@@ -19,26 +19,35 @@
             <StackPanel Orientation="Vertical" 
                     Spacing="8" 
                     Margin="0,8,0,8">
-                <controls:SettingsCard Description="k represents the offset. For instance, if we shift by 3 positions, A would be substituted by D, B by E, etc."
+                <controls:SettingsCard Description="The substitution cipher is a method of encrypting in which units of plaintext are replaced with the ciphertext, in a defined manner, with the help of a key."
                                        Header="Substitution Cipher">
                     <controls:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xF146;" />
                     </controls:SettingsCard.HeaderIcon>
-                    <HyperlinkButton Content="Navigate to ..."/>
+                    <HyperlinkButton x:Name="SubstitutionCipherPageHyperlinkButton" 
+                                     Tag="SubstitutionCipherPage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
                 </controls:SettingsCard>
                 <controls:SettingsCard Description="The shift cipher itself is extremely simple: We simply shift every plaintext letter by a fixed number of positions in the alphabet."
                                        Header="Shift Cipher">
                     <controls:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xF147;" />
                     </controls:SettingsCard.HeaderIcon>
-                    <HyperlinkButton Content="Navigate to ..."/>
+                    <HyperlinkButton x:Name="ShiftCipherPageHyperlinkButton" 
+                                     Tag="ShiftCipherPage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
                 </controls:SettingsCard>
                 <controls:SettingsCard Description="The affine cipher encrypts by multiplying the plaintext by one part of the key followed by addition of another part of the key."
                                        Header="Affine Cipher">
                     <controls:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xF148;" />
                     </controls:SettingsCard.HeaderIcon>
-                    <HyperlinkButton Content="Navigate to ..."/>
+                    <HyperlinkButton x:Name="AffineCipherPageHyperlinkButton" 
+                                     Tag="AffineCipherPage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
                 </controls:SettingsCard>
 
             </StackPanel>

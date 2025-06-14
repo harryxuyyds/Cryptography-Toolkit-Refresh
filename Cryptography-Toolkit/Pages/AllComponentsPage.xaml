@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Cryptography_Toolkit.Pages.AllComponentsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cryptography_Toolkit.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    mc:Ignorable="d">
+
+    <ScrollViewer>
+        <StackPanel Spacing="4" BorderThickness="2" CornerRadius="10" Padding="40">
+
+            <TextBlock Text="All" 
+                       Style="{StaticResource TitleTextBlockStyle}" 
+                       Margin="0,0,0,8"/>
+
+            <StackPanel Orientation="Vertical" 
+                        Spacing="8" 
+                        Margin="0,8,0,8">
+                <controls:SettingsExpander Description="Symmetric-key algorithms are algorithms for cryptography that use the same cryptographic keys for both the encryption of plaintext and the decryption of ciphertext."
+                                           Header="Simple Symmetric Cryptography">
+                    <controls:SettingsExpander.HeaderIcon>
+                        <FontIcon Glyph="&#xE929;" />
+                    </controls:SettingsExpander.HeaderIcon>
+                    <HyperlinkButton x:Name="SimpleSymmetricCryptographyPageHyperlinkButton" 
+                                     Tag="SimpleSymmetricCryptographyPage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
+                    <controls:SettingsExpander.Items>
+                        <controls:SettingsCard Description="The substitution cipher is a method of encrypting in which units of plaintext are replaced with the ciphertext, in a defined manner, with the help of a key."
+                                               Header="Substitution Cipher">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF146;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="SubstitutionCipherPageHyperlinkButton" 
+                                             Tag="SubstitutionCipherPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Description="The shift cipher itself is extremely simple: We simply shift every plaintext letter by a fixed number of positions in the alphabet."
+                                               Header="Shift Cipher">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF147;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="ShiftCipherPageHyperlinkButton" 
+                                             Tag="ShiftCipherPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Description="The affine cipher encrypts by multiplying the plaintext by one part of the key followed by addition of another part of the key."
+                                               Header="Affine Cipher">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF148;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="AffineCipherPageHyperlinkButton" 
+                                             Tag="AffineCipherPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                    </controls:SettingsExpander.Items>
+                </controls:SettingsExpander>
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

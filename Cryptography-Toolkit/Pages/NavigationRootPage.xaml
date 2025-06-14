@@ -49,7 +49,9 @@
             Grid.Column="1"
             Canvas.ZIndex="0"
             DisplayModeChanged="NavigationViewControl_OnDisplayModeChanged"
-            SelectionChanged="NavigationViewControl_OnSelectionChanged"
+            BackRequested="NavigationViewControl_BackRequested"
+            IsBackEnabled="{x:Bind RootFrame.CanGoBack, Mode=OneWay}"
+            IsBackButtonVisible="Visible"
             IsTabStop="False"
             IsTitleBarAutoPaddingEnabled="True">
 
@@ -88,14 +90,21 @@
                     Tag="HomePage"
                     Content="Home"
                     Icon="Home" />
+                <NavigationViewItem
+                    Tag="LovePage"
+                    Content="Think Different">
+                    <NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xEB51;" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
 
                 <NavigationViewItemHeader Content="Components" />
-                <NavigationViewItem x:Name="FavoritesItem" Content="Favorites">
+                <NavigationViewItem x:Name="FavoritesItem" Content="Favorites" IsEnabled="False">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE734;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem x:Name="AllComponentsItem" Content="All">
+                <NavigationViewItem x:Name="AllComponentsItem" Content="All" Tag="AllComponentsPage">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE8A9;" />
                     </NavigationViewItem.Icon>
