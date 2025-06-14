@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Page
-    x:Class="Cryptography_Toolkit.Pages.ShiftRegisterBasedStreamCiphersPage"
+    x:Class="Cryptography_Toolkit.Pages.PublicKeyAlgorithmFamiliesPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Cryptography_Toolkit.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     mc:Ignorable="d">
 
     <ScrollViewer>
         <StackPanel Spacing="4" BorderThickness="2" CornerRadius="10" Padding="40">
 
             <!-- Page Title Format Begin -->
-            <TextBlock Text="Shift Register-Based Stream Ciphers" 
-                       Style="{StaticResource TitleTextBlockStyle}" 
-                       Margin="0,0,0,8"/>
+            <TextBlock Text="Public-Key Algorithm Families" 
+                   Style="{StaticResource TitleTextBlockStyle}" 
+                   Margin="0,0,0,8"/>
             <StackPanel Orientation="Horizontal" 
-                        Spacing="8" 
-                        Margin="0,0,0,8">
+                    Spacing="8" 
+                    Margin="0,0,0,8">
                 <DropDownButton>
                     <DropDownButton.Content>
                         <StackPanel Orientation="Horizontal" Spacing="8">
@@ -71,49 +70,16 @@
                     </DropDownButton.Flyout>
                 </DropDownButton>
             </StackPanel>
-            <TextBlock Text="An elegant way of realizing long pseudorandom sequences is to use linear feedback shift registers (LFSRs). They are easily implemented in hardware and many, but certainly not all, stream ciphers make use of LFSRs." 
-                       TextWrapping="Wrap"
-                       Margin="0,0,0,12"/>
+            <TextBlock Text="There are only three major families of public-key algorithms that are currently used in practice. They can be classified based on their underlying one-way function." 
+                   TextWrapping="Wrap"
+                   Margin="0,0,0,12"/>
             <!-- Page Title Format End -->
 
-            <TextBlock Text="Linear Feedback Shift Registers (LFSRs)" 
+            <TextBlock Text="Public-Key Algorithm Families of Practical Relevance (in the Absence of Quantum Computers)" 
                        Style="{StaticResource SubtitleTextBlockStyle}" 
                        Margin="0,8,0,8"/>
-            <TextBlock Text="Configuration" 
-                       Style="{StaticResource BodyStrongTextBlockStyle}" 
-                       Margin="0,8,0,8"/>
-            <controls:SettingsCard Description=""
-                                   Header="Degree of LFSR">
-                <controls:SettingsCard.HeaderIcon>
-                    <FontIcon Glyph="&#xE961;" />
-                </controls:SettingsCard.HeaderIcon>
-                <NumberBox
-                    x:Name="LfsrDegreeNumberBox"
-                    Value="3"
-                    Minimum="1"
-                    Maximum="50"
-                    SpinButtonPlacementMode="Inline"
-                    SmallChange="1"
-                    LargeChange="1" />
-            </controls:SettingsCard>
-            <controls:SettingsCard Description=""
-                                   Header="Feedback coefficients">
-                <controls:SettingsCard.HeaderIcon>
-                    <FontIcon Glyph="&#xE961;" />
-                </controls:SettingsCard.HeaderIcon>
-                <TextBox x:Name="LfsrFeedbackCoefficientsTextBox" 
-                         VerticalAlignment="Stretch"/>
-            </controls:SettingsCard>
-            <controls:SettingsCard Description=""
-                                   Header="Initial values">
-                <controls:SettingsCard.HeaderIcon>
-                    <FontIcon Glyph="&#xE961;" />
-                </controls:SettingsCard.HeaderIcon>
-                <TextBox x:Name="LfsrInitialValuesTextBox" 
-                         VerticalAlignment="Stretch"/>
-            </controls:SettingsCard>
 
-            <TextBlock Text="Known-Plaintext Attack Against Single LFSRs" 
+            <TextBlock Text="Key Lengths and Security Levels" 
                        Style="{StaticResource SubtitleTextBlockStyle}" 
                        Margin="0,8,0,8"/>
         </StackPanel>

@@ -14,9 +14,14 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Pages\AffineCipherPage.xaml" />
+    <None Remove="Pages\EssentialNumberTheoryPage.xaml" />
+    <None Remove="Pages\GaloisFieldsPage.xaml" />
+    <None Remove="Pages\GenericDLAlgorithmsPage.xaml" />
     <None Remove="Pages\HomePage.xaml" />
     <None Remove="Pages\NavigationRootPage.xaml" />
+    <None Remove="Pages\PublicKeyAlgorithmFamiliesPage.xaml" />
     <None Remove="Pages\ShiftRegisterBasedStreamCiphersPage.xaml" />
+    <None Remove="Pages\SimpleSymmetricCryptographyPage.xaml" />
     <None Remove="Pages\ToolkitSettingsPage.xaml" />
   </ItemGroup>
   <ItemGroup>
@@ -50,6 +55,31 @@
     <PackageReference Include="CommunityToolkit.WinUI.Controls.SettingsControls" Version="8.2.250402" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.4188" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.7.250513003" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\EssentialNumberTheoryPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\GenericDLAlgorithmsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\GaloisFieldsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\PublicKeyAlgorithmFamiliesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\SimpleSymmetricCryptographyPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Pages\ShiftRegisterBasedStreamCiphersPage.xaml">

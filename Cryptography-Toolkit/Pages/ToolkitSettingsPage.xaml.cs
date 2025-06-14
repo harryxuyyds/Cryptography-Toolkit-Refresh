@@ -26,5 +26,29 @@ public sealed partial class ToolkitSettingsPage : Page
     public ToolkitSettingsPage()
     {
         InitializeComponent();
+        SettingsAppThemeComboBox.SelectionChanged += SettingsAppThemeComboBoxOnSelectionChanged;
+    }
+
+    private void SettingsAppThemeComboBoxOnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        var selectedAppTheme = SettingsAppThemeComboBox.SelectedIndex;
+        
+        // 获取当前窗口
+        var window = App.MainWindow;
+        if (window?.Content is FrameworkElement rootElement)
+        {
+            switch (selectedAppTheme)
+            {
+                case 0: // 浅色
+                    rootElement.RequestedTheme = ElementTheme.Light;
+                    break;
+                case 1: // 深色
+                    rootElement.RequestedTheme = ElementTheme.Dark;
+                    break;
+                case 2: // 系统默认
+                    rootElement.RequestedTheme = ElementTheme.Default;
+                    break;
+            }
+        }
     }
 }

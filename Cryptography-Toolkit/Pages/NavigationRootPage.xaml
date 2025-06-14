@@ -100,7 +100,7 @@
                         <FontIcon Glyph="&#xE8A9;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem  Content="Simple Symmetric Encryption" Tag="SimpleSymmetricEncryptionPage">
+                <NavigationViewItem  Content="Simple Symmetric Cryptography" Tag="SimpleSymmetricCryptographyPage">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE929;" />
                     </NavigationViewItem.Icon>

@@ -26,20 +26,33 @@ namespace Cryptography_Toolkit
     /// </summary>
     public sealed partial class MainWindow : Window
     {
+        private OverlappedPresenter? _presenter;
+
         public MainWindow()
         {
             InitializeComponent();
             ExtendsContentIntoTitleBar = true;
-            
-            // 设置任务栏图标
+
+            // 设置任务栏图标和窗口最小宽度
             if (AppWindow != null)
             {
                 IntPtr windowHandle = WinRT.Interop.WindowNative.GetWindowHandle(this);
                 WindowId windowId = Win32Interop.GetWindowIdFromWindow(windowHandle);
                 AppWindow appWindow = AppWindow.GetFromWindowId(windowId);
-                
+
                 // 设置任务栏图标
                 appWindow.SetIcon("ms-appx:///Assets/Square44x44Logo.png");
+
+                // 获取 OverlappedPresenter
+                _presenter = appWindow.Presenter as OverlappedPresenter;
+                if (_presenter != null)
+                {
+                    // 设置最小宽度（以有效像素为单位）
+                    _presenter.IsResizable = true;
+                    _presenter.IsMaximizable = true;
+                    _presenter.IsMinimizable = true;
+                    _presenter.PreferredMinimumWidth = 680;
+                }
             }
         }
     }
