@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Cryptography_Toolkit.Pages.DigitalSignaturesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cryptography_Toolkit.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    mc:Ignorable="d">
+
+    <ScrollViewer>
+        <StackPanel Spacing="4" BorderThickness="2" CornerRadius="10" Padding="40">
+
+            <TextBlock Text="Digital Signatures" 
+                       Style="{StaticResource TitleTextBlockStyle}" 
+                       Margin="0,0,0,8"/>
+
+            <StackPanel Orientation="Vertical" 
+                        Spacing="8" 
+                        Margin="0,8,0,8">
+                <controls:SettingsCard Description="The RSA signature scheme is based on RSA encryption. Its security relies on the integer factorization problem, i.e., the difficulty of factoring a product of two large primes."
+                                       Header="RSA Signature Scheme">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF146;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="RsaSignatureSchemePageHyperlinkButton" 
+                                     Tag="RSASignatureSchemePage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Description="The Elgamal signature scheme, which was published in 1985, is based on the difficulty of computing discrete logarithms."
+                                       Header="Elgamal Digital Signature Scheme">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF147;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="ElgamalDigitalSignatureSchemePageHyperlinkButton" 
+                                     Tag="ElgamalDigitalSignatureSchemePage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Description="The Digital Signature Algorithm ( DSA ) is based on the mathematical concept of modular exponentiation and the discrete logarithm problem."
+                                       Header="Digital Signature Algorithm">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF148;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="DigitalSignatureAlgorithmPageHyperlinkButton" 
+                                     Tag="DigitalSignatureAlgorithmPage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Description="The Elliptic Curve Digital Signature Algorithm ( ECDSA ) offers a variant of the Digital Signature Algorithm ( DSA ) which uses elliptic-curve cryptography."
+                                       Header="Elliptic Curve Digital Signature Algorithm">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF149;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="EllipticCurveDigitalSignatureAlgorithmPageHyperlinkButton" 
+                                     Tag="EllipticCurveDigitalSignatureAlgorithmPage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

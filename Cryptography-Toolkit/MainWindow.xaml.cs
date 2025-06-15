@@ -33,6 +33,8 @@ namespace Cryptography_Toolkit
             InitializeComponent();
             ExtendsContentIntoTitleBar = true;
 
+            App.MainWindow = this;
+
             // 设置任务栏图标和窗口最小宽度
             if (AppWindow != null)
             {
@@ -51,7 +53,7 @@ namespace Cryptography_Toolkit
                     _presenter.IsResizable = true;
                     _presenter.IsMaximizable = true;
                     _presenter.IsMinimizable = true;
-                    _presenter.PreferredMinimumWidth = 680;
+                    _presenter.PreferredMinimumWidth = App.MinimumWidth;
                 }
             }
         }

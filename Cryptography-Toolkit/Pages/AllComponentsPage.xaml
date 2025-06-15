@@ -19,7 +19,7 @@
             <StackPanel Orientation="Vertical" 
                         Spacing="8" 
                         Margin="0,8,0,8">
-                <controls:SettingsExpander Description="Symmetric-key algorithms are algorithms for cryptography that use the same cryptographic keys for both the encryption of plaintext and the decryption of ciphertext."
+                <controls:SettingsExpander Description="Symmetric-key algorithms are algorithms for cryptography that use the same cryptographic keys for both the encryption and decryption."
                                            Header="Simple Symmetric Cryptography">
                     <controls:SettingsExpander.HeaderIcon>
                         <FontIcon Glyph="&#xE929;" />
@@ -56,6 +56,124 @@
                             </controls:SettingsCard.HeaderIcon>
                             <HyperlinkButton x:Name="AffineCipherPageHyperlinkButton" 
                                              Tag="AffineCipherPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                    </controls:SettingsExpander.Items>
+                </controls:SettingsExpander>
+
+                <controls:SettingsExpander Description="Stream ciphers encrypt bits individually. This is achieved by adding a bit from a key stream to a plaintext bit."
+                                           Header="Stream Ciphers">
+                    <controls:SettingsExpander.HeaderIcon>
+                        <FontIcon Glyph="&#xE93E;" />
+                    </controls:SettingsExpander.HeaderIcon>
+                    <HyperlinkButton x:Name="StreamCiphersPagePageHyperlinkButton" 
+                                     Tag="StreamCiphersPagePage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
+                    <controls:SettingsExpander.Items>
+                        <controls:SettingsCard Description="Since randomness plays a major role in stream ciphers, we will introduce the three types of random number generators ( RNG )."
+                                               Header="Random Number Generators">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF146;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="RandomNumberGeneratorsPageHyperlinkButton" 
+                                             Tag="RandomNumberGeneratorsPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Description="An elegant way of realizing long pseudorandom sequences is to use linear feedback shift registers (LFSRs). They are easily implemented in hardware and many, but certainly not all, stream ciphers make use of LFSRs."
+                                               Header="Shift Register-Based Stream Ciphers">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF147;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="ShiftRegisterBasedStreamCiphersPageHyperlinkButton" 
+                                             Tag="ShiftRegisterBasedStreamCiphersPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Description=""
+                                               Header="Salsa20">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF148;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="Salsa20PageHyperlinkButton" 
+                                             Tag="Salsa20Page"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Description=""
+                                               Header="ChaCha">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF149;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="ChaChaPageHyperlinkButton" 
+                                             Tag="ChaChaPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Description=""
+                                               Header="Trivium">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF14A;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="TriviumPageHyperlinkButton" 
+                                             Tag="TriviumPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                    </controls:SettingsExpander.Items>
+                </controls:SettingsExpander>
+
+
+
+                <controls:SettingsExpander Description="Digital signatures share some functionality with handwritten signatures. In particular, they provide a method to ensure message integrity, message authentication and nonrepudiation."
+                                           Header="Digital Signatures">
+                    <controls:SettingsExpander.HeaderIcon>
+                        <FontIcon Glyph="&#xE929;" />
+                    </controls:SettingsExpander.HeaderIcon>
+                    <HyperlinkButton x:Name="DigitalSignaturesPageHyperlinkButton" 
+                                     Tag="DigitalSignaturesPage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
+                    <controls:SettingsExpander.Items>
+                        <controls:SettingsCard Description="The RSA signature scheme is based on RSA encryption. Its security relies on the integer factorization problem, i.e., the difficulty of factoring a product of two large primes."
+                                               Header="RSA Signature Scheme">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF146;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="RsaSignatureSchemePageHyperlinkButton" 
+                                             Tag="RSASignatureSchemePage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Description="The Elgamal signature scheme, which was published in 1985, is based on the difficulty of computing discrete logarithms."
+                                               Header="Elgamal Digital Signature Scheme">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF147;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="ElgamalDigitalSignatureSchemePageHyperlinkButton" 
+                                             Tag="ElgamalDigitalSignatureSchemePage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Description="The Digital Signature Algorithm ( DSA ) is based on the mathematical concept of modular exponentiation and the discrete logarithm problem."
+                                               Header="Digital Signature Algorithm">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF148;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="DigitalSignatureAlgorithmPageHyperlinkButton" 
+                                             Tag="DigitalSignatureAlgorithmPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Description="The Elliptic Curve Digital Signature Algorithm ( ECDSA ) offers a variant of the Digital Signature Algorithm ( DSA ) which uses elliptic-curve cryptography."
+                                               Header="Elliptic Curve Digital Signature Algorithm">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF149;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="EllipticCurveDigitalSignatureAlgorithmPageHyperlinkButton" 
+                                             Tag="EllipticCurveDigitalSignatureAlgorithmPage"
                                              Content="Navigate to ..."
                                              Click="PageNavigationHyperlinkButton_OnClick"/>
                         </controls:SettingsCard>

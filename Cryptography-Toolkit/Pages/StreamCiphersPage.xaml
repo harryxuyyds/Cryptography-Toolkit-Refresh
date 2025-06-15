@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Cryptography_Toolkit.Pages.StreamCiphersPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cryptography_Toolkit.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    mc:Ignorable="d">
+
+    <ScrollViewer>
+        <StackPanel Spacing="4" BorderThickness="2" CornerRadius="10" Padding="40">
+
+            <TextBlock Text="Stream Ciphers" 
+               Style="{StaticResource TitleTextBlockStyle}" 
+               Margin="0,0,0,8"/>
+
+            <StackPanel Orientation="Vertical" 
+                Spacing="8" 
+                Margin="0,8,0,8">
+                <controls:SettingsCard Description="Since randomness plays a major role in stream ciphers, we will introduce the three types of random number generators ( RNG )."
+                                   Header="Random Number Generators">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF146;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="RandomNumberGeneratorsPageHyperlinkButton" 
+                                 Tag="RandomNumberGeneratorsPage"
+                                 Content="Navigate to ..."
+                                 Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Description="An elegant way of realizing long pseudorandom sequences is to use linear feedback shift registers (LFSRs). They are easily implemented in hardware and many, but certainly not all, stream ciphers make use of LFSRs."
+                                   Header="Shift Register-Based Stream Ciphers">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF147;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="ShiftRegisterBasedStreamCiphersPageHyperlinkButton" 
+                                 Tag="ShiftRegisterBasedStreamCiphersPage"
+                                 Content="Navigate to ..."
+                                 Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Description=""
+                                   Header="Salsa20">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF148;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="Salsa20PageHyperlinkButton" 
+                                 Tag="Salsa20Page"
+                                 Content="Navigate to ..."
+                                 Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Description=""
+                                       Header="ChaCha">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF149;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="ChaChaPageHyperlinkButton" 
+                                     Tag="ChaChaPage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Description=""
+                                       Header="Trivium">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF14A;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="TriviumPageHyperlinkButton" 
+                                     Tag="TriviumPage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

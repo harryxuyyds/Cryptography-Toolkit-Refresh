@@ -124,6 +124,7 @@
                         <FontIcon Glyph="&#xE93E;" />
                     </NavigationViewItem.Icon>
                     <NavigationViewItem.MenuItems>
+                        <NavigationViewItem  Content="Random Number Generators" Tag="RandomNumberGeneratorsPage" />
                         <NavigationViewItem  Content="Shift Register-Based Stream Ciphers" Tag="ShiftRegisterBasedStreamCiphersPage" />
                         <NavigationViewItem  Content="Salsa20" Tag="Salsa20Page" />
                         <NavigationViewItem  Content="ChaCha" Tag="ChaChaPage" />
@@ -177,6 +178,10 @@
                         <NavigationViewItem  Content="Encryption and Decryption of RSA" Tag="EncryptionDecryptionRSAPage" />
                         <NavigationViewItem  Content="Speed-Up Techniques for RSA" Tag="SpeedUpTechniquesRSAPage" />
                         <NavigationViewItem  Content="Primality Tests" Tag="PrimalityTestsPage" />
+                        <NavigationViewItem  Content="RSA in Practice: Padding" Tag="RSAPaddingPage" />
+                        <NavigationViewItem  Content="Key Encapsulation for RSA" Tag="RSAKeyEncapsulationPage" />
+                        <NavigationViewItem  Content="Attacks against RSA" Tag="AttacksRSAPage" />
+                        <NavigationViewItem  Content="Rabin Scheme" Tag="RabinSchemePage" />
                     </NavigationViewItem.MenuItems>
                 </NavigationViewItem>
                 <NavigationViewItem  Content="Discrete Logarithm Schemes" Tag="DiscreteLogarithmSchemesPage">
@@ -184,8 +189,8 @@
                         <FontIcon Glyph="&#xF147;" />
                     </NavigationViewItem.Icon>
                     <NavigationViewItem.MenuItems>
-                        <NavigationViewItem  Content="Generic DL Algorithms" Tag="GenericDLAlgorithmsPage" />
                         <NavigationViewItem  Content="Diffie–Hellman Key Exchange" Tag="DiffieHellmanKeyExchangePage" />
+                        <NavigationViewItem  Content="Attacks Against the DLP" Tag="AttacksDLPPage" />
                         <NavigationViewItem  Content="Elgamal Encryption Scheme" Tag="ElgamalEncryptionSchemePage" />
                     </NavigationViewItem.MenuItems>
                 </NavigationViewItem>
@@ -194,8 +199,10 @@
                         <FontIcon Glyph="&#xF148;" />
                     </NavigationViewItem.Icon>
                     <NavigationViewItem.MenuItems>
-                        <NavigationViewItem  Content="Definition of Elliptic Curves" Tag="DefinitionEllipticCurvesPage" />
-                        <NavigationViewItem  Content="Group Operations on Elliptic Curves" Tag="GroupOperationsEllipticCurvesPage" />
+                        <NavigationViewItem  Content="Definition of Elliptic Curves" Tag="DefinitionECPage" />
+                        <NavigationViewItem  Content="Group Operations on Elliptic Curves" Tag="GroupOperationsECPage" />
+                        <NavigationViewItem  Content="DLP with Elliptic Curves" Tag="DLPWithECPage" />
+                        <NavigationViewItem  Content="Diffie–Hellman Key Exchange with Elliptic Curves" Tag="DHKEWithECPage" />
                     </NavigationViewItem.MenuItems>
                 </NavigationViewItem>
                 <NavigationViewItem  Content="Digital Signatures" Tag="DigitalSignaturesPage">

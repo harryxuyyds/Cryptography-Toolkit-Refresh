@@ -12,6 +12,7 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using Windows.Storage;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -23,21 +24,38 @@ namespace Cryptography_Toolkit.Pages;
 /// </summary>
 public sealed partial class ToolkitSettingsPage : Page
 {
+    private const string ThemeSettingKey = "AppTheme";
+
     public ToolkitSettingsPage()
     {
         InitializeComponent();
-        SettingsAppThemeComboBox.SelectionChanged += SettingsAppThemeComboBoxOnSelectionChanged;
+        LoadThemeSetting();
+        SettingsAppThemeComboBox.SelectionChanged += SettingsAppThemeComboBox_SelectionChanged;
     }
 
-    private void SettingsAppThemeComboBoxOnSelectionChanged(object sender, SelectionChangedEventArgs e)
+    private void LoadThemeSetting()
     {
-        var selectedAppTheme = SettingsAppThemeComboBox.SelectedIndex;
-        
-        // 获取当前窗口
+        var localSettings = ApplicationData.Current.LocalSettings;
+        if (localSettings.Values.TryGetValue(ThemeSettingKey, out object? theme) && theme is int themeIndex)
+        {
+            SettingsAppThemeComboBox.SelectedIndex = themeIndex;
+            ApplyTheme(SettingsAppThemeComboBox.SelectedIndex);
+        }
+    }
+
+    private void SettingsAppThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+    {
+        var selectedIndex = SettingsAppThemeComboBox.SelectedIndex;
+        ApplicationData.Current.LocalSettings.Values[ThemeSettingKey] = selectedIndex;
+        ApplyTheme(selectedIndex);
+    }
+
+    private void ApplyTheme(int selectedIndex)
+    {
         var window = App.MainWindow;
         if (window?.Content is FrameworkElement rootElement)
         {
-            switch (selectedAppTheme)
+            switch (selectedIndex)
             {
                 case 0: // 浅色
                     rootElement.RequestedTheme = ElementTheme.Light;

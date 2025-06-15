@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows10.0.19041.0</TargetFramework>
@@ -15,6 +15,10 @@
   <ItemGroup>
     <None Remove="Pages\AffineCipherPage.xaml" />
     <None Remove="Pages\AllComponentsPage.xaml" />
+    <None Remove="Pages\DigitalSignatureAlgorithmPage.xaml" />
+    <None Remove="Pages\DigitalSignaturesPage.xaml" />
+    <None Remove="Pages\ElgamalDigitalSignatureSchemePage.xaml" />
+    <None Remove="Pages\EllipticCurveDigitalSignatureAlgorithmPage.xaml" />
     <None Remove="Pages\EssentialNumberTheoryPage.xaml" />
     <None Remove="Pages\GaloisFieldsPage.xaml" />
     <None Remove="Pages\GenericDLAlgorithmsPage.xaml" />
@@ -22,8 +26,11 @@
     <None Remove="Pages\LovePage.xaml" />
     <None Remove="Pages\NavigationRootPage.xaml" />
     <None Remove="Pages\PublicKeyAlgorithmFamiliesPage.xaml" />
+    <None Remove="Pages\RandomNumberGeneratorsPage.xaml" />
+    <None Remove="Pages\RSASignatureSchemePage.xaml" />
     <None Remove="Pages\ShiftRegisterBasedStreamCiphersPage.xaml" />
     <None Remove="Pages\SimpleSymmetricCryptographyPage.xaml" />
+    <None Remove="Pages\StreamCiphersPage.xaml" />
     <None Remove="Pages\SubstitutionCipherPage.xaml" />
     <None Remove="Pages\ToolkitSettingsPage.xaml" />
   </ItemGroup>
@@ -58,6 +65,41 @@
     <PackageReference Include="CommunityToolkit.WinUI.Controls.SettingsControls" Version="8.2.250402" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.4188" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.7.250513003" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\EllipticCurveDigitalSignatureAlgorithmPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\DigitalSignatureAlgorithmPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\ElgamalDigitalSignatureSchemePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\RSASignatureSchemePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\DigitalSignaturesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\StreamCiphersPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\RandomNumberGeneratorsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Pages\LovePage.xaml">
