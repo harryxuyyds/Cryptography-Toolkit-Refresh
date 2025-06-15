@@ -302,4 +302,9 @@ public sealed partial class NavigationRootPage : Page
                 .FirstOrDefault(n => n.Tag?.ToString() == matchingPage.Tag);
         }
     }
+
+    private void CtrlF_Invoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
+    {
+        ComponentsSearchBox.Focus(FocusState.Programmatic);
+    }
 }

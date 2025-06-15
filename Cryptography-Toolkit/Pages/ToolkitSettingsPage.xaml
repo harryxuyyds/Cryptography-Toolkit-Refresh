@@ -37,7 +37,7 @@
                    Text="About" 
                    Margin="0,8,0,8" />
 
-        <controls:SettingsExpander Description="© 2025. Hayi Studio. All rights reserved."
+        <controls:SettingsExpander Description="© 2025 Hayi Studio. All rights reserved."
                                    Header="{StaticResource AppTitleName}"
                                    HeaderIcon="{winUi:BitmapIcon Source=ms-appx:///Assets/Square44x44Logo.png}">
             <TextBlock Foreground="{ThemeResource TextFillColorSecondaryBrush}"
@@ -50,7 +50,7 @@
                         <TextBlock Text="Special thanks to"
                                    Style="{StaticResource BodyStrongTextBlockStyle}" 
                                    Margin="0,8,0,8"/>
-                        <TextBlock Text="    PurpleWei for designing the app icon"/>
+                        <HyperlinkButton Content="PurpleWei for designing the app icon" NavigateUri="https://github.com/PurpleWei"/>
                     </StackPanel>
                 </controls:SettingsCard>
             </controls:SettingsExpander.Items>

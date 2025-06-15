@@ -26,6 +26,7 @@
     <None Remove="Pages\LovePage.xaml" />
     <None Remove="Pages\NavigationRootPage.xaml" />
     <None Remove="Pages\PublicKeyAlgorithmFamiliesPage.xaml" />
+    <None Remove="Pages\PublicKeyCryptographyPage.xaml" />
     <None Remove="Pages\RandomNumberGeneratorsPage.xaml" />
     <None Remove="Pages\RSASignatureSchemePage.xaml" />
     <None Remove="Pages\ShiftRegisterBasedStreamCiphersPage.xaml" />
@@ -65,6 +66,11 @@
     <PackageReference Include="CommunityToolkit.WinUI.Controls.SettingsControls" Version="8.2.250402" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.4188" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.7.250513003" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\PublicKeyCryptographyPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Pages\EllipticCurveDigitalSignatureAlgorithmPage.xaml">

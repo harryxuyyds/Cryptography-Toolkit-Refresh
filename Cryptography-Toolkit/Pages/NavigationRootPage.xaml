@@ -76,13 +76,13 @@
                     <AutoSuggestBox.KeyboardAccelerators>
                         <KeyboardAccelerator
                             Key="F"
-                            Modifiers="Control" />
+                            Modifiers="Control" 
+                            Invoked="CtrlF_Invoked"/>
                     </AutoSuggestBox.KeyboardAccelerators>
                 </AutoSuggestBox>
             </NavigationView.AutoSuggestBox>
 
-            <Frame
-                x:Name="RootFrame"/>
+            <Frame x:Name="RootFrame"/>
             <NavigationView.MenuItems>
                 <NavigationViewItem
                     x:Name="Home"
@@ -166,7 +166,7 @@
                         <FontIcon Glyph="&#xE8D7;" />
                     </NavigationViewItem.Icon>
                     <NavigationViewItem.MenuItems>
-                        <NavigationViewItem  Content="Essential Number Theory" Tag="EssentialNumberTheoryPage" />
+                        <NavigationViewItem  Content="Essential Number Theory for Public-Key Algorithms" Tag="EssentialNumberTheoryPage" />
                         <NavigationViewItem  Content="Public-Key Algorithm Families" Tag="PublicKeyAlgorithmFamiliesPage" />
                     </NavigationViewItem.MenuItems>
                 </NavigationViewItem>

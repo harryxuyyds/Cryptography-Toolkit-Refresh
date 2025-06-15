@@ -19,6 +19,7 @@
             <StackPanel Orientation="Vertical" 
                         Spacing="8" 
                         Margin="0,8,0,8">
+
                 <controls:SettingsExpander Description="Symmetric-key algorithms are algorithms for cryptography that use the same cryptographic keys for both the encryption and decryption."
                                            Header="Simple Symmetric Cryptography">
                     <controls:SettingsExpander.HeaderIcon>
@@ -125,12 +126,45 @@
                     </controls:SettingsExpander.Items>
                 </controls:SettingsExpander>
 
+                <controls:SettingsExpander Description="Public-key cryptography, or asymmetric cryptography, is the field of cryptographic systems that use pairs of related keys. Each key pair consists of a public key and a corresponding private key."
+                                           Header="Public-Key Cryptography">
+                    <controls:SettingsExpander.HeaderIcon>
+                        <FontIcon Glyph="&#xE8D7;" />
+                    </controls:SettingsExpander.HeaderIcon>
+                    <HyperlinkButton x:Name="PublicKeyCryptographyPageHyperlinkButton" 
+                                     Tag="PublicKeyCryptographyPage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
+                    <controls:SettingsExpander.Items>
+                        <controls:SettingsCard Description="We introduce the Euclidean algorithm, Euler’s phi function as well as Fermat’s Little Theorem and Euler’s theorem. All are important for asymmetric algorithms, especially for understanding the RSA scheme."
+                                               Header="Essential Number Theory for Public-Key Algorithms">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF146;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="EssentialNumberTheoryPageHyperlinkButton" 
+                                             Tag="EssentialNumberTheoryPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Description="There are only three major families of public-key algorithms that are currently used in practice. They can be classified based on their underlying one-way function."
+                                               Header="Public-Key Algorithm Families">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF147;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="PublicKeyAlgorithmFamiliesPageHyperlinkButton" 
+                                             Tag="PublicKeyAlgorithmFamiliesPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                    </controls:SettingsExpander.Items>
+                </controls:SettingsExpander>
+
 
 
                 <controls:SettingsExpander Description="Digital signatures share some functionality with handwritten signatures. In particular, they provide a method to ensure message integrity, message authentication and nonrepudiation."
                                            Header="Digital Signatures">
                     <controls:SettingsExpander.HeaderIcon>
-                        <FontIcon Glyph="&#xE929;" />
+                        <FontIcon Glyph="&#xEF3F;" />
                     </controls:SettingsExpander.HeaderIcon>
                     <HyperlinkButton x:Name="DigitalSignaturesPageHyperlinkButton" 
                                      Tag="DigitalSignaturesPage"

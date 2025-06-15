@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Cryptography_Toolkit.Pages.PublicKeyCryptographyPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cryptography_Toolkit.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    mc:Ignorable="d">
+
+    <ScrollViewer>
+        <StackPanel Spacing="4" BorderThickness="2" CornerRadius="10" Padding="40">
+
+            <TextBlock Text="Public-Key Cryptography" 
+               Style="{StaticResource TitleTextBlockStyle}" 
+               Margin="0,0,0,8"/>
+
+            <StackPanel Orientation="Vertical" 
+                Spacing="8" 
+                Margin="0,8,0,8">
+                <controls:SettingsCard Description="We introduce the Euclidean algorithm, Euler’s phi function as well as Fermat’s Little Theorem and Euler’s theorem. All are important for asymmetric algorithms, especially for understanding the RSA scheme."
+                                   Header="Essential Number Theory for Public-Key Algorithms">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF146;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="EssentialNumberTheoryPageHyperlinkButton" 
+                                 Tag="EssentialNumberTheoryPage"
+                                 Content="Navigate to ..."
+                                 Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Description="There are only three major families of public-key algorithms that are currently used in practice. They can be classified based on their underlying one-way function."
+                                   Header="Public-Key Algorithm Families">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF147;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="PublicKeyAlgorithmFamiliesPageHyperlinkButton" 
+                                 Tag="PublicKeyAlgorithmFamiliesPage"
+                                 Content="Navigate to ..."
+                                 Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

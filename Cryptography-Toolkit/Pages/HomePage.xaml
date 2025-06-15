@@ -41,20 +41,23 @@
                         <RowDefinition Height="0.6*"/>  
                     </Grid.RowDefinitions>  
 
-                    <Grid Grid.Row="0" Height="300">
+                    <Grid Height="360">
                         <Image Source="/Assets/HomePageHeaderImage.png"  
                                Stretch="UniformToFill"  
                                VerticalAlignment="Center"  
                                HorizontalAlignment="Center"/>
-                    </Grid>  
+                    </Grid> 
+
                     <StackPanel  
-                        Margin="72,0,0,0"  
-                        VerticalAlignment="Center"  
+                        Margin="72,72,0,0"
                         Orientation="Vertical">  
                         <TextBlock  
                             x:Name="SmallHeaderText"  
-                            Text="{StaticResource AppVersionName}" />  
-                        <TextBlock Text="{StaticResource AppTitleName}" Style="{StaticResource TitleLargeTextBlockStyle}"/>  
+                            Text="{StaticResource AppVersionName}" 
+                            Style="{StaticResource BodyStrongTextBlockStyle}"/>  
+                        <TextBlock x:Name="HeaderText" 
+                                   Text="{StaticResource AppTitleName}" 
+                                   Style="{StaticResource TitleLargeTextBlockStyle}"/>  
                     </StackPanel>  
                 </Grid>  
             </GridView.Header>  
