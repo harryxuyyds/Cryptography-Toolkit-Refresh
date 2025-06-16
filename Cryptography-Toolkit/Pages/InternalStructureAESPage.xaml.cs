@@ -88,4 +88,18 @@ public sealed partial class InternalStructureAESPage : Page
             AesKeyTextBox.Text += _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2);
         }
     }
+
+    private void AesTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+    {
+        string plaintext = AesPlaintextTextBox.Text;
+        string key = AesKeyTextBox.Text;
+        int plaintextLength = string.IsNullOrWhiteSpace(plaintext) ? 0 : plaintext.Replace(" ", "").Length;
+        int keyLength = string.IsNullOrWhiteSpace(key) ? 0 : key.Replace(" ", "").Length;
+
+        // 输出到 Output 窗口
+        System.Diagnostics.Debug.WriteLine($"AesPlaintextTextBox 值: {plaintext}");
+        System.Diagnostics.Debug.WriteLine($"AesPlaintextTextBox 长度: {plaintextLength}");
+        System.Diagnostics.Debug.WriteLine($"AesKeyTextBox 值: {key}");
+        System.Diagnostics.Debug.WriteLine($"AesKeyTextBox 长度: {keyLength}");
+    }
 }

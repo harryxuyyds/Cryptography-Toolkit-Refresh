@@ -33,7 +33,7 @@ namespace Cryptography_Toolkit
         private Window? _window;
         public static Window? MainWindow { get; set; }
 
-        public static int MinimumWidth { get; } = 768;
+        public static int MinimumWidth { get; } = 800;
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code

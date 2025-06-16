@@ -97,7 +97,7 @@
                 <controls:SettingsCard.HeaderIcon>
                     <FontIcon Glyph="&#xE896;" />
                 </controls:SettingsCard.HeaderIcon>
-                <ComboBox x:Name="AesPlaintextPresetsComboBox" 
+                <ComboBox x:Name="AesPlaintextPresetsComboBox"
                           SelectionChanged="AesPlaintextPresetsComboBox_OnSelectionChanged"
                           SelectedIndex="4">
                     <ComboBoxItem Content="0x00" />
@@ -107,13 +107,13 @@
                     <ComboBoxItem Content="Custom" />
                 </ComboBox>
             </controls:SettingsCard>
-
+            
             <controls:SettingsCard Description=""
                                    Header="16-byte key presets">
                 <controls:SettingsCard.HeaderIcon>
                     <FontIcon Glyph="&#xE896;" />
                 </controls:SettingsCard.HeaderIcon>
-                <ComboBox x:Name="AesKeyPresetsComboBox" 
+                <ComboBox x:Name="AesKeyPresetsComboBox"
                           SelectionChanged="AesKeyPresetsComboBox_OnSelectionChanged"
                           SelectedIndex="4">
                     <ComboBoxItem Content="0x00" />
@@ -124,19 +124,985 @@
                 </ComboBox>
             </controls:SettingsCard>
 
+            <!-- <StackPanel Orientation="Horizontal" Spacing="16"> -->
+            <!--     <ComboBox x:Name="AesPlaintext1PresetsComboBox"  -->
+            <!--               Header="16-byte plaintext presets" -->
+            <!--               SelectionChanged="AesPlaintextPresetsComboBox_OnSelectionChanged" -->
+            <!--               SelectedIndex="4"> -->
+            <!--         <ComboBoxItem Content="0x00" /> -->
+            <!--         <ComboBoxItem Content="0xFF" /> -->
+            <!--         <ComboBoxItem Content="0xF0" /> -->
+            <!--         <ComboBoxItem Content="Random" /> -->
+            <!--         <ComboBoxItem Content="Custom" /> -->
+            <!--     </ComboBox> -->
+            <!-- -->
+            <!--     <ComboBox x:Name="AesKey1PresetsComboBox"  -->
+            <!--               Header="16-byte key presets" -->
+            <!--               SelectionChanged="AesKeyPresetsComboBox_OnSelectionChanged" -->
+            <!--               SelectedIndex="4"> -->
+            <!--         <ComboBoxItem Content="0x00" /> -->
+            <!--         <ComboBoxItem Content="0xFF" /> -->
+            <!--         <ComboBoxItem Content="0xF0" /> -->
+            <!--         <ComboBoxItem Content="Random" /> -->
+            <!--         <ComboBoxItem Content="Custom" /> -->
+            <!--     </ComboBox> -->
+            <!-- </StackPanel> -->
+
             <TextBox x:Name="AesPlaintextTextBox" 
                      Header="16-byte plaintext" 
                      PlaceholderText="Plaintext" 
+                     TextChanged="AesTextBox_OnTextChanged"
                      Margin="0, 8, 0, 4"/>
 
             <TextBox x:Name="AesKeyTextBox" 
                      Header="16-byte key" 
                      PlaceholderText="Key" 
+                     TextChanged="AesTextBox_OnTextChanged"
                      Margin="0, 8, 0, 4"/>
 
             <TextBlock Text="AES Round Function"
                        Style="{StaticResource BodyStrongTextBlockStyle}"
                        Margin="0,8,0,8"/>
+
+            <controls:SettingsExpander Description=""
+                                       Header="After Key Writening">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xE819;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <InfoBar
+                        x:Name="Round0InitInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Round Initial"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round0KeyTransformInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Key Transform"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round0KeyAdditionLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Key Addition Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
+            <controls:SettingsExpander Description=""
+                                       Header="After Round 1">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xF146;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <InfoBar
+                        x:Name="Round1InitInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Round Initial"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round1ByteSubstitutionLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Byte Substitution Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round1ShiftRowsLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="ShiftRows Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round1MixColumnsLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="MixColumns Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round1KeyTransformInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Key Transform"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round1KeyAdditionLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Key Addition Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
+            <controls:SettingsExpander Description=""
+                           Header="After Round 2">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xF147;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <InfoBar
+                        x:Name="Round2InitInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Round Initial"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round2ByteSubstitutionLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Byte Substitution Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round2ShiftRowsLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="ShiftRows Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round2MixColumnsLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="MixColumns Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round2KeyTransformInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Key Transform"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round2KeyAdditionLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Key Addition Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
+            <controls:SettingsExpander Description=""
+                           Header="After Round 3">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xF148;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <InfoBar
+                        x:Name="Round3InitInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Round Initial"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round3ByteSubstitutionLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Byte Substitution Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round3ShiftRowsLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="ShiftRows Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round3MixColumnsLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="MixColumns Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round3KeyTransformInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Key Transform"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round3KeyAdditionLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Key Addition Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
+            <controls:SettingsExpander Description=""
+                           Header="After Round 4">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xF149;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <InfoBar
+                        x:Name="Round4InitInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Round Initial"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round4ByteSubstitutionLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Byte Substitution Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round4ShiftRowsLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="ShiftRows Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round4MixColumnsLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="MixColumns Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round4KeyTransformInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Key Transform"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round4KeyAdditionLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Key Addition Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
+            <controls:SettingsExpander Description=""
+                           Header="After Round 5">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xF14A;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <InfoBar
+                        x:Name="Round5InitInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Round Initial"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round5ByteSubstitutionLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Byte Substitution Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round5ShiftRowsLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="ShiftRows Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round5MixColumnsLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="MixColumns Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round5KeyTransformInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Key Transform"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round5KeyAdditionLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Key Addition Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
+            <controls:SettingsExpander Description=""
+                           Header="After Round 6">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xF14B;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <InfoBar
+                        x:Name="Round6InitInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Round Initial"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round6ByteSubstitutionLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Byte Substitution Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round6ShiftRowsLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="ShiftRows Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round6MixColumnsLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="MixColumns Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round6KeyTransformInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Key Transform"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round6KeyAdditionLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Key Addition Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
+            <controls:SettingsExpander Description=""
+                           Header="After Round 7">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xF14C;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <InfoBar
+                        x:Name="Round7InitInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Round Initial"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round7ByteSubstitutionLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Byte Substitution Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round7ShiftRowsLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="ShiftRows Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round7MixColumnsLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="MixColumns Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round7KeyTransformInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Key Transform"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round7KeyAdditionLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Key Addition Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
+            <controls:SettingsExpander Description=""
+                           Header="After Round 8">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xF14D;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <InfoBar
+                        x:Name="Round8InitInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Round Initial"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round8ByteSubstitutionLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Byte Substitution Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round8ShiftRowsLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="ShiftRows Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round8MixColumnsLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="MixColumns Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round8KeyTransformInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Key Transform"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round8KeyAdditionLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Key Addition Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
+            <controls:SettingsExpander Description=""
+                           Header="After Round 9">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xF14E;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <InfoBar
+                        x:Name="Round9InitInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Round Initial"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round9ByteSubstitutionLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Byte Substitution Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round9ShiftRowsLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="ShiftRows Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round9MixColumnsLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="MixColumns Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round9KeyTransformInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Key Transform"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round9KeyAdditionLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Key Addition Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
+            <controls:SettingsExpander Description=""
+                           Header="After Round 10">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xF14F;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <InfoBar
+                        x:Name="Round10InitInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Round Initial"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round10ByteSubstitutionLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Byte Substitution Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round10ShiftRowsLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="ShiftRows Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round10MixColumnsLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="MixColumns Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round10KeyTransformInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Key Transform"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                    <InfoBar
+                        x:Name="Round10KeyAdditionLayerInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Key Addition Layer"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
+            <controls:SettingsExpander Description=""
+                           Header="Show Ciphertext">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xE81B;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <InfoBar
+                        x:Name="Round11CiphertextInfoBar"
+                        IsOpen="True"
+                        IsClosable="False"
+                        IsIconVisible="False"
+                        Title="Round Initial"
+                        Message="A short essential app message." >
+                        <InfoBar.ActionButton>
+                            <Button HorizontalAlignment="Right" >
+                                <FontIcon Glyph="&#xE8C8;" />
+                            </Button>
+                        </InfoBar.ActionButton>
+                    </InfoBar>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
         </StackPanel>
     </ScrollViewer>
 </Page>
