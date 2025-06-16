@@ -152,7 +152,7 @@
                         <NavigationViewItem  Content="Decryption of AES" Tag="DecryptionAESPage" />
                     </NavigationViewItem.MenuItems>
                 </NavigationViewItem>
-                <NavigationViewItem  Content="More About Block Ciphers" Tag="MoreAboutBlockCiphersPage">
+                <NavigationViewItem  Content="More About Block Ciphers" Tag="MoreAboutBlockCiphersPage" IsEnabled="False">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE7BC;" />
                     </NavigationViewItem.Icon>

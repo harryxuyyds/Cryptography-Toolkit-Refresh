@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Page
-    x:Class="Cryptography_Toolkit.Pages.EssentialNumberTheoryPage"
+    x:Class="Cryptography_Toolkit.Pages.InternalStructureAESPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Cryptography_Toolkit.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     mc:Ignorable="d">
 
     <ScrollViewer>
         <StackPanel Spacing="4" BorderThickness="2" CornerRadius="10" Padding="40">
 
             <!-- Page Title Format Begin -->
-            <TextBlock Text="Essential Number Theory for Public-Key Algorithms" 
+            <TextBlock Text="Internal Structure of AES" 
                Style="{StaticResource TitleTextBlockStyle}" 
                Margin="0,0,0,8"/>
             <StackPanel Orientation="Horizontal" 
@@ -70,10 +71,72 @@
                     </DropDownButton.Flyout>
                 </DropDownButton>
             </StackPanel>
-            <TextBlock Text="We introduce the Euclidean algorithm, Euler’s phi function, Fermat’s Little Theorem and Euler’s theorem. All are important for asymmetric algorithms, especially for the RSA scheme." 
+            <TextBlock Text="In a single AES round. The input is fed into the S-box. The output is permuted in the ShiftRows layer and mixed by the MixColumn layer. Finally, the subkey is XORed with the intermediate result." 
                TextWrapping="Wrap"
                Margin="0,0,0,12"/>
             <!-- Page Title Format End -->
+
+            <TextBlock Text="Internal Structure and Encryption for 128-Bit Key AES" 
+                       Style="{StaticResource SubtitleTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
+            <TextBlock Text="Configuration"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"
+                       Margin="0,8,0,8"/>
+
+            <InfoBar
+                IsOpen="True"
+                IsIconVisible="True"
+                IsClosable="False"
+                Severity="Warning"
+                Title="Status"
+                Message="Please enter correct parameters." />
+
+            <controls:SettingsCard Description=""
+                                   Header="16-byte plaintext presets">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE896;" />
+                </controls:SettingsCard.HeaderIcon>
+                <ComboBox x:Name="AesPlaintextPresetsComboBox" 
+                          SelectionChanged="AesPlaintextPresetsComboBox_OnSelectionChanged"
+                          SelectedIndex="4">
+                    <ComboBoxItem Content="0x00" />
+                    <ComboBoxItem Content="0xFF" />
+                    <ComboBoxItem Content="0xF0" />
+                    <ComboBoxItem Content="Random" />
+                    <ComboBoxItem Content="Custom" />
+                </ComboBox>
+            </controls:SettingsCard>
+
+            <controls:SettingsCard Description=""
+                                   Header="16-byte key presets">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE896;" />
+                </controls:SettingsCard.HeaderIcon>
+                <ComboBox x:Name="AesKeyPresetsComboBox" 
+                          SelectionChanged="AesKeyPresetsComboBox_OnSelectionChanged"
+                          SelectedIndex="4">
+                    <ComboBoxItem Content="0x00" />
+                    <ComboBoxItem Content="0xFF" />
+                    <ComboBoxItem Content="0xF0" />
+                    <ComboBoxItem Content="Random" />
+                    <ComboBoxItem Content="Custom" />
+                </ComboBox>
+            </controls:SettingsCard>
+
+            <TextBox x:Name="AesPlaintextTextBox" 
+                     Header="16-byte plaintext" 
+                     PlaceholderText="Plaintext" 
+                     Margin="0, 8, 0, 4"/>
+
+            <TextBox x:Name="AesKeyTextBox" 
+                     Header="16-byte key" 
+                     PlaceholderText="Key" 
+                     Margin="0, 8, 0, 4"/>
+
+            <TextBlock Text="AES Round Function"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"
+                       Margin="0,8,0,8"/>
         </StackPanel>
     </ScrollViewer>
 </Page>

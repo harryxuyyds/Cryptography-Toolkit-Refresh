@@ -28,7 +28,7 @@ public sealed partial class RandomNumberGeneratorsPage : Page
         InitializeComponent();
     }
 
-    private async void RngSampleParameters_OnClick(object sender, RoutedEventArgs e)
+    private async void RngSampleParametersHyperlinkButton_OnClick(object sender, RoutedEventArgs e)
     {
         ContentDialog rngSampleParametersDialog = new ContentDialog
         {

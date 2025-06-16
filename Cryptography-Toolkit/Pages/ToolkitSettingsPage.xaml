@@ -34,6 +34,19 @@
         </controls:SettingsCard>
 
         <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}"
+                   Text="Text editing" 
+                   Margin="0,8,0,8" />
+
+        <controls:SettingsCard Description=""
+                               Header="Font">
+            <controls:SettingsCard.HeaderIcon>
+                <FontIcon Glyph="&#xE8D2;" />
+            </controls:SettingsCard.HeaderIcon>
+            <ComboBox x:Name="SettingsTextFontComboBox">
+            </ComboBox>
+        </controls:SettingsCard>
+
+        <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}"
                    Text="About" 
                    Margin="0,8,0,8" />
 

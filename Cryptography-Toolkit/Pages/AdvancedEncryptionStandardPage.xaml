@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Cryptography_Toolkit.Pages.AdvancedEncryptionStandardPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cryptography_Toolkit.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    mc:Ignorable="d">
+
+    <ScrollViewer>
+        <StackPanel Spacing="4" BorderThickness="2" CornerRadius="10" Padding="40">
+
+            <TextBlock Text="Advanced Encryption Standard" 
+               Style="{StaticResource TitleTextBlockStyle}" 
+               Margin="0,0,0,8"/>
+
+            <StackPanel Orientation="Vertical" 
+                        Spacing="8" 
+                        Margin="0,8,0,8">
+                <controls:SettingsCard Description="A finite field, sometimes also called a Galois field, is a set with a finite number of elements. In AES, Galois field arithmetic is used in most layers, especially in the S-box and the MixColumn layer."
+                                   Header="Galois Fields">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF146;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="GaloisFieldsPageHyperlinkButton" 
+                                 Tag="GaloisFieldsPage"
+                                 Content="Navigate to ..."
+                                 Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Description="In a single AES round. The input is fed into the S-box. The output is permuted in the ShiftRows layer and mixed by the MixColumn layer. Finally, the subkey is XORed with the intermediate result."
+                                   Header="Internal Structure of AES">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF147;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="InternalStructureAesPageHyperlinkButton" 
+                                 Tag="InternalStructureAESPage"
+                                 Content="Navigate to ..."
+                                 Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Description="Since AES is not based on a Feistel network, all layers must actually be inverted for the decryption, and the inverse layer operations are fairly similar to the layer operations used for encryption."
+                                   Header="Decryption of AES">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF148;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="DecryptionAesPageHyperlinkButton" 
+                                 Tag="DecryptionAESPage"
+                                 Content="Navigate to ..."
+                                 Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

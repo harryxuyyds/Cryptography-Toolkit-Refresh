@@ -68,8 +68,8 @@
                     <controls:SettingsExpander.HeaderIcon>
                         <FontIcon Glyph="&#xE93E;" />
                     </controls:SettingsExpander.HeaderIcon>
-                    <HyperlinkButton x:Name="StreamCiphersPagePageHyperlinkButton" 
-                                     Tag="StreamCiphersPagePage"
+                    <HyperlinkButton x:Name="StreamCiphersPageHyperlinkButton" 
+                                     Tag="StreamCiphersPage"
                                      Content="Navigate to ..."
                                      Click="PageNavigationHyperlinkButton_OnClick"/>
                     <controls:SettingsExpander.Items>
@@ -126,6 +126,49 @@
                     </controls:SettingsExpander.Items>
                 </controls:SettingsExpander>
 
+                <controls:SettingsExpander Description="The Advanced Encryption Standard (AES), also known by its original name Rijndael, is the most widely used symmetric cipher today"
+                           Header="Advanced Encryption Standard">
+                    <controls:SettingsExpander.HeaderIcon>
+                        <FontIcon Glyph="&#xE752;" />
+                    </controls:SettingsExpander.HeaderIcon>
+                    <HyperlinkButton x:Name="AdvancedEncryptionStandardPageHyperlinkButton" 
+                                     Tag="AdvancedEncryptionStandardPage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
+                    <controls:SettingsExpander.Items>
+                        <controls:SettingsCard Description="A finite field, sometimes also called a Galois field, is a set with a finite number of elements. In AES, Galois field arithmetic is used in most layers, especially in the S-box and the MixColumn layer."
+                                               Header="Galois Fields">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF146;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="GaloisFieldsPageHyperlinkButton" 
+                                             Tag="GaloisFieldsPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Description="In a single AES round. The input is fed into the S-box. The output is permuted in the ShiftRows layer and mixed by the MixColumn layer. Finally, the subkey is XORed with the intermediate result."
+                                               Header="Internal Structure of AES">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF147;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="InternalStructureAesPageHyperlinkButton" 
+                                             Tag="InternalStructureAESPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Description="Since AES is not based on a Feistel network, all layers must actually be inverted for the decryption, and the inverse layer operations are fairly similar to the layer operations used for encryption."
+                                               Header="Decryption of AES">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF148;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="DecryptionAesPageHyperlinkButton" 
+                                             Tag="DecryptionAESPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                    </controls:SettingsExpander.Items>
+                </controls:SettingsExpander>
+
                 <controls:SettingsExpander Description="Public-key cryptography, or asymmetric cryptography, is the field of cryptographic systems that use pairs of related keys. Each key pair consists of a public key and a corresponding private key."
                                            Header="Public-Key Cryptography">
                     <controls:SettingsExpander.HeaderIcon>
@@ -136,7 +179,7 @@
                                      Content="Navigate to ..."
                                      Click="PageNavigationHyperlinkButton_OnClick"/>
                     <controls:SettingsExpander.Items>
-                        <controls:SettingsCard Description="We introduce the Euclidean algorithm, Euler’s phi function as well as Fermat’s Little Theorem and Euler’s theorem. All are important for asymmetric algorithms, especially for understanding the RSA scheme."
+                        <controls:SettingsCard Description="We introduce the Euclidean algorithm, Euler’s phi function, Fermat’s Little Theorem and Euler’s theorem. All are important for asymmetric algorithms, especially for the RSA scheme."
                                                Header="Essential Number Theory for Public-Key Algorithms">
                             <controls:SettingsCard.HeaderIcon>
                                 <FontIcon Glyph="&#xF146;" />

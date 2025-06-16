@@ -99,10 +99,10 @@
                 <controls:SettingsExpander.HeaderIcon>
                     <FontIcon Glyph="&#xE713;" />
                 </controls:SettingsExpander.HeaderIcon>
-                <Button x:Name="RngSampleParameters" 
+                <HyperlinkButton x:Name="RngSampleParametersHyperlinkButton" 
                         Content="Load Sample Parameters" 
                         ToolTipService.ToolTip="Sample: rand() function used in ANSI C"
-                        Click="RngSampleParameters_OnClick"/>
+                        Click="RngSampleParametersHyperlinkButton_OnClick"/>
                 <controls:SettingsExpander.Items>
                     <controls:SettingsCard Description=""
                                            Header="Initial seed value">
