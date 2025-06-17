@@ -27,13 +27,15 @@ namespace Cryptography_Toolkit
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
+    
     public partial class App : Application
     {
         private const string ThemeSettingKey = "AppTheme";
+        private const string FontSettingKey = "EditorFontFamily";
         private Window? _window;
         public static Window? MainWindow { get; set; }
 
-        public static int MinimumWidth { get; } = 800;
+        public static int MinimumWidth { get; } = 900;
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -44,10 +46,7 @@ namespace Cryptography_Toolkit
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Invoked when the application is launched.
-        /// </summary>
-        /// <param name="args">Details about the launch request and process.</param>
+        // 在App.xaml.cs的App构造函数或OnLaunched方法中添加如下代码以全局设置TextBox字体
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
             _window = new MainWindow();
@@ -56,32 +55,15 @@ namespace Cryptography_Toolkit
             // 创建 NavigationRootPage 实例并设置为窗口内容
             NavigationRootPage rootPage = new NavigationRootPage();
             _window.Content = rootPage;
-            
+
             // 确保在窗口激活后再加载主题
             _window.Activated += (sender, e) =>
             {
                 LoadThemeSetting();
+                LoadFontSetting();
             };
-            
-            _window.Activate();
-        }
 
-        private void LoadAndApplyTheme()
-        {
-            if (MainWindow?.Content is FrameworkElement rootElement)
-            {
-                var localSettings = ApplicationData.Current.LocalSettings;
-                if (localSettings.Values.TryGetValue(ThemeSettingKey, out object? theme) && theme is int themeIndex)
-                {
-                    ElementTheme requestedTheme = themeIndex switch
-                    {
-                        0 => ElementTheme.Light,
-                        1 => ElementTheme.Dark,
-                        _ => ElementTheme.Default
-                    };
-                    rootElement.RequestedTheme = requestedTheme;
-                }
-            }
+            _window.Activate();
         }
 
         private void LoadThemeSetting()
@@ -116,6 +98,23 @@ namespace Cryptography_Toolkit
                 // 忽略已关闭窗口的异常
                 Debug.WriteLine("Window already closed, theme change ignored.");
             }
+        }
+
+        private void LoadFontSetting()
+        {
+            var localSettings = ApplicationData.Current.LocalSettings;
+            string fontName = "Consolas"; // 提供一个默认值以确保变量被初始化
+            if (localSettings.Values.TryGetValue(FontSettingKey, out object? font) && font is string fontValue)
+            {
+                fontName = fontValue; // 如果设置中存在字体名称，则使用该值
+                // Debug.WriteLine($"Setting default TextBox font to: {fontName}");
+            }
+
+            // 全局设置TextBox字体
+            var textBoxStyle = new Style(typeof(TextBox));
+            textBoxStyle.Setters.Add(new Setter(TextBox.FontFamilyProperty, new FontFamily(fontName)));
+            Resources["DefaultTextBoxStyle"] = textBoxStyle;
+            Resources[typeof(TextBox)] = textBoxStyle;
         }
     }
 }

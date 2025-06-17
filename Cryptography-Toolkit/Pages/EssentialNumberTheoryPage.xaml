@@ -74,6 +74,36 @@
                TextWrapping="Wrap"
                Margin="0,0,0,12"/>
             <!-- Page Title Format End -->
+
+            <SelectorBar x:Name="SelectorBar2" >
+                <SelectorBarItem x:Name="SelectorBarItemPage1" Text="Euclidean Algorithm" IsSelected="True" />
+                <SelectorBarItem x:Name="SelectorBarItemPage2" Text="Extended Euclidean Algorithm" />
+                <SelectorBarItem x:Name="SelectorBarItemPage3" Text="Euler’s Phi Function" />
+                <SelectorBarItem x:Name="SelectorBarItemPage4" Text="Fermat’s Little Theorem" />
+                <SelectorBarItem x:Name="SelectorBarItemPage5" Text="Euler’s Theorem" />
+            </SelectorBar>
+
+            <Frame x:Name="ContentFrame" IsNavigationStackEnabled="False" />
+
+            <TextBlock Text="Euclidean Algorithm" 
+                       Style="{StaticResource SubtitleTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
+            <TextBlock Text="Extended Euclidean Algorithm" 
+                       Style="{StaticResource SubtitleTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
+            <TextBlock Text="Euler’s Phi Function" 
+                       Style="{StaticResource SubtitleTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
+            <TextBlock Text="Fermat’s Little Theorem" 
+                       Style="{StaticResource SubtitleTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
+            <TextBlock Text="Euler’s Theorem" 
+                       Style="{StaticResource SubtitleTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
         </StackPanel>
     </ScrollViewer>
 </Page>

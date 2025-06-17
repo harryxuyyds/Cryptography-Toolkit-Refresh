@@ -176,7 +176,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Round Initial"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -189,7 +189,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Key Transform"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -202,7 +202,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Key Addition Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -224,7 +224,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Round Initial"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -237,7 +237,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Byte Substitution Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -250,7 +250,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="ShiftRows Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -263,7 +263,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="MixColumns Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -276,7 +276,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Key Transform"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -289,7 +289,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Key Addition Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -311,7 +311,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Round Initial"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -324,7 +324,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Byte Substitution Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -337,7 +337,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="ShiftRows Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -350,7 +350,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="MixColumns Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -363,7 +363,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Key Transform"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -376,7 +376,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Key Addition Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -398,7 +398,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Round Initial"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -411,7 +411,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Byte Substitution Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -424,7 +424,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="ShiftRows Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -437,7 +437,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="MixColumns Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -450,7 +450,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Key Transform"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -463,7 +463,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Key Addition Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -485,7 +485,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Round Initial"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -498,7 +498,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Byte Substitution Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -511,7 +511,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="ShiftRows Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -524,7 +524,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="MixColumns Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -537,7 +537,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Key Transform"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -550,7 +550,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Key Addition Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -572,7 +572,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Round Initial"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -585,7 +585,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Byte Substitution Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -598,7 +598,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="ShiftRows Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -611,7 +611,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="MixColumns Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -624,7 +624,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Key Transform"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -637,7 +637,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Key Addition Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -659,7 +659,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Round Initial"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -672,7 +672,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Byte Substitution Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -685,7 +685,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="ShiftRows Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -698,7 +698,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="MixColumns Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -711,7 +711,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Key Transform"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -724,7 +724,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Key Addition Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -746,7 +746,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Round Initial"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -759,7 +759,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Byte Substitution Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -772,7 +772,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="ShiftRows Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -785,7 +785,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="MixColumns Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -798,7 +798,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Key Transform"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -811,7 +811,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Key Addition Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -833,7 +833,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Round Initial"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -846,7 +846,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Byte Substitution Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -859,7 +859,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="ShiftRows Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -872,7 +872,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="MixColumns Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -885,7 +885,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Key Transform"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -898,7 +898,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Key Addition Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -920,7 +920,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Round Initial"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -933,7 +933,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Byte Substitution Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -946,7 +946,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="ShiftRows Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -959,7 +959,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="MixColumns Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -972,7 +972,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Key Transform"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -985,7 +985,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Key Addition Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -1007,7 +1007,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Round Initial"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -1020,7 +1020,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Byte Substitution Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -1033,7 +1033,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="ShiftRows Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -1046,7 +1046,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="MixColumns Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -1059,7 +1059,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Key Transform"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -1072,7 +1072,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Key Addition Layer"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
@@ -1094,7 +1094,7 @@
                         IsClosable="False"
                         IsIconVisible="False"
                         Title="Round Initial"
-                        Message="A short essential app message." >
+                        Message="Waiting for execution." >
                         <InfoBar.ActionButton>
                             <Button HorizontalAlignment="Right" >
                                 <FontIcon Glyph="&#xE8C8;" />
