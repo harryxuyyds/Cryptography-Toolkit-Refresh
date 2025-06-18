@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Page
-    x:Class="Cryptography_Toolkit.Pages.DigitalSignatureAlgorithmPage"
+    x:Class="Cryptography_Toolkit.Pages.AttacksDLPPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Cryptography_Toolkit.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     mc:Ignorable="d">
 
     <ScrollViewer>
         <StackPanel Spacing="4" BorderThickness="2" CornerRadius="10" Padding="40">
 
             <!-- Page Title Format Begin -->
-            <TextBlock Text="Digital Signature Algorithm" 
-                       Style="{StaticResource TitleTextBlockStyle}" 
-                       Margin="0,0,0,8"/>
+            <TextBlock Text="Attacks Against the DLP" 
+                   Style="{StaticResource TitleTextBlockStyle}" 
+                   Margin="0,0,0,8"/>
             <StackPanel Orientation="Horizontal" 
-                        Spacing="8" 
-                        Margin="0,0,0,8">
+                    Spacing="8" 
+                    Margin="0,0,0,8">
                 <DropDownButton>
                     <DropDownButton.Content>
                         <StackPanel Orientation="Horizontal" Spacing="8">
@@ -71,61 +70,26 @@
                     </DropDownButton.Flyout>
                 </DropDownButton>
             </StackPanel>
-            <TextBlock Text="The Digital Signature Algorithm ( DSA ) is based on the mathematical concept of modular exponentiation and the discrete logarithm problem." 
-                       TextWrapping="Wrap"
-                       Margin="0,0,0,12"/>
+            <TextBlock Text="This section gives a brief overview of algorithms for computing discrete logarithms, which can be classified into generic algorithms and nongeneric algorithms." 
+                   TextWrapping="Wrap"
+                   Margin="0,0,0,12"/>
             <!-- Page Title Format End -->
 
-            <InfoBar
-                IsOpen="True"
-                IsIconVisible="True"
-                IsClosable="True"
-                Severity="Informational"
-                Title="Tip"
-                Message="Please enter smaller parameter values. For larger numbers, use Cryptography PowerToys." />
-
-            <TextBlock Text="The DSA Algorithm" 
+            <TextBlock Text="Generic Algorithms" 
                        Style="{StaticResource SubtitleTextBlockStyle}" 
                        Margin="0,8,0,8"/>
 
-            <TextBlock Text="Key Generation"
-                       Style="{StaticResource BodyStrongTextBlockStyle}"
+            <TextBlock Text="Shanks' Baby-Step Giant-Step Method" 
+                       Style="{StaticResource BodyStrongTextBlockStyle}" 
                        Margin="0,8,0,8"/>
 
-            <controls:SettingsExpander Description=""
-                                       Header="Key Generation for DSA">
-                <controls:SettingsExpander.HeaderIcon>
-                    <FontIcon Glyph="&#xE8D7;" />
-                </controls:SettingsExpander.HeaderIcon>
-                <controls:SettingsExpander.Items>
-
-                </controls:SettingsExpander.Items>
-            </controls:SettingsExpander>
-
-            <TextBlock Text="Signing and Verification"
-                       Style="{StaticResource BodyStrongTextBlockStyle}"
+            <TextBlock Text="Pollard's Rho Method" 
+                       Style="{StaticResource BodyStrongTextBlockStyle}" 
                        Margin="0,8,0,8"/>
 
-            <controls:SettingsExpander Description=""
-                                       Header="DSA Signature Generation">
-                <controls:SettingsExpander.HeaderIcon>
-                    <FontIcon Glyph="&#xEF3F;" />
-                </controls:SettingsExpander.HeaderIcon>
-                <controls:SettingsExpander.Items>
-
-                </controls:SettingsExpander.Items>
-            </controls:SettingsExpander>
-
-            <controls:SettingsExpander Description=""
-                                       Header="DSA Signature Verification">
-                <controls:SettingsExpander.HeaderIcon>
-                    <FontIcon Glyph="&#xF32A;" />
-                </controls:SettingsExpander.HeaderIcon>
-                <controls:SettingsExpander.Items>
-
-                </controls:SettingsExpander.Items>
-            </controls:SettingsExpander>
-
+            <TextBlock Text="Nongeneric Algorithms: The Index-Calculus Method" 
+                       Style="{StaticResource SubtitleTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
         </StackPanel>
     </ScrollViewer>
 </Page>

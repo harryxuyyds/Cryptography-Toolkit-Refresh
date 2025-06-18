@@ -15,98 +15,100 @@
                Stretch="UniformToFill"
                Opacity="0.2"
                IsHitTestVisible="False"/>
-        <StackPanel Spacing="4" BorderThickness="2" CornerRadius="10" Padding="40">
-            <TextBlock Text="Settings" 
-                       Style="{StaticResource TitleTextBlockStyle}" 
-                       Margin="0,0,0,12"/>
+        <ScrollViewer>
+            <StackPanel Spacing="4" BorderThickness="2" CornerRadius="10" Padding="40">
+                <TextBlock Text="Settings" 
+                           Style="{StaticResource TitleTextBlockStyle}" 
+                           Margin="0,0,0,12"/>
 
-            <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}"
-                       Text="Appearance" 
-                       Margin="0,12,0,8" />
+                <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}"
+                           Text="Appearance" 
+                           Margin="0,12,0,8" />
 
-            <controls:SettingsCard Description="Select which app theme to display."
-                                   Header="App theme">
-                <controls:SettingsCard.HeaderIcon>
-                    <FontIcon Glyph="&#xE790;" />
-                </controls:SettingsCard.HeaderIcon>
-                <ComboBox x:Name="SettingsAppThemeComboBox" 
-                          SelectedIndex="2">
-                    <ComboBoxItem Content="Light" />
-                    <ComboBoxItem Content="Dark" />
-                    <ComboBoxItem Content="Use system setting" />
-                </ComboBox>
-            </controls:SettingsCard>
+                <controls:SettingsCard Description="Select which app theme to display."
+                                       Header="App theme">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE790;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <ComboBox x:Name="SettingsAppThemeComboBox" 
+                              SelectedIndex="2">
+                        <ComboBoxItem Content="Light" />
+                        <ComboBoxItem Content="Dark" />
+                        <ComboBoxItem Content="Use system setting" />
+                    </ComboBox>
+                </controls:SettingsCard>
 
-            <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}"
-                       Text="Text editor" 
-                       Margin="0,12,0,8" />
+                <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}"
+                           Text="Text editor" 
+                           Margin="0,12,0,8" />
 
-            <controls:SettingsCard x:Name="SettingsFontSettingsCard" 
-                                   Description=""
-                                   Header="Font">
-                <controls:SettingsCard.HeaderIcon>
-                    <FontIcon Glyph="&#xE8D2;" />
-                </controls:SettingsCard.HeaderIcon>
-                <ComboBox x:Name="SettingsTextFontComboBox"
-                          SelectionChanged="SettingsTextFontComboBox_SelectionChanged"/>
-            </controls:SettingsCard>
+                <controls:SettingsCard x:Name="SettingsFontSettingsCard" 
+                                       Description=""
+                                       Header="Font">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xE8D2;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <ComboBox x:Name="SettingsTextFontComboBox"
+                              SelectionChanged="SettingsTextFontComboBox_SelectionChanged"/>
+                </controls:SettingsCard>
 
-            <InfoBar
-                x:Name="SettingsFontInfoBar"
-                IsOpen="True"
-                Severity="Informational"
-                Title=""
-                Message="Font settings will take effect after restarting app." />
+                <InfoBar
+                    x:Name="SettingsFontInfoBar"
+                    IsOpen="True"
+                    Severity="Informational"
+                    Title=""
+                    Message="Font settings will take effect after restarting app." />
 
-            <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}"
-                       Text="About" 
-                       Margin="0,12,0,8" />
+                <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}"
+                           Text="About" 
+                           Margin="0,12,0,8" />
 
-            <controls:SettingsExpander Description="© 2025 Hayi Studio. All rights reserved."
-                                       Header="{StaticResource AppTitleName}"
-                                       HeaderIcon="{winUi:BitmapIcon Source=ms-appx:///Assets/Square44x44Logo.png}">
-                <TextBlock Foreground="{ThemeResource TextFillColorSecondaryBrush}"
-                           Text="{StaticResource AppVersionName}" />
-                <controls:SettingsExpander.Items>
-                    <controls:SettingsCard HorizontalContentAlignment="Left"
-                                           ContentAlignment="Left">
-                        <StackPanel Margin="-12,0,0,0"
-                                    Orientation="Vertical">
-                            <TextBlock Text="Special thanks to"
-                                       Style="{StaticResource BodyStrongTextBlockStyle}" 
-                                       Margin="0,8,0,8"/>
-                            <HyperlinkButton Content="PurpleWei for designing the app icon" NavigateUri="https://github.com/PurpleWei"/>
-                        </StackPanel>
-                    </controls:SettingsCard>
-                    <controls:SettingsCard HorizontalContentAlignment="Left"
-                                           ContentAlignment="Left">
-                        <StackPanel Margin="-12,0,0,0"
-                                    Orientation="Vertical">
-                            <TextBlock Text="Dependencies &amp; references"
-                                       Style="{StaticResource BodyStrongTextBlockStyle}" 
-                                       Margin="0,8,0,8"/>
-                            <HyperlinkButton Content="Understanding Cryptography From Established Symmetric and Asymmetric Ciphers to Post-Quantum Algorithms" NavigateUri="https://link.springer.com/book/10.1007/978-3-662-69007-9"/>
-                            <HyperlinkButton Content="{x:Bind WinAppSdkRuntimeDetails}" NavigateUri="https://aka.ms/windowsappsdk" />
-                            <HyperlinkButton Content="WinUI 3 Gallery" NavigateUri="https://github.com/microsoft/WinUI-Gallery"/>
-                            <HyperlinkButton Content="Windows Community Toolkit" NavigateUri="https://github.com/CommunityToolkit/Windows" />
-                        </StackPanel>
-                    </controls:SettingsCard>
-                    <controls:SettingsCard HorizontalContentAlignment="Left"
-                                           ContentAlignment="Left">
-                        <StackPanel Margin="-12,0,0,0"
-                                    Spacing="8"
-                                    Orientation="Horizontal">
-                            <TextBlock Text="Useful links"
-                                       Style="{StaticResource BodyStrongTextBlockStyle}" 
-                                       Margin="0,8,0,8"/>
-                            <HyperlinkButton Content="Source code" NavigateUri=""/>
-                            <HyperlinkButton Content="Documentation" NavigateUri=""/>
-                            <HyperlinkButton Content="Feedback" NavigateUri=""/>
-                        </StackPanel>
-                    </controls:SettingsCard>
-                </controls:SettingsExpander.Items>
-            </controls:SettingsExpander>
+                <controls:SettingsExpander Description="© 2025 Hayi Studio. All rights reserved."
+                                           Header="{StaticResource AppTitleName}"
+                                           HeaderIcon="{winUi:BitmapIcon Source=ms-appx:///Assets/Square44x44Logo.png}">
+                    <TextBlock Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                               Text="{StaticResource AppVersionName}" />
+                    <controls:SettingsExpander.Items>
+                        <controls:SettingsCard HorizontalContentAlignment="Left"
+                                               ContentAlignment="Left">
+                            <StackPanel Margin="-12,0,0,0"
+                                        Orientation="Vertical">
+                                <TextBlock Text="Special thanks to"
+                                           Style="{StaticResource BodyStrongTextBlockStyle}" 
+                                           Margin="0,8,0,8"/>
+                                <HyperlinkButton Content="PurpleWei for designing the app icon" NavigateUri="https://github.com/PurpleWei"/>
+                            </StackPanel>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard HorizontalContentAlignment="Left"
+                                               ContentAlignment="Left">
+                            <StackPanel Margin="-12,0,0,0"
+                                        Orientation="Vertical">
+                                <TextBlock Text="Dependencies &amp; references"
+                                           Style="{StaticResource BodyStrongTextBlockStyle}" 
+                                           Margin="0,8,0,8"/>
+                                <HyperlinkButton Content="Understanding Cryptography From Established Symmetric and Asymmetric Ciphers to Post-Quantum Algorithms" NavigateUri="https://www.cryptography-textbook.com/"/>
+                                <HyperlinkButton Content="{x:Bind WinAppSdkRuntimeDetails}" NavigateUri="https://aka.ms/windowsappsdk" />
+                                <HyperlinkButton Content="WinUI 3 Gallery" NavigateUri="https://github.com/microsoft/WinUI-Gallery"/>
+                                <HyperlinkButton Content="Windows Community Toolkit" NavigateUri="https://github.com/CommunityToolkit/Windows" />
+                            </StackPanel>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard HorizontalContentAlignment="Left"
+                                               ContentAlignment="Left">
+                            <StackPanel Margin="-12,0,0,0"
+                                        Spacing="8"
+                                        Orientation="Horizontal">
+                                <TextBlock Text="Useful links"
+                                           Style="{StaticResource BodyStrongTextBlockStyle}" 
+                                           Margin="0,8,0,8"/>
+                                <HyperlinkButton Content="Source code" NavigateUri=""/>
+                                <HyperlinkButton Content="Documentation" NavigateUri=""/>
+                                <HyperlinkButton Content="Feedback" NavigateUri=""/>
+                            </StackPanel>
+                        </controls:SettingsCard>
+                    </controls:SettingsExpander.Items>
+                </controls:SettingsExpander>
 
-        </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>
