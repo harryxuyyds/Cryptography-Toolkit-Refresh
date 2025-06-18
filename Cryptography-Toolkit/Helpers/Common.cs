@@ -30,21 +30,21 @@ namespace Cryptography_Toolkit.Helpers
             return rd.Next(minValue, maxValue);
         }
 
-        public int SquareMultiplyAlgorithmCalc(int smA, int smH, int smN)
+        public int SquareMultiplyAlgorithmCalc(int baseElement, int exponent, int modulus)
         {
-            string smHToBIn = Convert.ToString(smH, 2);
-            int smHLength = smHToBIn.Length;
+            string exponentToBin = Convert.ToString(exponent, 2);
+            int exponentLength = exponentToBin.Length;
             int index;
-            long smResult = 1;
-            for (index = 1; index <= smHLength; index++)
+            long result = 1;
+            for (index = 1; index <= exponentLength; index++)
             {
-                smResult = smResult * smResult % smN;
-                if (smHToBIn[index - 1] == '1')
+                result = result * result % modulus;
+                if (exponentToBin[index - 1] == '1')
                 {
-                    smResult = smResult * smA % smN;
+                    result = result * baseElement % modulus;
                 }
             }
-            return (int)smResult;
+            return (int)result;
         }
         
     }

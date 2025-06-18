@@ -92,7 +92,7 @@
                 <NumberBox
                     x:Name="FermatPrimalityTestPrimeCandidateNumberBox"
                     Value="561"
-                    Minimum="1"
+                    Minimum="3"
                     SpinButtonPlacementMode="Inline"
                     SmallChange="1"
                     LargeChange="1" />
@@ -112,27 +112,33 @@
                     LargeChange="1" />
             </controls:SettingsCard>
 
-            <Button Content="Click to Execute Fermat Primality Test" HorizontalAlignment="Stretch"/>
+            <Button x:Name="FermatPrimalityTestExecuteButton" 
+                    Content="Click to Execute Fermat Primality Test" 
+                    HorizontalAlignment="Stretch"
+                    Click="FermatPrimalityTestExecuteButton_OnClick"/>
 
             <TextBlock Text="Log Output" 
                        Style="{StaticResource BodyStrongTextBlockStyle}" 
                        Margin="0,8,0,8"/>
 
-            <TextBox x:Name="FermatPrimalityTestLogTextBlock" 
+            <TextBox x:Name="FermatPrimalityTestLogTextBox" 
                      Text="The running log generated during the primality test will be displayed here."
                      Height="200" 
                      AcceptsReturn="True"
-                     IsReadOnly="True"/>
+                     IsReadOnly="True"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
 
             <TextBlock Text="Result" 
                        Style="{StaticResource BodyStrongTextBlockStyle}" 
                        Margin="0,8,0,8"/>
 
             <InfoBar
+                x:Name="FermatPrimalityTestFeedbackInfoBar"
                 IsOpen="True"
                 IsClosable="False"
                 Severity="Informational"
-                Title="Primality Test Feedback"
+                Title="Fermat Primality Test Feedback"
                 Message="The final result of the primality test will be displayed here." >
                 <InfoBar.ActionButton>
                     <HyperlinkButton HorizontalAlignment="Right" Content="Copy"/>
@@ -155,7 +161,7 @@
                 <NumberBox
                     x:Name="MillerRabinPrimalityTestPrimeCandidateNumberBox"
                     Value="561"
-                    Minimum="1"
+                    Minimum="3"
                     SpinButtonPlacementMode="Inline"
                     SmallChange="1"
                     LargeChange="1" />
@@ -175,27 +181,33 @@
                     LargeChange="1" />
             </controls:SettingsCard>
 
-            <Button Content="Click to Execute Miller–Rabin Primality Test" HorizontalAlignment="Stretch"/>
+            <Button x:Name="MillerRabinPrimalityTestExecuteButton" 
+                    Content="Click to Execute Miller–Rabin Primality Test" 
+                    HorizontalAlignment="Stretch"
+                    Click="MillerRabinPrimalityTestExecuteButton_OnClick"/>
 
             <TextBlock Text="Log Output" 
                        Style="{StaticResource BodyStrongTextBlockStyle}" 
                        Margin="0,8,0,8"/>
 
-            <TextBox x:Name="MillerRabinPrimalityTestLogTextBlock" 
+            <TextBox x:Name="MillerRabinPrimalityTestLogTextBox" 
                      Text="The running log generated during the primality test will be displayed here."
                      Height="200" 
                      AcceptsReturn="True"
-                     IsReadOnly="True"/>
+                     IsReadOnly="True"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
 
             <TextBlock Text="Result" 
                        Style="{StaticResource BodyStrongTextBlockStyle}" 
                        Margin="0,8,0,8"/>
 
             <InfoBar
+                x:Name="MillerRabinPrimalityTestFeedbackInfoBar"
                 IsOpen="True"
                 IsClosable="False"
                 Severity="Informational"
-                Title="Primality Test Feedback"
+                Title="Miller–Rabin Primality Test Feedback"
                 Message="The final result of the primality test will be displayed here." >
                 <InfoBar.ActionButton>
                     <HyperlinkButton HorizontalAlignment="Right" Content="Copy"/>
