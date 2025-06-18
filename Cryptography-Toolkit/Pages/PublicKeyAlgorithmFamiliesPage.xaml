@@ -79,6 +79,18 @@
                        Style="{StaticResource SubtitleTextBlockStyle}" 
                        Margin="0,8,0,8"/>
 
+            <TextBlock Text="- Integer-Factorization Schemes Several public-key schemes are based on the fact that it is difficult to factor large integers. The most prominent representative of this algorithm family is RSA." 
+                       TextWrapping="Wrap"
+                       Margin="0,4,0,4"/>
+
+            <TextBlock Text="- Discrete Logarithm Schemes There are several algorithms which are based on what is known as the discrete logarithm problem in finite fields. The most prominent examples include the Diffie–Hellman key exchange, Elgamal encryption and the Digital Signature Algorithm (DSA)." 
+                       TextWrapping="Wrap"
+                       Margin="0,4,0,4"/>
+
+            <TextBlock Text="- Elliptic Curve (EC) Schemes A generalization of the discrete logarithm algorithm is elliptic curve public-key schemes. The most popular examples include the Elliptic Curve Diffie–Hellman key exchange (ECDH) and the Elliptic Curve Digital Signature Algorithm (ECDSA)." 
+                       TextWrapping="Wrap"
+                       Margin="0,4,0,4"/>
+
             <TextBlock Text="Key Lengths and Security Levels" 
                        Style="{StaticResource SubtitleTextBlockStyle}" 
                        Margin="0,8,0,8"/>
