@@ -88,31 +88,19 @@
                 <controls:SettingsExpander.Items>
                     <controls:SettingsCard Description="Sample parameters: x^7+x^6+x = (11000010)_2 = (C2)_hex, then type 'C2'."
                                            Header="Polynomials A(x) from GF(2^8)">
-                        <controls:SettingsCard.HeaderIcon>
-                            <FontIcon Glyph="&#xE961;" />
-                        </controls:SettingsCard.HeaderIcon>
                         <TextBox PlaceholderText="A(x)" />
                     </controls:SettingsCard>
                     <controls:SettingsCard Description="Sample parameters: x^7+x^6+x = (11000010)_2 = (C2)_hex, then type 'C2'."
                                                    Header="Polynomials B(x) from GF(2^8)">
-                        <controls:SettingsCard.HeaderIcon>
-                            <FontIcon Glyph="&#xE961;" />
-                        </controls:SettingsCard.HeaderIcon>
                         <TextBox PlaceholderText="B(x)" />
                     </controls:SettingsCard>
                     <controls:SettingsCard Description=""
                                            Header="The sum of the two elements is">
-                        <controls:SettingsCard.HeaderIcon>
-                            <FontIcon Glyph="&#xE8BC;" />
-                        </controls:SettingsCard.HeaderIcon>
                         <HyperlinkButton Content="FF"
                                          ToolTipService.ToolTip="Copy to clipboard"/>
                     </controls:SettingsCard>
                     <controls:SettingsCard Description=""
                                            Header="The difference of the two elements is">
-                        <controls:SettingsCard.HeaderIcon>
-                            <FontIcon Glyph="&#xE8BC;" />
-                        </controls:SettingsCard.HeaderIcon>
                         <HyperlinkButton Content="00"
                                          ToolTipService.ToolTip="Copy to clipboard"/>
                     </controls:SettingsCard>
@@ -135,23 +123,14 @@
                 <controls:SettingsExpander.Items>
                     <controls:SettingsCard Description="Sample parameters: x^7+x^6+x = (11000010)_2 = (C2)_hex, then type 'C2'."
                                            Header="Polynomials A(x) from GF(2^8)">
-                        <controls:SettingsCard.HeaderIcon>
-                            <FontIcon Glyph="&#xE961;" />
-                        </controls:SettingsCard.HeaderIcon>
                         <TextBox PlaceholderText="A(x)" />
                     </controls:SettingsCard>
                     <controls:SettingsCard Description="Sample parameters: x^7+x^6+x = (11000010)_2 = (C2)_hex, then type 'C2'."
                                            Header="Polynomials B(x) from GF(2^8)">
-                        <controls:SettingsCard.HeaderIcon>
-                            <FontIcon Glyph="&#xE961;" />
-                        </controls:SettingsCard.HeaderIcon>
                         <TextBox PlaceholderText="B(x)" />
                     </controls:SettingsCard>
                     <controls:SettingsCard Description=""
                                            Header="The polynomial product in GF ( 2^8 ) is">
-                        <controls:SettingsCard.HeaderIcon>
-                            <FontIcon Glyph="&#xE8BC;" />
-                        </controls:SettingsCard.HeaderIcon>
                         <HyperlinkButton Content="FF"
                                          ToolTipService.ToolTip="Copy to clipboard"/>
                     </controls:SettingsCard>
@@ -174,16 +153,10 @@
                 <controls:SettingsExpander.Items>
                     <controls:SettingsCard Description="Sample parameters: x^7+x^6+x = (11000010)_2 = (C2)_hex, then type 'C2'."
                                            Header="Polynomials A(x) from GF(2^8)">
-                        <controls:SettingsCard.HeaderIcon>
-                            <FontIcon Glyph="&#xE961;" />
-                        </controls:SettingsCard.HeaderIcon>
                         <TextBox PlaceholderText="A(x)" />
                     </controls:SettingsCard>
                     <controls:SettingsCard Description=""
                                            Header="The inversion of A(x) is">
-                        <controls:SettingsCard.HeaderIcon>
-                            <FontIcon Glyph="&#xE8BC;" />
-                        </controls:SettingsCard.HeaderIcon>
                         <HyperlinkButton Content="FF"
                                          ToolTipService.ToolTip="Copy to clipboard"/>
                     </controls:SettingsCard>

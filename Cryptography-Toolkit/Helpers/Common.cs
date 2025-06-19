@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,6 +47,37 @@ namespace Cryptography_Toolkit.Helpers
             }
             return (int)result;
         }
-        
+
+        public string GfMultiplicationCalc(string para1, string para2)
+        {
+            ArrayList xTimeCheck = new ArrayList();
+            for (int index = 0; index < para2.Length; index++)
+            {
+                if (para2[index] == '1')
+                {
+                    xTimeCheck.Add(7 - index);
+                }
+            }
+            int gfMultiplicationOut = 0;
+            foreach (int xTimeCount in xTimeCheck)
+            {
+                string init = para1;
+                for (int temp = 0; temp < xTimeCount; temp++)
+                {
+                    if (init[0] == '0')
+                    {
+                        init = string.Concat(init.AsSpan(1), "0");
+                    }
+                    else
+                    {
+                        int initTemp = Convert.ToInt32(string.Concat(init.AsSpan(1), "0"), 2);
+                        initTemp = initTemp ^ 27;
+                        init = Convert.ToString(initTemp, 2).PadLeft(8, '0');
+                    }
+                }
+                gfMultiplicationOut ^= Convert.ToInt32(init, 2);
+            }
+            return gfMultiplicationOut.ToString("X2");
+        }
     }
 }

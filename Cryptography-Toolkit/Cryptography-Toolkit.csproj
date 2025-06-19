@@ -22,6 +22,7 @@
     <None Remove="Pages\DigitalSignaturesPage.xaml" />
     <None Remove="Pages\ElgamalDigitalSignatureSchemePage.xaml" />
     <None Remove="Pages\EllipticCurveDigitalSignatureAlgorithmPage.xaml" />
+    <None Remove="Pages\EncryptionDecryptionRSAPage.xaml" />
     <None Remove="Pages\EssentialNumberTheoryPage.xaml" />
     <None Remove="Pages\GaloisFieldsPage.xaml" />
     <None Remove="Pages\GenericDLAlgorithmsPage.xaml" />
@@ -36,6 +37,7 @@
     <None Remove="Pages\RSASignatureSchemePage.xaml" />
     <None Remove="Pages\ShiftRegisterBasedStreamCiphersPage.xaml" />
     <None Remove="Pages\SimpleSymmetricCryptographyPage.xaml" />
+    <None Remove="Pages\SpeedUpTechniquesRSAPage.xaml" />
     <None Remove="Pages\StreamCiphersPage.xaml" />
     <None Remove="Pages\SubstitutionCipherPage.xaml" />
     <None Remove="Pages\ToolkitSettingsPage.xaml" />
@@ -72,6 +74,16 @@
     <PackageReference Include="Microsoft.Graphics.Win2D" Version="1.3.2" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.4188" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.7.250513003" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\SpeedUpTechniquesRSAPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\EncryptionDecryptionRSAPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Pages\PrimalityTestsPage.xaml">

@@ -92,61 +92,49 @@
             <!-- <TextBlock Text="Linear Congruential Generator Configuration"  -->
             <!--            Style="{StaticResource BodyStrongTextBlockStyle}"  -->
             <!--            Margin="0,8,0,8"/> -->
-            
+
+            <TextBlock Text="Configuration" 
+                       Style="{StaticResource BodyStrongTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
 
             <controls:SettingsExpander Description=""
-                                       Header="Linear Congruential Generator Configuration">
+                                       Header="Linear Congruential Generator Set-up">
                 <controls:SettingsExpander.HeaderIcon>
                     <FontIcon Glyph="&#xE713;" />
                 </controls:SettingsExpander.HeaderIcon>
-                <HyperlinkButton x:Name="RngSampleParametersHyperlinkButton" 
+                <HyperlinkButton x:Name="PrngSampleParametersHyperlinkButton" 
                         Content="Load Sample Parameters" 
                         ToolTipService.ToolTip="Sample: rand() function used in ANSI C"
-                        Click="RngSampleParametersHyperlinkButton_OnClick"/>
+                        Click="PrngSampleParametersHyperlinkButton_OnClick"/>
                 <controls:SettingsExpander.Items>
                     <controls:SettingsCard Description=""
                                            Header="Initial seed value">
-                        <controls:SettingsCard.HeaderIcon>
-                            <FontIcon Glyph="&#xE819;" />
-                        </controls:SettingsCard.HeaderIcon>
-                        <NumberBox x:Name="RngInitialSeedValueNumberBox"
+                        <NumberBox x:Name="PrngInitialSeedValueNumberBox"
                                    AcceptsExpression="True" 
                                    Text="12345"/>
                     </controls:SettingsCard>
                     <controls:SettingsCard Description=""
                                            Header="Integer constants a">
-                        <controls:SettingsCard.HeaderIcon>
-                            <FontIcon Glyph="&#xE961;" />
-                        </controls:SettingsCard.HeaderIcon>
-                        <NumberBox x:Name="RngIntegerATextBox"
+                        <NumberBox x:Name="PrngIntegerATextBox"
                                    AcceptsExpression="True" 
                                    Text="1103515245"/>
                     </controls:SettingsCard>
                     <controls:SettingsCard Description=""
                                            Header="Integer constants b">
-                        <controls:SettingsCard.HeaderIcon>
-                            <FontIcon Glyph="&#xE961;" />
-                        </controls:SettingsCard.HeaderIcon>
-                        <NumberBox x:Name="RngIntegerBTextBox"
+                        <NumberBox x:Name="PrngIntegerBTextBox"
                                    AcceptsExpression="True" 
                                    Text="12345"/>
                     </controls:SettingsCard>
                     <controls:SettingsCard Description=""
                                            Header="Integer constants m">
-                        <controls:SettingsCard.HeaderIcon>
-                            <FontIcon Glyph="&#xE961;" />
-                        </controls:SettingsCard.HeaderIcon>
-                        <NumberBox x:Name="RngIntegerMTextBox"
+                        <NumberBox x:Name="PrngIntegerMTextBox"
                                    AcceptsExpression="True" 
                                    Text="2^31"/>
                     </controls:SettingsCard>
                     <controls:SettingsCard Description=""
                                            Header="Generate quantity">
-                        <controls:SettingsCard.HeaderIcon>
-                            <FontIcon Glyph="&#xEC8F;" />
-                        </controls:SettingsCard.HeaderIcon>
                         <NumberBox
-                            x:Name="RngGenerateQuantityNumberBox"
+                            x:Name="PrngGenerateQuantityNumberBox"
                             Value="10"
                             Minimum="1"
                             SpinButtonPlacementMode="Inline"
@@ -155,6 +143,18 @@
                     </controls:SettingsCard>
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
+
+            <TextBlock Text="Output" 
+                       Style="{StaticResource BodyStrongTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
+            <TextBox x:Name="FermatPrimalityTestLogTextBox" 
+                     Text="The running log generated during the primality test will be displayed here."
+                     Height="200" 
+                     AcceptsReturn="True"
+                     IsReadOnly="True"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
 
             <TextBlock Text="Cryptographically Secure Pseudorandom Number Generators ( CSPRNGs )" 
                        Style="{StaticResource SubtitleTextBlockStyle}" 
