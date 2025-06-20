@@ -108,38 +108,34 @@
                         Click="PrngSampleParametersHyperlinkButton_OnClick"/>
                 <controls:SettingsExpander.Items>
                     <controls:SettingsCard Description=""
-                                           Header="Initial seed value">
-                        <NumberBox x:Name="PrngInitialSeedValueNumberBox"
-                                   AcceptsExpression="True" 
+                                           Header="Seed">
+                        <TextBox x:Name="PrngSeedTextBox"
+                                 TextChanged="PrngTextBox_OnTextChanged"
                                    Text="12345"/>
                     </controls:SettingsCard>
                     <controls:SettingsCard Description=""
-                                           Header="Integer constants a">
-                        <NumberBox x:Name="PrngIntegerATextBox"
-                                   AcceptsExpression="True" 
+                                           Header="Multiplier a">
+                        <TextBox x:Name="PrngParaATextBox"
                                    Text="1103515245"/>
                     </controls:SettingsCard>
                     <controls:SettingsCard Description=""
-                                           Header="Integer constants b">
-                        <NumberBox x:Name="PrngIntegerBTextBox"
-                                   AcceptsExpression="True" 
+                                           Header="Increment c">
+                        <TextBox x:Name="PrngParaCTextBox"
                                    Text="12345"/>
                     </controls:SettingsCard>
                     <controls:SettingsCard Description=""
-                                           Header="Integer constants m">
-                        <NumberBox x:Name="PrngIntegerMTextBox"
-                                   AcceptsExpression="True" 
-                                   Text="2^31"/>
+                                           Header="Modulus m">
+                        <TextBox x:Name="PrngParaMTextBox"
+                                   Text="2147483648"/>
                     </controls:SettingsCard>
                     <controls:SettingsCard Description=""
                                            Header="Generate quantity">
-                        <NumberBox
-                            x:Name="PrngGenerateQuantityNumberBox"
-                            Value="10"
-                            Minimum="1"
-                            SpinButtonPlacementMode="Inline"
-                            SmallChange="1"
-                            LargeChange="1" />
+                        <NumberBox x:Name="PrngGenerateQuantityNumberBox"
+                                   Value="10"
+                                   Minimum="1"
+                                   SpinButtonPlacementMode="Inline"
+                                   SmallChange="1"
+                                   LargeChange="1" />
                     </controls:SettingsCard>
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
@@ -148,8 +144,8 @@
                        Style="{StaticResource BodyStrongTextBlockStyle}" 
                        Margin="0,8,0,8"/>
 
-            <TextBox x:Name="FermatPrimalityTestLogTextBox" 
-                     Text="The running log generated during the primality test will be displayed here."
+            <TextBox x:Name="PrngLogTextBox" 
+                     Text="The running log generated during the pseudorandom number generator will be displayed here."
                      Height="200" 
                      AcceptsReturn="True"
                      IsReadOnly="True"

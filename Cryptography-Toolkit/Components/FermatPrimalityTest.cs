@@ -27,7 +27,6 @@ namespace Cryptography_Toolkit.Components
 
             int exponent = primeCandidate - 1;
             int result = _common.SquareMultiplyAlgorithmCalc(randomInt, exponent, primeCandidate);
-            Debug.WriteLine(result);
 
             return result == 1 ? 1 : 0;
         }

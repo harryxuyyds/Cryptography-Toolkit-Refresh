@@ -84,10 +84,6 @@
             Title="Tip"
             Message="Please enter smaller parameter values. For larger numbers, use Cryptography PowerToys." />
 
-            <!-- <TextBlock Text="RSA Key Generation"  -->
-            <!--        Style="{StaticResource SubtitleTextBlockStyle}"  -->
-            <!--        Margin="0,8,0,8"/> -->
-
             <TextBlock Text="RSA Key Generation"
                    Style="{StaticResource BodyStrongTextBlockStyle}"
                    Margin="0,8,0,8"/>
@@ -101,6 +97,7 @@
                     <controls:SettingsCard Description=""
                                            Header="Large prime p">
                         <NumberBox
+                            x:Name="RsaPrimeGenerationParaPNumberBox"
                             Value="3"
                             Minimum="2"
                             SpinButtonPlacementMode="Inline"
@@ -110,6 +107,7 @@
                     <controls:SettingsCard Description=""
                                            Header="Large prime q">
                         <NumberBox
+                            x:Name="RsaPrimeGenerationParaQNumberBox"
                             Value="11"
                             Minimum="2"
                             SpinButtonPlacementMode="Inline"
@@ -133,6 +131,8 @@
                     <controls:SettingsCard Description=""
                                            Header="Public exponent e">
                         <NumberBox
+                            x:Name="RsaKeyGenerationPublicExponentENumberBox"
+                            IsEnabled="False"
                             Minimum="1"
                             SpinButtonPlacementMode="Inline"
                             SmallChange="1"
@@ -142,24 +142,21 @@
             </controls:SettingsExpander>
 
             <Button x:Name="RsaKeyGenerationExecuteButton" 
-                    Content="Click to Execute RSA Key Generation" 
+                    Content="Click to Execute RSA Key Generation"
+                    Click="RsaKeyGenerationExecuteButton_OnClick"
                     HorizontalAlignment="Stretch"/>
 
-            <TextBlock Text="RSA Key Output"
+            <TextBlock Text="RSA Key Generation Output"
                        Style="{StaticResource BodyStrongTextBlockStyle}"
                        Margin="0,8,0,8"/>
 
-            <InfoBar
-                x:Name="RsaKeyGenerationFeedbackInfoBar"
-                IsOpen="True"
-                IsClosable="False"
-                Severity="Informational"
-                Title="RSA Key Generation Feedback"
-                Message="The final result of the RSA key generation will be displayed here." >
-                <InfoBar.ActionButton>
-                    <HyperlinkButton HorizontalAlignment="Right" Content="Copy"/>
-                </InfoBar.ActionButton>
-            </InfoBar>
+            <TextBox x:Name="RsaKeyGenerationLogTextBox" 
+                     Text="The running log generated during the RSA key generation will be displayed here."
+                     Height="100" 
+                     AcceptsReturn="True"
+                     IsReadOnly="True"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
 
             <TextBlock Text="Encryption and Decryption"
                    Style="{StaticResource BodyStrongTextBlockStyle}"
@@ -170,8 +167,33 @@
                 <controls:SettingsExpander.HeaderIcon>
                     <FontIcon Glyph="&#xE72E;" />
                 </controls:SettingsExpander.HeaderIcon>
+                <HyperlinkButton Content="Load Default Public Key"/>
                 <controls:SettingsExpander.Items>
-
+                    <controls:SettingsCard Description=""
+                                           Header="Plaintext">
+                        <NumberBox
+                            x:Name="RsaEncryptionPlaintextNumberBox"
+                            Minimum="1"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                                           Header="Public Key n">
+                        <NumberBox
+                            Minimum="1"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                                           Header="Public Key e">
+                        <NumberBox
+                            Minimum="1"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
 
@@ -180,6 +202,7 @@
                 <controls:SettingsExpander.HeaderIcon>
                     <FontIcon Glyph="&#xE785;" />
                 </controls:SettingsExpander.HeaderIcon>
+                <HyperlinkButton Content="Load Default Private Key"/>
                 <controls:SettingsExpander.Items>
 
                 </controls:SettingsExpander.Items>
