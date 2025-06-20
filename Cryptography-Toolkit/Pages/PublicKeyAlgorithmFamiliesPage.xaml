@@ -4,6 +4,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Cryptography_Toolkit.Pages"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
@@ -75,6 +76,30 @@
                    Margin="0,0,0,12"/>
             <!-- Page Title Format End -->
 
+            <TextBlock Text="Main Security Mechanisms of Public-Key Algorithms" 
+                       Style="{StaticResource SubtitleTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
+            <TextBlock Text="- Key Establishment: There are protocols for establishing secret keys over an insecure channel. Examples of such protocols include the Diffie–Hellman key exchange (DHKE), the RSA key transport protocol and key encapsulation mechanisms." 
+                       TextWrapping="Wrap"
+                       Margin="0,4,0,4"/>
+
+            <TextBlock Text="- Non-repudiation: Providing non-repudiation can be realized with digital signature algorithms, e.g., RSA, DSA or ECDSA." 
+                       TextWrapping="Wrap"
+                       Margin="0,4,0,4"/>
+
+            <TextBlock Text="- Integrity: Digital signature algorithms can also ensure the integrity of messages." 
+                       TextWrapping="Wrap"
+                       Margin="0,4,0,4"/>
+
+            <TextBlock Text="- Identification: We can identify entities using challenge-and-response protocols together with digital signatures, e.g., in applications such as smart cards for banking or for mobile phones." 
+                       TextWrapping="Wrap"
+                       Margin="0,4,0,4"/>
+
+            <TextBlock Text="- Encryption: We can encrypt messages using algorithms such as RSA or Elgamal." 
+                       TextWrapping="Wrap"
+                       Margin="0,4,0,4"/>
+
             <TextBlock Text="Public-Key Algorithm Families of Practical Relevance (in the Absence of Quantum Computers)" 
                        Style="{StaticResource SubtitleTextBlockStyle}" 
                        Margin="0,8,0,8"/>
@@ -94,6 +119,45 @@
             <TextBlock Text="Key Lengths and Security Levels" 
                        Style="{StaticResource SubtitleTextBlockStyle}" 
                        Margin="0,8,0,8"/>
+
+            <ListView ItemsSource="{x:Bind PublicKeyAlgorithmSecurityLevelItems}">
+                <ListView.Header>
+                    <controls:DataTable Margin="12,0,0,0">
+                        <controls:DataColumn Content="Algorithm Family"
+                                             DesiredWidth="140" />
+                        <controls:DataColumn DesiredWidth="*"
+                                             Content="Cryptosystems" />
+                        <controls:DataColumn Content=" ( 80 ) bits Security Level"
+                                             DesiredWidth="*" />
+                        <controls:DataColumn Content="128 bits"
+                                             DesiredWidth="*"  />
+                        <controls:DataColumn Content="192 bits"
+                                             DesiredWidth="*" />
+                        <controls:DataColumn Content="256 bits"
+                                             DesiredWidth="*"  />
+                    </controls:DataTable>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:PublicKeyAlgorithmSecurityLevelItem">
+                        <controls:DataRow VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <TextBlock Text="{x:Bind AlgorithmFamily}" VerticalAlignment="Center" />
+                            <TextBlock Text="{x:Bind Cryptosystems}" VerticalAlignment="Center" />
+                            <TextBlock Text="{x:Bind SecurityLevel80}" VerticalAlignment="Center" />
+                            <TextBlock Text="{x:Bind SecurityLevel128}" VerticalAlignment="Center" />
+                            <TextBlock Text="{x:Bind SecurityLevel192}" VerticalAlignment="Center" />
+                            <TextBlock Text="{x:Bind SecurityLevel256}" VerticalAlignment="Center" />
+                        </controls:DataRow>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <TextBlock Text="Table shows recommended bit lengths for public-key algorithms for the four security levels 80, 128, 192 and 256 bits. We see from the table that RSA-like schemes and discrete logarithm schemes require very long operands and keys. The key length of elliptic curve schemes is significantly smaller, yet still twice as long as for symmetric ciphers with the same cryptographic strength." 
+                       TextWrapping="Wrap"
+                       Margin="0,4,0,4"/>
+
+            <TextBlock Text="In order to provide long-term security, i.e., security for a timespan of several decades, a security level of 128 bits should be chosen, which requires fairly long keys for all three asymmetric algorithm families." 
+                       TextWrapping="Wrap"
+                       Margin="0,4,0,4"/>
         </StackPanel>
     </ScrollViewer>
 </Page>

@@ -202,17 +202,10 @@ public sealed partial class InternalStructureAESPage : Page
     private void AesEncryptCalc(string plaintext, string key)
     {
         var aes = new Components.AES();
-        // AES encryption logic goes here
-        // For now, we will just log the inputs
-        // RoundInitLogTextBox.Text = $"AES Encryption started with plaintext: {plaintext} and key: {key}";
-        // Further processing would be done here, including logging each round's operations
-        // This is a placeholder for the actual AES encryption implementation
         CleanAesTextBoxes();
         Debug.WriteLine($"AES Encrypting with plaintext: {plaintext} and key: {key}");
 
         var aesRoundKeyTransform = aes.KeyTransformCalc(key);
-        // KW_RIS.Text += AES_Plaintext_Line;
-        // KW_KT.Text += AES_Key_Line;
 
         var roundInitKeyAdditionLayer = aes.KeyAdditionLayerCalc(plaintext, key);
         RoundInitLogTextBox.Text +=
@@ -222,18 +215,11 @@ public sealed partial class InternalStructureAESPage : Page
             $"{"Key Addition:",-20} {roundInitKeyAdditionLayer}\n";
 
         var round1InitialStateLine = roundInitKeyAdditionLayer;
-        // KW_KAL.Text += Round1_Initial_State_Line;
-        // R1_RIS.Text += Round1_Initial_State_Line;
         var round1ByteSubstitutionLayerLine = aes.ByteSubstitutionLayerCalc(round1InitialStateLine);
-        // R1_BSL.Text += Round1_Byte_Substitution_Layer_Line;
         var round1ShiftRowsLayerLine = aes.ShiftRowsLayerCalc(round1ByteSubstitutionLayerLine);
-        // R1_SRL.Text += Round1_ShiftRowsLayer_Line;
         var round1MixColumnsLayerLine = aes.MixColumnsLayerCalc(round1ShiftRowsLayerLine);
-        // R1_MCL.Text += Round1_MixColumnsLayer_Line;
         var round1KeyTransformLine = aesRoundKeyTransform[1];
-        // R1_KT.Text += Round1_Key_Transform_Line;
         var round1KeyAdditionLayer = aes.KeyAdditionLayerCalc(round1MixColumnsLayerLine, round1KeyTransformLine);
-        // R1_KAL.Text += Round1_Key_Addition_Layer;
         Round1LogTextBox.Text +=
             "==================== Round 1 ====================\n" +
             $"{"Initial State:",-20} {round1InitialStateLine}\n" +
@@ -244,17 +230,11 @@ public sealed partial class InternalStructureAESPage : Page
             $"{"Key Addition:",-20} {round1KeyAdditionLayer}\n";
 
         var round2InitialStateLine = round1KeyAdditionLayer;
-        // R2_RIS.Text += Round2_Initial_State_Line;
         var round2ByteSubstitutionLayerLine = aes.ByteSubstitutionLayerCalc(round2InitialStateLine);
-        // R2_BSL.Text += Round2_Byte_Substitution_Layer_Line;
         var round2ShiftRowsLayerLine = aes.ShiftRowsLayerCalc(round2ByteSubstitutionLayerLine);
-        // R2_SRL.Text += Round2_ShiftRowsLayer_Line;
         var round2MixColumnsLayerLine = aes.MixColumnsLayerCalc(round2ShiftRowsLayerLine);
-        // R2_MCL.Text += Round2_MixColumnsLayer_Line;
         var round2KeyTransformLine = aesRoundKeyTransform[2];
-        // R2_KT.Text += Round2_Key_Transform_Line;
         var round2KeyAdditionLayer = aes.KeyAdditionLayerCalc(round2MixColumnsLayerLine, round2KeyTransformLine);
-        // R2_KAL.Text += Round2_Key_Addition_Layer;
         Round2LogTextBox.Text +=
             "==================== Round 2 ====================\n" +
             $"{"Initial State:",-20} {round2InitialStateLine}\n" +
@@ -265,17 +245,11 @@ public sealed partial class InternalStructureAESPage : Page
             $"{"Key Addition:",-20} {round2KeyAdditionLayer}\n";
 
         var round3InitialStateLine = round2KeyAdditionLayer;
-        // R3_RIS.Text += Round3_Initial_State_Line;
         var round3ByteSubstitutionLayerLine = aes.ByteSubstitutionLayerCalc(round3InitialStateLine);
-        // R3_BSL.Text += Round3_Byte_Substitution_Layer_Line;
         var round3ShiftRowsLayerLine = aes.ShiftRowsLayerCalc(round3ByteSubstitutionLayerLine);
-        // R3_SRL.Text += Round3_ShiftRowsLayer_Line;
         var round3MixColumnsLayerLine = aes.MixColumnsLayerCalc(round3ShiftRowsLayerLine);
-        // R3_MCL.Text += Round3_MixColumnsLayer_Line;
         var round3KeyTransformLine = aesRoundKeyTransform[3];
-        // R3_KT.Text += Round3_Key_Transform_Line;
         var round3KeyAdditionLayer = aes.KeyAdditionLayerCalc(round3MixColumnsLayerLine, round3KeyTransformLine);
-        // R3_KAL.Text += Round3_Key_Addition_Layer;
         Round3LogTextBox.Text +=
             "==================== Round 3 ====================\n" +
             $"{"Initial State:",-20} {round3InitialStateLine}\n" +
@@ -286,17 +260,11 @@ public sealed partial class InternalStructureAESPage : Page
             $"{"Key Addition:",-20} {round3KeyAdditionLayer}\n";
 
         var round4InitialStateLine = round3KeyAdditionLayer;
-        // Round4LogTextBox.Text = round4InitialStateLine;
         var round4ByteSubstitutionLayerLine = aes.ByteSubstitutionLayerCalc(round4InitialStateLine);
-        // R4_BSL.Text += round4ByteSubstitutionLayerLine;
         var round4ShiftRowsLayerLine = aes.ShiftRowsLayerCalc(round4ByteSubstitutionLayerLine);
-        // R4_SRL.Text += round4ShiftRowsLayerLine;
         var round4MixColumnsLayerLine = aes.MixColumnsLayerCalc(round4ShiftRowsLayerLine);
-        // R4_MCL.Text += round4MixColumnsLayerLine;
         var round4KeyTransformLine = aesRoundKeyTransform[4];
-        // R4_KT.Text += round4KeyTransformLine;
         var round4KeyAdditionLayer = aes.KeyAdditionLayerCalc(round4MixColumnsLayerLine, round4KeyTransformLine);
-        // R4_KAL.Text += round4KeyAdditionLayer;
         Round4LogTextBox.Text +=
             "==================== Round 4 ====================\n" +
             $"{"Initial State:",-20} {round4InitialStateLine}\n" +
@@ -307,17 +275,11 @@ public sealed partial class InternalStructureAESPage : Page
             $"{"Key Addition:",-20} {round4KeyAdditionLayer}\n";
 
         var round5InitialStateLine = round4KeyAdditionLayer;
-        // Round5LogTextBox.Text = round5InitialStateLine;
         var round5ByteSubstitutionLayerLine = aes.ByteSubstitutionLayerCalc(round5InitialStateLine);
-        // R5_BSL.Text += round5ByteSubstitutionLayerLine;
         var round5ShiftRowsLayerLine = aes.ShiftRowsLayerCalc(round5ByteSubstitutionLayerLine);
-        // R5_SRL.Text += round5ShiftRowsLayerLine;
         var round5MixColumnsLayerLine = aes.MixColumnsLayerCalc(round5ShiftRowsLayerLine);
-        // R5_MCL.Text += round5MixColumnsLayerLine;
         var round5KeyTransformLine = aesRoundKeyTransform[5];
-        // R5_KT.Text += round5KeyTransformLine;
         var round5KeyAdditionLayer = aes.KeyAdditionLayerCalc(round5MixColumnsLayerLine, round5KeyTransformLine);
-        // R5_KAL.Text += round5KeyAdditionLayer;
         Round5LogTextBox.Text +=
             "==================== Round 5 ====================\n" +
             $"{"Initial State:",-20} {round5InitialStateLine}\n" +
@@ -328,17 +290,11 @@ public sealed partial class InternalStructureAESPage : Page
             $"{"Key Addition:",-20} {round5KeyAdditionLayer}\n";
 
         var round6InitialStateLine = round5KeyAdditionLayer;
-        // Round6LogTextBox.Text = round6InitialStateLine;
         var round6ByteSubstitutionLayerLine = aes.ByteSubstitutionLayerCalc(round6InitialStateLine);
-        // R6_BSL.Text += round6ByteSubstitutionLayerLine;
         var round6ShiftRowsLayerLine = aes.ShiftRowsLayerCalc(round6ByteSubstitutionLayerLine);
-        // R6_SRL.Text += round6ShiftRowsLayerLine;
         var round6MixColumnsLayerLine = aes.MixColumnsLayerCalc(round6ShiftRowsLayerLine);
-        // R6_MCL.Text += round6MixColumnsLayerLine;
         var round6KeyTransformLine = aesRoundKeyTransform[6];
-        // R6_KT.Text += round6KeyTransformLine;
         var round6KeyAdditionLayer = aes.KeyAdditionLayerCalc(round6MixColumnsLayerLine, round6KeyTransformLine);
-        // R6_KAL.Text += round6KeyAdditionLayer;
         Round6LogTextBox.Text +=
             "==================== Round 6 ====================\n" +
             $"{"Initial State:",-20} {round6InitialStateLine}\n" +
@@ -349,17 +305,11 @@ public sealed partial class InternalStructureAESPage : Page
             $"{"Key Addition:",-20} {round6KeyAdditionLayer}\n";
 
         var round7InitialStateLine = round6KeyAdditionLayer;
-        // Round7LogTextBox.Text = round7InitialStateLine;
         var round7ByteSubstitutionLayerLine = aes.ByteSubstitutionLayerCalc(round7InitialStateLine);
-        // R7_BSL.Text += round7ByteSubstitutionLayerLine;
         var round7ShiftRowsLayerLine = aes.ShiftRowsLayerCalc(round7ByteSubstitutionLayerLine);
-        // R7_SRL.Text += round7ShiftRowsLayerLine;
         var round7MixColumnsLayerLine = aes.MixColumnsLayerCalc(round7ShiftRowsLayerLine);
-        // R7_MCL.Text += round7MixColumnsLayerLine;
         var round7KeyTransformLine = aesRoundKeyTransform[7];
-        // R7_KT.Text += round7KeyTransformLine;
         var round7KeyAdditionLayer = aes.KeyAdditionLayerCalc(round7MixColumnsLayerLine, round7KeyTransformLine);
-        // R7_KAL.Text += round7KeyAdditionLayer;
         Round7LogTextBox.Text +=
             "==================== Round 7 ====================\n" +
             $"{"Initial State:",-20} {round7InitialStateLine}\n" +
@@ -370,17 +320,11 @@ public sealed partial class InternalStructureAESPage : Page
             $"{"Key Addition:",-20} {round7KeyAdditionLayer}\n";
 
         var round8InitialStateLine = round7KeyAdditionLayer;
-        // Round8LogTextBox.Text = round8InitialStateLine;
         var round8ByteSubstitutionLayerLine = aes.ByteSubstitutionLayerCalc(round8InitialStateLine);
-        // R8_BSL.Text += round8ByteSubstitutionLayerLine;
         var round8ShiftRowsLayerLine = aes.ShiftRowsLayerCalc(round8ByteSubstitutionLayerLine);
-        // R8_SRL.Text += round8ShiftRowsLayerLine;
         var round8MixColumnsLayerLine = aes.MixColumnsLayerCalc(round8ShiftRowsLayerLine);
-        // R8_MCL.Text += round8MixColumnsLayerLine;
         var round8KeyTransformLine = aesRoundKeyTransform[8];
-        // R8_KT.Text += round8KeyTransformLine;
         var round8KeyAdditionLayer = aes.KeyAdditionLayerCalc(round8MixColumnsLayerLine, round8KeyTransformLine);
-        // R8_KAL.Text += round8KeyAdditionLayer;
         Round8LogTextBox.Text +=
             "==================== Round 8 ====================\n" +
             $"{"Initial State:",-20} {round8InitialStateLine}\n" +
@@ -391,17 +335,11 @@ public sealed partial class InternalStructureAESPage : Page
             $"{"Key Addition:",-20} {round8KeyAdditionLayer}\n";
 
         var round9InitialStateLine = round8KeyAdditionLayer;
-        // Round9LogTextBox.Text = round9InitialStateLine;
         var round9ByteSubstitutionLayerLine = aes.ByteSubstitutionLayerCalc(round9InitialStateLine);
-        // R9_BSL.Text += round9ByteSubstitutionLayerLine;
         var round9ShiftRowsLayerLine = aes.ShiftRowsLayerCalc(round9ByteSubstitutionLayerLine);
-        // R9_SRL.Text += round9ShiftRowsLayerLine;
         var round9MixColumnsLayerLine = aes.MixColumnsLayerCalc(round9ShiftRowsLayerLine);
-        // R9_MCL.Text += round9MixColumnsLayerLine;
         var round9KeyTransformLine = aesRoundKeyTransform[9];
-        // R9_KT.Text += round9KeyTransformLine;
         var round9KeyAdditionLayer = aes.KeyAdditionLayerCalc(round9MixColumnsLayerLine, round9KeyTransformLine);
-        // R9_KAL.Text += round9KeyAdditionLayer;
         Round9LogTextBox.Text +=
             "==================== Round 9 ====================\n" +
             $"{"Initial State:",-20} {round9InitialStateLine}\n" +
@@ -412,15 +350,10 @@ public sealed partial class InternalStructureAESPage : Page
             $"{"Key Addition:",-20} {round9KeyAdditionLayer}\n";
 
         var round10InitialStateLine = round9KeyAdditionLayer;
-        // Round10LogTextBox.Text = round10InitialStateLine;
         var round10ByteSubstitutionLayerLine = aes.ByteSubstitutionLayerCalc(round10InitialStateLine);
-        // R10_BSL.Text += round10ByteSubstitutionLayerLine;
         var round10ShiftRowsLayerLine = aes.ShiftRowsLayerCalc(round10ByteSubstitutionLayerLine);
-        // R10_SRL.Text += round10ShiftRowsLayerLine;
         var round10KeyTransformLine = aesRoundKeyTransform[10];
-        // R10_KT.Text += round10KeyTransformLine;
         var round10KeyAdditionLayer = aes.KeyAdditionLayerCalc(round10ShiftRowsLayerLine, round10KeyTransformLine);
-        // R10_KAL.Text += round10KeyAdditionLayer;
         Round10LogTextBox.Text +=
             "==================== Round 10 ====================\n" +
             $"{"Initial State:",-20} {round10InitialStateLine}\n" +
