@@ -99,13 +99,27 @@
                 </controls:SettingsExpander.HeaderIcon>
                 <controls:SettingsExpander.Items>
                     <controls:SettingsCard Description=""
-                                           Header="Security parameter">
-                        <!-- <controls:SettingsCard.HeaderIcon> -->
-                        <!--     <FontIcon Glyph="&#xE705;" /> -->
-                        <!-- </controls:SettingsCard.HeaderIcon> -->
+                                           Header="Large prime p">
                         <NumberBox
                             Value="3"
                             Minimum="2"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                                           Header="Large prime q">
+                        <NumberBox
+                            Value="11"
+                            Minimum="2"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                                           Header="Public exponent e">
+                        <NumberBox
+                            Minimum="1"
                             SpinButtonPlacementMode="Inline"
                             SmallChange="1"
                             LargeChange="1" />

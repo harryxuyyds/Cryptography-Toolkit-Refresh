@@ -27,5 +27,10 @@ namespace Cryptography_Toolkit.Pages
         {
             InitializeComponent();
         }
+
+        private void RsaPrimeGenerationExecuteButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

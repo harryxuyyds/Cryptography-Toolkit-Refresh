@@ -93,14 +93,73 @@
                    Margin="0,8,0,8"/>
 
             <controls:SettingsExpander Description=""
-                                   Header="RSA Key Generation">
+                                   Header="RSA Prime Generation">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xE75F;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <controls:SettingsCard Description=""
+                                           Header="Large prime p">
+                        <NumberBox
+                            Value="3"
+                            Minimum="2"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                                           Header="Large prime q">
+                        <NumberBox
+                            Value="11"
+                            Minimum="2"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
+            <Button x:Name="RsaPrimeGenerationExecuteButton" 
+                    Content="Click to Execute RSA Prime Generation" 
+                    Click="RsaPrimeGenerationExecuteButton_OnClick"
+                    HorizontalAlignment="Stretch"/>
+
+            <controls:SettingsExpander Description=""
+                                       Header="RSA Key Generation">
                 <controls:SettingsExpander.HeaderIcon>
                     <FontIcon Glyph="&#xE8D7;" />
                 </controls:SettingsExpander.HeaderIcon>
                 <controls:SettingsExpander.Items>
-
+                    <controls:SettingsCard Description=""
+                                           Header="Public exponent e">
+                        <NumberBox
+                            Minimum="1"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
+
+            <Button x:Name="RsaKeyGenerationExecuteButton" 
+                    Content="Click to Execute RSA Key Generation" 
+                    HorizontalAlignment="Stretch"/>
+
+            <TextBlock Text="RSA Key Output"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"
+                       Margin="0,8,0,8"/>
+
+            <InfoBar
+                x:Name="RsaKeyGenerationFeedbackInfoBar"
+                IsOpen="True"
+                IsClosable="False"
+                Severity="Informational"
+                Title="RSA Key Generation Feedback"
+                Message="The final result of the RSA key generation will be displayed here." >
+                <InfoBar.ActionButton>
+                    <HyperlinkButton HorizontalAlignment="Right" Content="Copy"/>
+                </InfoBar.ActionButton>
+            </InfoBar>
 
             <TextBlock Text="Encryption and Decryption"
                    Style="{StaticResource BodyStrongTextBlockStyle}"

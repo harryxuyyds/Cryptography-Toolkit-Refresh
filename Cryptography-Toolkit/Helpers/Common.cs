@@ -79,5 +79,52 @@ namespace Cryptography_Toolkit.Helpers
             }
             return gfMultiplicationOut.ToString("X2");
         }
+
+        public int EuclideanAlgorithmCalc(int a, int b)
+        {
+            if (b == 0)
+            {
+                return a;
+            }
+            return EuclideanAlgorithmCalc(b, a % b);
+        }
+
+        public (int gcd, int s, int t) ExtendedEuclideanAlgorithmClac(int a, int b)
+        {
+            int oldR = a, r = b;
+            int oldS = 1, s = 0;
+            int oldT = 0, t = 1;
+
+            while (r != 0)
+            {
+                int quotient = oldR / r;
+                (oldR, r) = (r, oldR - quotient * r);
+                (oldS, s) = (s, oldS - quotient * s);
+                (oldT, t) = (t, oldT - quotient * t);
+            }
+            return (oldR, oldS, oldT);
+        }
+
+        public int EulerPhiFunctionCalc(int n)
+        {
+            int result = n;
+            for (int i = 2; i * i <= n; i++)
+            {
+                if (n % i == 0)
+                {
+                    while (n % i == 0)
+                    {
+                        n /= i;
+                    }
+                    result -= result / i;
+                }
+            }
+            if (n > 1)
+            {
+                result -= result / n;
+            }
+            return result;
+        }
+
     }
 }
