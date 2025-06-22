@@ -27,11 +27,6 @@ namespace Cryptography_Toolkit.Components
             public int T { get; set; }
         }
 
-        public void ShanksBabyStepGiantStepMethodPreCheck(int generator, int element, int order)
-        {
-
-        }
-
         public ShanksResult ShanksBabyStepGiantStepMethodRun(int generator, int element, int order)
         {
             int orderSqrt = (int)Math.Ceiling(Math.Sqrt(order - 1));

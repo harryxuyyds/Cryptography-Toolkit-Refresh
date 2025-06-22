@@ -106,7 +106,7 @@
                                            Header="Order n of a cyclic group">
                         <NumberBox
                             x:Name="BabyStepGiantStepOrderNumberBox"
-                            Value="3"
+                            Value="997"
                             Minimum="2"
                             SpinButtonPlacementMode="Inline"
                             SmallChange="1"
@@ -116,7 +116,7 @@
                                            Header="Generator α of the group">
                         <NumberBox
                             x:Name="BabyStepGiantStepGeneratorNumberBox"
-                            Value="11"
+                            Value="7"
                             Minimum="2"
                             SpinButtonPlacementMode="Inline"
                             SmallChange="1"
@@ -126,7 +126,7 @@
                                            Header="Group element β">
                         <NumberBox
                             x:Name="BabyStepGiantStepGroupElementNumberBox"
-                            Value="11"
+                            Value="123"
                             Minimum="2"
                             SpinButtonPlacementMode="Inline"
                             SmallChange="1"
@@ -148,7 +148,7 @@
                 <controls:SettingsExpander.Items>
                     <TextBox x:Name="BabyStepGiantStepLogTextBox" 
                              Text="The running log generated during the Shanks' baby-step giant-step method will be displayed here."
-                             Height="200" 
+                             Height="240" 
                              AcceptsReturn="True"
                              IsReadOnly="True"
                              ScrollViewer.VerticalScrollBarVisibility="Auto"
@@ -182,7 +182,7 @@
                                Header="Order n of a cyclic group">
                         <NumberBox
                             x:Name="PollardRhoOrderNumberBox"
-                            Value="3"
+                            Value="997"
                             Minimum="2"
                             SpinButtonPlacementMode="Inline"
                             SmallChange="1"
@@ -192,7 +192,7 @@
                                Header="Generator α of the group">
                         <NumberBox
                             x:Name="PollardRhoGeneratorNumberBox"
-                            Value="11"
+                            Value="21"
                             Minimum="2"
                             SpinButtonPlacementMode="Inline"
                             SmallChange="1"
@@ -202,7 +202,7 @@
                                Header="Group element β">
                         <NumberBox
                             x:Name="PollardRhoGroupElementNumberBox"
-                            Value="11"
+                            Value="123"
                             Minimum="2"
                             SpinButtonPlacementMode="Inline"
                             SmallChange="1"
@@ -213,6 +213,7 @@
 
             <Button x:Name="PollardRhoExecuteButton" 
                     Content="Click to Execute Pollard's Rho Method" 
+                    Click="PollardRhoExecuteButton_OnClick"
                     HorizontalAlignment="Stretch"/>
 
             <controls:SettingsExpander Description=""
@@ -223,7 +224,7 @@
                 <controls:SettingsExpander.Items>
                     <TextBox x:Name="PollardRhoLogTextBox" 
                              Text="The running log generated during the Pollard's rho method will be displayed here."
-                             Height="200" 
+                             Height="240" 
                              AcceptsReturn="True"
                              IsReadOnly="True"
                              ScrollViewer.VerticalScrollBarVisibility="Auto"
