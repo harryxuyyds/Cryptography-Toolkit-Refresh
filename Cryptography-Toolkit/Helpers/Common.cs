@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -43,6 +44,11 @@ namespace Cryptography_Toolkit.Helpers
                 if (exponentToBin[index - 1] == '1')
                 {
                     result = result * baseElement % modulus;
+                }
+                // 防止result为负数
+                if (result < 0)
+                {
+                    result = (result + modulus) % modulus;
                 }
             }
             return (int)result;
@@ -89,7 +95,7 @@ namespace Cryptography_Toolkit.Helpers
             return EuclideanAlgorithmCalc(b, a % b);
         }
 
-        public (int gcd, int s, int t) ExtendedEuclideanAlgorithmClac(int a, int b)
+        public (int gcd, int s, int t) ExtendedEuclideanAlgorithmCalc(int a, int b)
         {
             int oldR = a, r = b;
             int oldS = 1, s = 0;
@@ -125,6 +131,5 @@ namespace Cryptography_Toolkit.Helpers
             }
             return result;
         }
-
     }
 }

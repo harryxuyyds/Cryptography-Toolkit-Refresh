@@ -37,8 +37,12 @@ namespace Cryptography_Toolkit.Pages
 
         private void RsaPrimeGenerationExecuteButton_OnClick(object sender, RoutedEventArgs e)
         {
+            var millerRabinPrimalityTest = new Components.MillerRabinPrimalityTest();
+
             if (int.TryParse(RsaPrimeGenerationParaPNumberBox.Text, out var p) &&
-                int.TryParse(RsaPrimeGenerationParaPNumberBox.Text, out var q))
+                int.TryParse(RsaPrimeGenerationParaPNumberBox.Text, out var q) &&
+                millerRabinPrimalityTest.MillerRabinPrimalityTestRun(8, p) &&
+                millerRabinPrimalityTest.MillerRabinPrimalityTestRun(8, q))
             {
                 _keyPubN = p * q;
                 _eulerPhiN = _common.EulerPhiFunctionCalc(_keyPubN);
@@ -58,7 +62,7 @@ namespace Cryptography_Toolkit.Pages
         {
             if (int.TryParse(RsaKeyGenerationPublicExponentENumberBox.Text, out _keyPubE))
             {
-                (int gcd, int s, int t) = _common.ExtendedEuclideanAlgorithmClac(_keyPubE, _eulerPhiN);
+                (int gcd, int s, int t) = _common.ExtendedEuclideanAlgorithmCalc(_keyPubE, _eulerPhiN);
                 if (gcd == 1)
                 {
                     _keyPrD = t;

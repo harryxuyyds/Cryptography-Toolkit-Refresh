@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Numerics;
 using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Microsoft.UI.Xaml;
@@ -75,11 +76,11 @@ public sealed partial class RandomNumberGeneratorsPage : Page
             double.TryParse(PrngParaMTextBox.Text, out double modulusValue) &&
             PrngGenerateQuantityNumberBox.Value is double quantityValue)
         {
-            var seed = (long)seedValue;
-            var multiplier = (long)multiplierValue;
-            var increment = (long)incrementValue;
-            var modulus = (long)modulusValue;
-            var quantity = (long)quantityValue;
+            var seed = (BigInteger)seedValue;
+            var multiplier = (BigInteger)multiplierValue;
+            var increment = (BigInteger)incrementValue;
+            var modulus = (BigInteger)modulusValue;
+            var quantity = (BigInteger)quantityValue;
 
             if (seed < 0 || multiplier <= 0 || increment < 0 || modulus <= 0 || quantity <= 0)
             {

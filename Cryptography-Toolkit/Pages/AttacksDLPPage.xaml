@@ -6,6 +6,7 @@
     xmlns:local="using:Cryptography_Toolkit.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     mc:Ignorable="d">
 
     <ScrollViewer>
@@ -83,13 +84,162 @@
                        Style="{StaticResource BodyStrongTextBlockStyle}" 
                        Margin="0,8,0,8"/>
 
+            <TextBlock Text="Given a cyclic group G of order n, a generator α of the group and a group element β, the problem is to find an integer x such that α^x=β." 
+                       TextWrapping="Wrap"/>
+
+            <InfoBar
+                x:Name="BabyStepGiantStepStatusInfoBar"
+                IsOpen="True"
+                IsIconVisible="True"
+                IsClosable="False"
+                Severity="Informational"
+                Title="Status"
+                Message="Please enter correct parameters." />
+
+            <controls:SettingsExpander Description=""
+                                       Header="Shanks' Baby-Step Giant-Step Method Setup">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xE713;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <controls:SettingsCard Description=""
+                                           Header="Order n of a cyclic group">
+                        <NumberBox
+                            x:Name="BabyStepGiantStepOrderNumberBox"
+                            Value="3"
+                            Minimum="2"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                                           Header="Generator α of the group">
+                        <NumberBox
+                            x:Name="BabyStepGiantStepGeneratorNumberBox"
+                            Value="11"
+                            Minimum="2"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                                           Header="Group element β">
+                        <NumberBox
+                            x:Name="BabyStepGiantStepGroupElementNumberBox"
+                            Value="11"
+                            Minimum="2"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
+            <Button x:Name="BabyStepGiantStepExecuteButton" 
+                    Content="Click to Execute Shanks' Baby-Step Giant-Step Method"
+                    Click="BabyStepGiantStepExecuteButton_OnClick"
+                    HorizontalAlignment="Stretch"/>
+
+            <controls:SettingsExpander Description=""
+                                       Header="Shanks' Baby-Step Giant-Step Method Output">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xE8BC;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <TextBox x:Name="BabyStepGiantStepLogTextBox" 
+                             Text="The running log generated during the Shanks' baby-step giant-step method will be displayed here."
+                             Height="200" 
+                             AcceptsReturn="True"
+                             IsReadOnly="True"
+                             ScrollViewer.VerticalScrollBarVisibility="Auto"
+                             ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
             <TextBlock Text="Pollard's Rho Method" 
                        Style="{StaticResource BodyStrongTextBlockStyle}" 
                        Margin="0,8,0,8"/>
 
+            <TextBlock Text="Given a cyclic group G of order n, a generator α of the group and a group element β, the problem is to find an integer x such that α^x=β." 
+                       TextWrapping="Wrap"/>
+
+            <InfoBar
+                x:Name="PollardRhoStatusInfoBar"
+                IsOpen="True"
+                IsIconVisible="True"
+                IsClosable="False"
+                Severity="Informational"
+                Title="Status"
+                Message="Please enter correct parameters." />
+
+            <controls:SettingsExpander Description=""
+                           Header="Pollard's Rho Method Setup">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xE713;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <controls:SettingsCard Description=""
+                               Header="Order n of a cyclic group">
+                        <NumberBox
+                            x:Name="PollardRhoOrderNumberBox"
+                            Value="3"
+                            Minimum="2"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                               Header="Generator α of the group">
+                        <NumberBox
+                            x:Name="PollardRhoGeneratorNumberBox"
+                            Value="11"
+                            Minimum="2"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                               Header="Group element β">
+                        <NumberBox
+                            x:Name="PollardRhoGroupElementNumberBox"
+                            Value="11"
+                            Minimum="2"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
+            <Button x:Name="PollardRhoExecuteButton" 
+                    Content="Click to Execute Pollard's Rho Method" 
+                    HorizontalAlignment="Stretch"/>
+
+            <controls:SettingsExpander Description=""
+                           Header="Pollard's Rho Method Output">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xE8BC;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <TextBox x:Name="PollardRhoLogTextBox" 
+                             Text="The running log generated during the Pollard's rho method will be displayed here."
+                             Height="200" 
+                             AcceptsReturn="True"
+                             IsReadOnly="True"
+                             ScrollViewer.VerticalScrollBarVisibility="Auto"
+                             ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
             <TextBlock Text="Nongeneric Algorithms: The Index-Calculus Method" 
                        Style="{StaticResource SubtitleTextBlockStyle}" 
                        Margin="0,8,0,8"/>
+
+            <TextBlock Text="All algorithms introduced so far are completely independent of the group being attacked, i.e., they work for discrete logarithms defined over any cyclic group. Nongeneric algorithms efficiently exploit special properties, i.e., the inherent structure of certain groups. This can lead to much more powerful attacks. The most important nongeneric algorithm is the index-calculus method." 
+                       TextWrapping="Wrap"/>
+
+            <TextBlock Text="In computational number theory, the index calculus algorithm is a probabilistic algorithm for computing discrete logarithms. Dedicated to the discrete logarithm, index calculus leads to a family of algorithms adapted to finite fields and to some families of elliptic curves. The algorithm collects relations among the discrete logarithms of small primes, computes them by a linear algebra procedure and finally expresses the desired discrete logarithm with respect to the discrete logarithms of small primes." 
+                       TextWrapping="Wrap"/>
         </StackPanel>
     </ScrollViewer>
 </Page>

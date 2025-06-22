@@ -89,7 +89,7 @@
                 IsOpen="True"
                 IsIconVisible="True"
                 IsClosable="False"
-                Severity="Warning"
+                Severity="Informational"
                 Title="Status"
                 Message="Please enter correct parameters or select a parameter preset." />
 

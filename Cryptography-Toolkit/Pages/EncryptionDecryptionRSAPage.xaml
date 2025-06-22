@@ -160,14 +160,14 @@
 
             <TextBlock Text="Encryption and Decryption"
                    Style="{StaticResource BodyStrongTextBlockStyle}"
-                   Margin="0,8,0,8"/>
+                   Margin="0,16,0,8"/>
 
             <controls:SettingsExpander Description=""
                                    Header="RSA Encryption">
                 <controls:SettingsExpander.HeaderIcon>
                     <FontIcon Glyph="&#xE72E;" />
                 </controls:SettingsExpander.HeaderIcon>
-                <HyperlinkButton Content="Load Default Public Key"/>
+                <HyperlinkButton Content="Load Default Settings"/>
                 <controls:SettingsExpander.Items>
                     <controls:SettingsCard Description=""
                                            Header="Plaintext">
@@ -181,6 +181,7 @@
                     <controls:SettingsCard Description=""
                                            Header="Public Key n">
                         <NumberBox
+                            x:Name="RsaEncryptionPublicKeyNNumberBox"
                             Minimum="1"
                             SpinButtonPlacementMode="Inline"
                             SmallChange="1"
@@ -189,6 +190,7 @@
                     <controls:SettingsCard Description=""
                                            Header="Public Key e">
                         <NumberBox
+                            x:Name="RsaEncryptionPublicKeyENumberBox"
                             Minimum="1"
                             SpinButtonPlacementMode="Inline"
                             SmallChange="1"
@@ -202,11 +204,49 @@
                 <controls:SettingsExpander.HeaderIcon>
                     <FontIcon Glyph="&#xE785;" />
                 </controls:SettingsExpander.HeaderIcon>
-                <HyperlinkButton Content="Load Default Private Key"/>
+                <HyperlinkButton Content="Load Default Settings"/>
                 <controls:SettingsExpander.Items>
-
+                    <controls:SettingsCard Description=""
+                                           Header="Ciphertext">
+                        <NumberBox
+                            x:Name="RsaDecryptionCiphertextNumberBox"
+                            Minimum="1"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                                           Header="Public Key n">
+                        <NumberBox
+                            x:Name="RsaDecryptionPublicKeyNNumberBox"
+                            Minimum="1"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                                           Header="Private Key d">
+                        <NumberBox
+                            x:Name="RsaDecryptionPrivateKeyDNumberBox"
+                            Minimum="1"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
+
+            <TextBlock Text="RSA Encryption and Decryption Output"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"
+                       Margin="0,8,0,8"/>
+
+            <TextBox x:Name="RsaEncryptionDecryptionLogTextBox" 
+                     Text="The running log generated during the RSA encryption and decryption will be displayed here."
+                     Height="120" 
+                     AcceptsReturn="True"
+                     IsReadOnly="True"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
 
         </StackPanel>
     </ScrollViewer>

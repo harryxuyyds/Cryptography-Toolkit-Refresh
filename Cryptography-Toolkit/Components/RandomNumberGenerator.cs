@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,11 +20,11 @@ namespace Cryptography_Toolkit.Components
             _common = new Common();
         }
 
-        public string PseudorandomNumberGenerator(long seed, long multiplier, long increment, long modulus, long quantity)
+        public string PseudorandomNumberGenerator(BigInteger seed, BigInteger multiplier, BigInteger increment, BigInteger modulus, BigInteger quantity)
         {
             StringBuilder result = new StringBuilder();
-            long current = seed;
-            for (int i = 0; i < quantity; i++)
+            var current = seed;
+            for (var i = 0; i < quantity; i++)
             {
                 current = (multiplier * current + increment) % modulus;
                 result.AppendLine(current.ToString());

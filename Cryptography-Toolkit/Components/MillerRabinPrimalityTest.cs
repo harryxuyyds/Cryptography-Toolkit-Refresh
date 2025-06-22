@@ -39,5 +39,38 @@ namespace Cryptography_Toolkit.Components
             }
             return 0; // 不合格
         }
+
+        public bool MillerRabinPrimalityTestRun(int securityParameter, int primeCandidate)
+        {
+            var temp = primeCandidate - 1;
+            var paraU = 0;
+            while (temp % 2 == 0)
+            {
+                paraU += 1;
+                temp /= 2;
+            }
+            var paraR = temp;
+
+            var resultCheck = 0;
+            for (var index = 1; index <= securityParameter; index++)
+            {
+                // 生成随机数
+                var randomInt = _common.GenerateRandomInt(2, primeCandidate - 1);
+
+                var millerRabinPrimalityTest = new Components.MillerRabinPrimalityTest();
+                var result = millerRabinPrimalityTest.MillerRabinPrimalityTestSingle(randomInt, (int)primeCandidate, paraU, (int)paraR);
+                resultCheck += result;
+            }
+
+            // 检查结果
+            if (resultCheck != securityParameter)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }

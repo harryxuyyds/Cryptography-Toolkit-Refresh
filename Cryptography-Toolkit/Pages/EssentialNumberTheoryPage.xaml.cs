@@ -81,7 +81,7 @@ public sealed partial class EssentialNumberTheoryPage : Page
         if (int.TryParse(ExtendedEuclideanAlgorithmParaR0NumberBox.Text, out int r0) &&
             int.TryParse(ExtendedEuclideanAlgorithmParaR1NumberBox.Text, out int r1))
         {
-            (int gcd, int s, int t) = _common.ExtendedEuclideanAlgorithmClac(r0, r1);
+            (int gcd, int s, int t) = _common.ExtendedEuclideanAlgorithmCalc(r0, r1);
             string inverseStatement = "";
             if (gcd == 1)
             {
