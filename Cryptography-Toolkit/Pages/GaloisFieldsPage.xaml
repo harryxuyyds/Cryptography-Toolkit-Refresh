@@ -88,27 +88,28 @@
                 <controls:SettingsExpander.Items>
                     <controls:SettingsCard Description="Sample parameters: x^7+x^6+x = (11000010)_2 = (C2)_hex, then type 'C2'."
                                            Header="Polynomials A(x) from GF(2^8)">
-                        <TextBox PlaceholderText="A(x)" />
+                        <TextBox x:Name="GfAdditionElement1TextBox"
+                                 PlaceholderText="A(x)" 
+                                 TextChanged="GfAdditionElementTextBox_OnTextChanged"/>
                     </controls:SettingsCard>
                     <controls:SettingsCard Description="Sample parameters: x^7+x^6+x = (11000010)_2 = (C2)_hex, then type 'C2'."
                                                    Header="Polynomials B(x) from GF(2^8)">
-                        <TextBox PlaceholderText="B(x)" />
+                        <TextBox x:Name="GfAdditionElement2TextBox"
+                                 PlaceholderText="B(x)" 
+                                 TextChanged="GfAdditionElementTextBox_OnTextChanged"/>
                     </controls:SettingsCard>
                     <controls:SettingsCard Description=""
-                                           Header="The sum of the two elements is">
-                        <HyperlinkButton Content="FF"
-                                         ToolTipService.ToolTip="Copy to clipboard"/>
-                    </controls:SettingsCard>
-                    <controls:SettingsCard Description=""
-                                           Header="The difference of the two elements is">
-                        <HyperlinkButton Content="00"
+                                           Header="The sum &amp; difference of the two elements is">
+                        <HyperlinkButton x:Name="GfAdditionResultHyperlinkButton" 
+                                         Content=""
                                          ToolTipService.ToolTip="Copy to clipboard"/>
                     </controls:SettingsCard>
                     <InfoBar
+                        x:Name="GfAdditionStatusInfoBar"
                         IsOpen="True"
                         IsIconVisible="True"
                         IsClosable="False"
-                        Severity="Warning"
+                        Severity="Informational"
                         Title="Status"
                         Message="Please enter correct parameters." />
                 </controls:SettingsExpander.Items>
@@ -123,22 +124,27 @@
                 <controls:SettingsExpander.Items>
                     <controls:SettingsCard Description="Sample parameters: x^7+x^6+x = (11000010)_2 = (C2)_hex, then type 'C2'."
                                            Header="Polynomials A(x) from GF(2^8)">
-                        <TextBox PlaceholderText="A(x)" />
+                        <TextBox x:Name="GfMultiplicationElement1TextBox" 
+                                 TextChanged="GfMultiplicationElementTextBox_OnTextChanged"
+                                 PlaceholderText="A(x)" />
                     </controls:SettingsCard>
                     <controls:SettingsCard Description="Sample parameters: x^7+x^6+x = (11000010)_2 = (C2)_hex, then type 'C2'."
                                            Header="Polynomials B(x) from GF(2^8)">
-                        <TextBox PlaceholderText="B(x)" />
+                        <TextBox x:Name="GfMultiplicationElement2TextBox" 
+                                 TextChanged="GfMultiplicationElementTextBox_OnTextChanged"
+                                 PlaceholderText="B(x)" />
                     </controls:SettingsCard>
                     <controls:SettingsCard Description=""
                                            Header="The polynomial product in GF ( 2^8 ) is">
-                        <HyperlinkButton Content="FF"
+                        <HyperlinkButton x:Name="GfMultiplicationResultHyperlinkButton" 
                                          ToolTipService.ToolTip="Copy to clipboard"/>
                     </controls:SettingsCard>
                     <InfoBar
+                        x:Name="GfMultiplicationStatusInfoBar"
                         IsOpen="True"
                         IsIconVisible="True"
                         IsClosable="False"
-                        Severity="Warning"
+                        Severity="Informational"
                         Title="Status"
                         Message="Please enter correct parameters." />
 
@@ -153,18 +159,21 @@
                 <controls:SettingsExpander.Items>
                     <controls:SettingsCard Description="Sample parameters: x^7+x^6+x = (11000010)_2 = (C2)_hex, then type 'C2'."
                                            Header="Polynomials A(x) from GF(2^8)">
-                        <TextBox PlaceholderText="A(x)" />
+                        <TextBox x:Name="GfInversionElement1TextBox" 
+                                 TextChanged="GfInversionElementTextBox_OnTextChanged"
+                                 PlaceholderText="A(x)" />
                     </controls:SettingsCard>
                     <controls:SettingsCard Description=""
                                            Header="The inversion of A(x) is">
-                        <HyperlinkButton Content="FF"
+                        <HyperlinkButton x:Name="GfInversionResultHyperlinkButton" 
                                          ToolTipService.ToolTip="Copy to clipboard"/>
                     </controls:SettingsCard>
                     <InfoBar
+                        x:Name="GfInversionStatusInfoBar"
                         IsOpen="True"
                         IsIconVisible="True"
                         IsClosable="False"
-                        Severity="Warning"
+                        Severity="Informational"
                         Title="Status"
                         Message="Please enter correct parameters." />
 

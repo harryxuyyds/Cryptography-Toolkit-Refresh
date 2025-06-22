@@ -131,17 +131,17 @@
                         <NavigationViewItem  Content="Trivium" Tag="TriviumPage" />
                     </NavigationViewItem.MenuItems>
                 </NavigationViewItem>
-                <NavigationViewItem  Content="Data Encryption Standard" Tag="DataEncryptionStandardPage" IsEnabled="False">
-                    <NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xE72E;" />
-                    </NavigationViewItem.Icon>
-                    <NavigationViewItem.MenuItems>
-                        <NavigationViewItem  Content="Internal Structure of DES" Tag="InternalStructureDESPage" />
-                        <NavigationViewItem  Content="Decryption of DES" Tag="DecryptionDESPage" />
-                        <NavigationViewItem  Content="Triple DES (3DES) and DESX" Tag="TripleDESPage" />
-                        <NavigationViewItem  Content="Lightweight Cipher PRESENT" Tag="LightweightCipherPRESENTPage" />
-                    </NavigationViewItem.MenuItems>
-                </NavigationViewItem>
+                <!-- <NavigationViewItem  Content="Data Encryption Standard" Tag="DataEncryptionStandardPage" IsEnabled="False"> -->
+                <!--     <NavigationViewItem.Icon> -->
+                <!--         <FontIcon Glyph="&#xE72E;" /> -->
+                <!--     </NavigationViewItem.Icon> -->
+                <!--     <NavigationViewItem.MenuItems> -->
+                <!--         <NavigationViewItem  Content="Internal Structure of DES" Tag="InternalStructureDESPage" /> -->
+                <!--         <NavigationViewItem  Content="Decryption of DES" Tag="DecryptionDESPage" /> -->
+                <!--         <NavigationViewItem  Content="Triple DES (3DES) and DESX" Tag="TripleDESPage" /> -->
+                <!--         <NavigationViewItem  Content="Lightweight Cipher PRESENT" Tag="LightweightCipherPRESENTPage" /> -->
+                <!--     </NavigationViewItem.MenuItems> -->
+                <!-- </NavigationViewItem> -->
                 <NavigationViewItem  Content="Advanced Encryption Standard" Tag="AdvancedEncryptionStandardPage">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE752;" />
@@ -152,15 +152,15 @@
                         <NavigationViewItem  Content="Decryption of AES" Tag="DecryptionAESPage" />
                     </NavigationViewItem.MenuItems>
                 </NavigationViewItem>
-                <NavigationViewItem  Content="More About Block Ciphers" Tag="MoreAboutBlockCiphersPage" IsEnabled="False">
-                    <NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xE7BC;" />
-                    </NavigationViewItem.Icon>
-                    <NavigationViewItem.MenuItems>
-                        <NavigationViewItem  Content="Modes of Operation for Encryption" Tag="ModesOperationEncryptionPage" />
-                        <NavigationViewItem  Content="Modes of Operation for Authentication" Tag="ModesOperationAuthenticationPage" />
-                    </NavigationViewItem.MenuItems>
-                </NavigationViewItem>
+                <!-- <NavigationViewItem  Content="More About Block Ciphers" Tag="MoreAboutBlockCiphersPage" IsEnabled="False"> -->
+                <!--     <NavigationViewItem.Icon> -->
+                <!--         <FontIcon Glyph="&#xE7BC;" /> -->
+                <!--     </NavigationViewItem.Icon> -->
+                <!--     <NavigationViewItem.MenuItems> -->
+                <!--         <NavigationViewItem  Content="Modes of Operation for Encryption" Tag="ModesOperationEncryptionPage" /> -->
+                <!--         <NavigationViewItem  Content="Modes of Operation for Authentication" Tag="ModesOperationAuthenticationPage" /> -->
+                <!--     </NavigationViewItem.MenuItems> -->
+                <!-- </NavigationViewItem> -->
                 <NavigationViewItem  Content="Public-Key Cryptography" Tag="PublicKeyCryptographyPage">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE8D7;" />

@@ -93,8 +93,8 @@ public sealed partial class InternalStructureAESPage : Page
 
     private void AesTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        string plaintext = AesPlaintextTextBox.Text;
-        string key = AesKeyTextBox.Text;
+        string plaintext = AesPlaintextTextBox.Text.Trim();
+        string key = AesKeyTextBox.Text.Trim();
         int plaintextLength = plaintext.Length;
         int keyLength = key.Length;
         int plaintextNoSpaceLength = string.IsNullOrWhiteSpace(plaintext) ? 0 : plaintext.Replace(" ", "").Length;
