@@ -93,36 +93,36 @@
                                              Content="Navigate to ..."
                                              Click="PageNavigationHyperlinkButton_OnClick"/>
                         </controls:SettingsCard>
-                        <controls:SettingsCard Description=""
-                                               Header="Salsa20">
-                            <controls:SettingsCard.HeaderIcon>
-                                <FontIcon Glyph="&#xF148;" />
-                            </controls:SettingsCard.HeaderIcon>
-                            <HyperlinkButton x:Name="Salsa20PageHyperlinkButton" 
-                                             Tag="Salsa20Page"
-                                             Content="Navigate to ..."
-                                             Click="PageNavigationHyperlinkButton_OnClick"/>
-                        </controls:SettingsCard>
-                        <controls:SettingsCard Description=""
-                                               Header="ChaCha">
-                            <controls:SettingsCard.HeaderIcon>
-                                <FontIcon Glyph="&#xF149;" />
-                            </controls:SettingsCard.HeaderIcon>
-                            <HyperlinkButton x:Name="ChaChaPageHyperlinkButton" 
-                                             Tag="ChaChaPage"
-                                             Content="Navigate to ..."
-                                             Click="PageNavigationHyperlinkButton_OnClick"/>
-                        </controls:SettingsCard>
-                        <controls:SettingsCard Description=""
-                                               Header="Trivium">
-                            <controls:SettingsCard.HeaderIcon>
-                                <FontIcon Glyph="&#xF14A;" />
-                            </controls:SettingsCard.HeaderIcon>
-                            <HyperlinkButton x:Name="TriviumPageHyperlinkButton" 
-                                             Tag="TriviumPage"
-                                             Content="Navigate to ..."
-                                             Click="PageNavigationHyperlinkButton_OnClick"/>
-                        </controls:SettingsCard>
+                        <!-- <controls:SettingsCard Description="" -->
+                        <!--                        Header="Salsa20"> -->
+                        <!--     <controls:SettingsCard.HeaderIcon> -->
+                        <!--         <FontIcon Glyph="&#xF148;" /> -->
+                        <!--     </controls:SettingsCard.HeaderIcon> -->
+                        <!--     <HyperlinkButton x:Name="Salsa20PageHyperlinkButton"  -->
+                        <!--                      Tag="Salsa20Page" -->
+                        <!--                      Content="Navigate to ..." -->
+                        <!--                      Click="PageNavigationHyperlinkButton_OnClick"/> -->
+                        <!-- </controls:SettingsCard> -->
+                        <!-- <controls:SettingsCard Description="" -->
+                        <!--                        Header="ChaCha"> -->
+                        <!--     <controls:SettingsCard.HeaderIcon> -->
+                        <!--         <FontIcon Glyph="&#xF149;" /> -->
+                        <!--     </controls:SettingsCard.HeaderIcon> -->
+                        <!--     <HyperlinkButton x:Name="ChaChaPageHyperlinkButton"  -->
+                        <!--                      Tag="ChaChaPage" -->
+                        <!--                      Content="Navigate to ..." -->
+                        <!--                      Click="PageNavigationHyperlinkButton_OnClick"/> -->
+                        <!-- </controls:SettingsCard> -->
+                        <!-- <controls:SettingsCard Description="" -->
+                        <!--                        Header="Trivium"> -->
+                        <!--     <controls:SettingsCard.HeaderIcon> -->
+                        <!--         <FontIcon Glyph="&#xF14A;" /> -->
+                        <!--     </controls:SettingsCard.HeaderIcon> -->
+                        <!--     <HyperlinkButton x:Name="TriviumPageHyperlinkButton"  -->
+                        <!--                      Tag="TriviumPage" -->
+                        <!--                      Content="Navigate to ..." -->
+                        <!--                      Click="PageNavigationHyperlinkButton_OnClick"/> -->
+                        <!-- </controls:SettingsCard> -->
                     </controls:SettingsExpander.Items>
                 </controls:SettingsExpander>
 
@@ -202,6 +202,111 @@
                     </controls:SettingsExpander.Items>
                 </controls:SettingsExpander>
 
+                <controls:SettingsExpander Description="RSA is a public-key cryptosystem that uses paired keys for secure communication, relying on the difficulty of factoring large prime numbers for its security. It's widely used for key exchange and digital signatures."
+                                           Header="RSA Cryptosystem">
+                    <controls:SettingsExpander.HeaderIcon>
+                        <FontIcon Glyph="&#xF146;" />
+                    </controls:SettingsExpander.HeaderIcon>
+                    <HyperlinkButton x:Name="RSACryptosystemPageHyperlinkButton" 
+                                     Tag="RSACryptosystemPage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
+                    <controls:SettingsExpander.Items>
+                        <controls:SettingsCard Description="A distinctive feature of all asymmetric schemes is that there is a key set-up phase. RSA encryption and decryption are done in the integer ring, and modular computations play a central role."
+                                               Header="Encryption and Decryption of RSA">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF146;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="EncryptionDecryptionRSAPageHyperlinkButton" 
+                                             Tag="EncryptionDecryptionRSAPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Description="RSA involves exponentiation with very large numbers, making computations intensive even with optimized modular arithmetic. Since its invention, researchers have developed acceleration techniques."
+                                               Header="Speed-Up Techniques for RSA">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF147;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="SpeedUpTechniquesRSAPageHyperlinkButton" 
+                                             Tag="SpeedUpTechniquesRSAPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Description="A primality test is an algorithm for determining whether an input number is prime. Unlike integer factorization, primality tests only state whether the input number is prime or not."
+                                               Header="Primality Tests">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF148;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="PrimalityTestsPageHyperlinkButton" 
+                                             Tag="PrimalityTestsPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Description="Attacks typically exploit weaknesses in the way RSA is implemented or used rather than the RSA itself. There are three general families: protocol attacks, mathematical attacks, side-channel attack."
+                                               Header="Attacks against RSA">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF149;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="AttacksRSAPageHyperlinkButton" 
+                                             Tag="AttacksRSAPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Description="In contrast to RSA, Rabin scheme can be shown that the Rabin scheme is equivalent to factoring. Thus, it is said that the cryptosystem is provably secure."
+                                               Header="Rabin Scheme">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF14A;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="RabinSchemePageHyperlinkButton" 
+                                             Tag="RabinSchemePage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                    </controls:SettingsExpander.Items>
+                </controls:SettingsExpander>
+
+                <controls:SettingsExpander Description="Discrete Logarithm Schemes are cryptographic systems that rely on the computational hardness of solving the discrete logarithm problem in finite groups for their security."
+                                           Header="Discrete Logarithm Schemes">
+                    <controls:SettingsExpander.HeaderIcon>
+                        <FontIcon Glyph="&#xF147;" />
+                    </controls:SettingsExpander.HeaderIcon>
+                    <HyperlinkButton x:Name="DiscreteLogarithmSchemesPageHyperlinkButton" 
+                                     Tag="DiscreteLogarithmSchemesPage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
+                    <controls:SettingsExpander.Items>
+                        <controls:SettingsCard Description="DHKE method allows two parties to jointly establish a shared secret key over an insecure channel. This key can then be used to encrypt subsequent communications using a symmetric-key cipher."
+                                               Header="Diffie–Hellman Key Exchange">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF146;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="DiffieHellmanKeyExchangePageHyperlinkButton" 
+                                             Tag="DiffieHellmanKeyExchangePage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Description="This section gives a brief overview of algorithms for computing discrete logarithms, which can be classified into generic algorithms and nongeneric algorithms."
+                                               Header="Attacks Against the DLP">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF147;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="AttacksDLPPageHyperlinkButton" 
+                                             Tag="AttacksDLPPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Description="ElGamal encryption system is an asymmetric key encryption algorithm for public-key cryptography which is based on the Diffie–Hellman key exchange."
+                                               Header="Elgamal Encryption Scheme">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF148;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="ElgamalEncryptionSchemePageHyperlinkButton" 
+                                             Tag="ElgamalEncryptionSchemePage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                    </controls:SettingsExpander.Items>
+                </controls:SettingsExpander>
 
 
                 <controls:SettingsExpander Description="Digital signatures share some functionality with handwritten signatures. In particular, they provide a method to ensure message integrity, message authentication and nonrepudiation."

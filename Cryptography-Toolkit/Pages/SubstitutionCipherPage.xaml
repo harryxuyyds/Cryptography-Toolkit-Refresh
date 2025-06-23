@@ -80,73 +80,97 @@
                        Style="{StaticResource BodyStrongTextBlockStyle}" 
                        Margin="0,8,0,8"/>
 
+            <InfoBar
+                x:Name="SubstitutionCipherStatusInfoBar"
+                IsOpen="True"
+                IsIconVisible="True"
+                IsClosable="False"
+                Severity="Informational"
+                Title="Status"
+                Message="Please enter correct parameters or select a parameter preset." />
+
             <controls:SettingsCard Description=""
-                                   Header="16-byte plaintext presets">
+                                   Header="Plaintext alphabet presets">
                 <controls:SettingsCard.HeaderIcon>
                     <FontIcon Glyph="&#xE896;" />
                 </controls:SettingsCard.HeaderIcon>
-                <ComboBox x:Name="AesPlaintextPresetsComboBox"
-                          SelectedIndex="4">
+                <ComboBox x:Name="SubstitutionCipherPlaintextAlphabetPresetsComboBox"
+                          SelectedIndex="3"
+                          SelectionChanged="SubstitutionCipherPlaintextAlphabetPresetsComboBox_OnSelectionChanged">
                     <ComboBoxItem Content="Default ( ascending )" />
                     <ComboBoxItem Content="Default ( descending )" />
-                    <ComboBoxItem Content="0xF0" />
                     <ComboBoxItem Content="Random" />
                     <ComboBoxItem Content="Custom" />
                 </ComboBox>
             </controls:SettingsCard>
 
             <controls:SettingsCard Description=""
-                                   Header="16-byte key presets">
+                                   Header="Ciphertext alphabet presets">
                 <controls:SettingsCard.HeaderIcon>
                     <FontIcon Glyph="&#xE896;" />
                 </controls:SettingsCard.HeaderIcon>
-                <ComboBox x:Name="AesKeyPresetsComboBox"
-                          SelectedIndex="4">
-                    <ComboBoxItem Content="0x00" />
-                    <ComboBoxItem Content="0xFF" />
-                    <ComboBoxItem Content="0xF0" />
+                <ComboBox x:Name="SubstitutionCipherCiphertextAlphabetPresetsComboBox"
+                          SelectedIndex="3"
+                          SelectionChanged="SubstitutionCipherCiphertextAlphabetPresetsComboBox_OnSelectionChanged">
+                    <ComboBoxItem Content="Default ( ascending )" />
+                    <ComboBoxItem Content="Default ( descending )" />
                     <ComboBoxItem Content="Random" />
                     <ComboBoxItem Content="Custom" />
                 </ComboBox>
             </controls:SettingsCard>
 
-            <TextBox x:Name="AesPlaintextTextBox" 
-                     Header="16-byte plaintext" 
-                     PlaceholderText="Plaintext" 
-                     Margin="0, 8, 0, 4"/>
-
-            <TextBox x:Name="AesKeyTextBox" 
-                     Header="16-byte key" 
-                     PlaceholderText="Key" 
-                     Margin="0, 8, 0, 4"/>
+            <controls:SettingsCard Description="Represents how characters not in the alphabet are handled."
+                                   Header="Non-alphabetic Characters">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE8C1;" />
+                </controls:SettingsCard.HeaderIcon>
+                <!-- <ToggleSwitch /> -->
+                <ComboBox x:Name="SubstitutionCipherCharactersHandleComboBox" 
+                          SelectionChanged="SubstitutionCipherCharactersHandleComboBox_OnSelectionChanged"
+                          SelectedIndex="0">
+                    <ComboBoxItem Content="Keep" />
+                    <ComboBoxItem Content="Delete" />
+                </ComboBox>
+            </controls:SettingsCard>
 
             <controls:SettingsCard Description="Select which mode you want to use."
                                    Header="Cipher mode">
                 <controls:SettingsCard.HeaderIcon>
                     <FontIcon Glyph="&#xE8AB;" />
                 </controls:SettingsCard.HeaderIcon>
-                <ToggleSwitch x:Name="ShiftCipherModeToggleSwitch" 
+                <ToggleSwitch x:Name="SubstitutionCipherModeToggleSwitch" 
                               OffContent="Decryption" 
                               OnContent="Encryption" 
                               IsOn="True" />
             </controls:SettingsCard>
 
+            <TextBox x:Name="SubstitutionCipherPlaintextAlphabetTextBox" 
+                     Header="Plaintext alphabet" 
+                     PlaceholderText="Plaintext alphabet" 
+                     Margin="0, 8, 0, 4"/>
+
+            <TextBox x:Name="SubstitutionCipherCiphertextAlphabetTextBox" 
+                     Header="Ciphertext alphabet" 
+                     PlaceholderText="Ciphertext alphabet"
+                     Margin="0, 8, 0, 4"/>
+
             <TextBlock Text="Input" 
                        Style="{StaticResource BodyStrongTextBlockStyle}" 
                        Margin="0,8,0,8"/>
-            <TextBox x:Name="ShiftCipherMessageTextBox" 
+            <TextBox x:Name="SubstitutionCipherMessageTextBox" 
                      PlaceholderText="" 
                      AcceptsReturn="True"
                      TextWrapping="Wrap"
                      Height="200"
                      VerticalAlignment="Stretch"
+                     TextChanged="SubstitutionCipherTextBox_OnTextChanged"
                      ScrollViewer.VerticalScrollBarVisibility="Auto"
                      ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
 
             <TextBlock Text="Output ( Read Only )" 
                        Style="{StaticResource BodyStrongTextBlockStyle}" 
                        Margin="0,8,0,8"/>
-            <TextBox x:Name="ShiftCipherResultTextBox" 
+            <TextBox x:Name="SubstitutionCipherResultTextBox" 
                      PlaceholderText="" 
                      AcceptsReturn="True"
                      TextWrapping="Wrap"

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Cryptography_Toolkit.Pages.RSACryptosystemPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cryptography_Toolkit.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    mc:Ignorable="d">
+
+    <ScrollViewer>
+        <StackPanel Spacing="4" BorderThickness="2" CornerRadius="10" Padding="40">
+
+            <TextBlock Text="RSA Cryptosystem" 
+                       Style="{StaticResource TitleTextBlockStyle}" 
+                       Margin="0,0,0,8"/>
+
+            <StackPanel Orientation="Vertical" 
+                        Spacing="8" 
+                        Margin="0,8,0,8">
+                <controls:SettingsCard Description="A distinctive feature of all asymmetric schemes is that there is a key set-up phase. RSA encryption and decryption are done in the integer ring, and modular computations play a central role."
+                                       Header="Encryption and Decryption of RSA">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF146;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="EncryptionDecryptionRSAPageHyperlinkButton" 
+                                     Tag="EncryptionDecryptionRSAPage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Description="RSA involves exponentiation with very large numbers, making computations intensive even with optimized modular arithmetic. Since its invention, researchers have developed acceleration techniques."
+                                       Header="Speed-Up Techniques for RSA">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF147;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="SpeedUpTechniquesRSAPageHyperlinkButton" 
+                                     Tag="SpeedUpTechniquesRSAPage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Description="A primality test is an algorithm for determining whether an input number is prime. Unlike integer factorization, primality tests only state whether the input number is prime or not."
+                                       Header="Primality Tests">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF148;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="PrimalityTestsPageHyperlinkButton" 
+                                     Tag="PrimalityTestsPage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Description="Attacks typically exploit weaknesses in the way RSA is implemented or used rather than the RSA itself. There are three general families: protocol attacks, mathematical attacks, side-channel attack."
+                                       Header="Attacks against RSA">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF149;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="AttacksRSAPageHyperlinkButton" 
+                                     Tag="AttacksRSAPage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Description="In contrast to RSA, Rabin scheme can be shown that the Rabin scheme is equivalent to factoring. Thus, it is said that the cryptosystem is provably secure."
+                                       Header="Rabin Scheme">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF14A;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="RabinSchemePageHyperlinkButton" 
+                                     Tag="RabinSchemePage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

@@ -79,19 +79,33 @@
             <TextBlock Text="Linear Feedback Shift Registers (LFSRs)" 
                        Style="{StaticResource SubtitleTextBlockStyle}" 
                        Margin="0,8,0,8"/>
+
+            <TextBlock Text="An LFSR consists of clocked storage elements (flip-flops) and a feedback path. The number of storage elements gives us the degree of the LFSR. In other words, an LFSR with m flip-flops is said to be of degree m. The feedback network computes the input for the last flip-flop as the XOR-sum of certain flip-flops in the shift register." 
+                       TextWrapping="Wrap"/>
+
             <TextBlock Text="Configuration" 
                        Style="{StaticResource BodyStrongTextBlockStyle}" 
                        Margin="0,8,0,8"/>
+
+            <InfoBar
+                x:Name="LfsrStatusInfoBar"
+                IsOpen="True"
+                IsIconVisible="True"
+                IsClosable="False"
+                Severity="Informational"
+                Title="Status"
+                Message="Please enter correct parameters." />
+
             <controls:SettingsCard Description=""
                                    Header="Degree of LFSR">
                 <controls:SettingsCard.HeaderIcon>
-                    <FontIcon Glyph="&#xE961;" />
+                    <FontIcon Glyph="&#xE8CB;" />
                 </controls:SettingsCard.HeaderIcon>
                 <NumberBox
                     x:Name="LfsrDegreeNumberBox"
-                    Value="3"
+                    Value="5"
                     Minimum="1"
-                    Maximum="50"
+                    Maximum="16"
                     SpinButtonPlacementMode="Inline"
                     SmallChange="1"
                     LargeChange="1" />
@@ -99,23 +113,40 @@
             <controls:SettingsCard Description=""
                                    Header="Feedback coefficients">
                 <controls:SettingsCard.HeaderIcon>
-                    <FontIcon Glyph="&#xE961;" />
+                    <FontIcon Glyph="&#xE777;" />
                 </controls:SettingsCard.HeaderIcon>
                 <TextBox x:Name="LfsrFeedbackCoefficientsTextBox" 
+                         Text="10111"
                          VerticalAlignment="Stretch"/>
             </controls:SettingsCard>
             <controls:SettingsCard Description=""
                                    Header="Initial values">
                 <controls:SettingsCard.HeaderIcon>
-                    <FontIcon Glyph="&#xE961;" />
+                    <FontIcon Glyph="&#xE819;" />
                 </controls:SettingsCard.HeaderIcon>
                 <TextBox x:Name="LfsrInitialValuesTextBox" 
+                         Text="01011"
                          VerticalAlignment="Stretch"/>
             </controls:SettingsCard>
+
+            <TextBlock Text="Output" 
+                       Style="{StaticResource BodyStrongTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
+            <TextBox x:Name="LfsrLogTextBox" 
+                     Text="The running log generated during the linear feedback shift registers will be displayed here."
+                     Height="240" 
+                     AcceptsReturn="True"
+                     IsReadOnly="True"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
 
             <TextBlock Text="Known-Plaintext Attack Against Single LFSRs" 
                        Style="{StaticResource SubtitleTextBlockStyle}" 
                        Margin="0,8,0,8"/>
+
+            <TextBlock Text="A known-plaintext attack against a single Linear Feedback Shift Register (LFSR) exploits the vulnerability that the output stream is generated through a linear relationship defined by the feedback polynomial. By obtaining a sufficient number of known plaintext-ciphertext pairs, an attacker can set up a system of linear equations based on the LFSR's structure and solve for the initial state (seed) or feedback coefficients using techniques like the Berlekamp-Massey algorithm. This attack is effective because the linearity of LFSRs allows mathematical reconstruction of their internal state from observed outputs, compromising the system's security unless combined with nonlinear components." 
+                       TextWrapping="Wrap"/>
         </StackPanel>
     </ScrollViewer>
 </Page>

@@ -97,6 +97,13 @@
                         <FontIcon Glyph="&#xEB51;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
+                <NavigationViewItem
+                    Tag="AIPoweredSearchPage"
+                    Content="AI-Powered Search">
+                    <NavigationViewItem.Icon>
+                        <PathIcon Data="{StaticResource DeepSeekIconPath}" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
 
                 <NavigationViewItemHeader Content="Components" />
                 <NavigationViewItem x:Name="FavoritesItem" Content="Favorites" IsEnabled="False">
@@ -126,9 +133,9 @@
                     <NavigationViewItem.MenuItems>
                         <NavigationViewItem  Content="Random Number Generators" Tag="RandomNumberGeneratorsPage" />
                         <NavigationViewItem  Content="Shift Register-Based Stream Ciphers" Tag="ShiftRegisterBasedStreamCiphersPage" />
-                        <NavigationViewItem  Content="Salsa20" Tag="Salsa20Page" />
-                        <NavigationViewItem  Content="ChaCha" Tag="ChaChaPage" />
-                        <NavigationViewItem  Content="Trivium" Tag="TriviumPage" />
+                        <!-- <NavigationViewItem  Content="Salsa20" Tag="Salsa20Page" /> -->
+                        <!-- <NavigationViewItem  Content="ChaCha" Tag="ChaChaPage" /> -->
+                        <!-- <NavigationViewItem  Content="Trivium" Tag="TriviumPage" /> -->
                     </NavigationViewItem.MenuItems>
                 </NavigationViewItem>
                 <!-- <NavigationViewItem  Content="Data Encryption Standard" Tag="DataEncryptionStandardPage" IsEnabled="False"> -->
@@ -178,8 +185,8 @@
                         <NavigationViewItem  Content="Encryption and Decryption of RSA" Tag="EncryptionDecryptionRSAPage" />
                         <NavigationViewItem  Content="Speed-Up Techniques for RSA" Tag="SpeedUpTechniquesRSAPage" />
                         <NavigationViewItem  Content="Primality Tests" Tag="PrimalityTestsPage" />
-                        <NavigationViewItem  Content="RSA in Practice: Padding" Tag="RSAPaddingPage" IsEnabled="False"/>
-                        <NavigationViewItem  Content="Key Encapsulation for RSA" Tag="RSAKeyEncapsulationPage" />
+                        <!-- <NavigationViewItem  Content="RSA in Practice: Padding" Tag="RSAPaddingPage" IsEnabled="False"/> -->
+                        <!-- <NavigationViewItem  Content="Key Encapsulation for RSA" Tag="RSAKeyEncapsulationPage" /> -->
                         <NavigationViewItem  Content="Attacks against RSA" Tag="AttacksRSAPage" />
                         <NavigationViewItem  Content="Rabin Scheme" Tag="RabinSchemePage" />
                     </NavigationViewItem.MenuItems>
@@ -216,23 +223,29 @@
                         <NavigationViewItem  Content="Elliptic Curve Digital Signature Algorithm" Tag="EllipticCurveDigitalSignatureAlgorithmPage" />
                     </NavigationViewItem.MenuItems>
                 </NavigationViewItem>
-                <NavigationViewItem  Content="Hash Functions" Tag="HashFunctionsPage">
+                <!-- <NavigationViewItem  Content="Hash Functions" Tag="HashFunctionsPage"> -->
+                <!--     <NavigationViewItem.Icon> -->
+                <!--         <FontIcon Glyph="&#xF003;" /> -->
+                <!--     </NavigationViewItem.Icon> -->
+                <!-- </NavigationViewItem> -->
+                <!-- <NavigationViewItem  Content="Message Authentication Codes" Tag="MessageAuthenticationCodesPage"> -->
+                <!--     <NavigationViewItem.Icon> -->
+                <!--         <FontIcon Glyph="&#xE8F2;" /> -->
+                <!--     </NavigationViewItem.Icon> -->
+                <!-- </NavigationViewItem> -->
+                <!-- <NavigationViewItem  Content="Key Management" Tag="KeyManagementPage"> -->
+                <!--     <NavigationViewItem.Icon> -->
+                <!--         <FontIcon Glyph="&#xE912;" /> -->
+                <!--     </NavigationViewItem.Icon> -->
+                <!-- </NavigationViewItem> -->
+                <NavigationViewItem  Content="Other Mathematical Foundations" Tag="OtherMathFoundationsPage">
                     <NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xF003;" />
+                        <FontIcon Glyph="&#xE7EE;" />
                     </NavigationViewItem.Icon>
-
-                </NavigationViewItem>
-                <NavigationViewItem  Content="Message Authentication Codes" Tag="MessageAuthenticationCodesPage">
-                    <NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xE8F2;" />
-                    </NavigationViewItem.Icon>
-
-                </NavigationViewItem>
-                <NavigationViewItem  Content="Key Management" Tag="KeyManagementPage">
-                    <NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xE912;" />
-                    </NavigationViewItem.Icon>
-
+                    <NavigationViewItem.MenuItems>
+                        <NavigationViewItem  Content="Order &amp; Primitive Root" Tag="OrderPrimitiveRootPage"/>
+                        <NavigationViewItem  Content="Quadratic Residue" Tag="QuadraticResiduePage"/>
+                    </NavigationViewItem.MenuItems>
                 </NavigationViewItem>
             </NavigationView.MenuItems>
         </NavigationView>

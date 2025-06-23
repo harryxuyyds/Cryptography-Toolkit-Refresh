@@ -84,6 +84,15 @@
                 Title="Tip"
                 Message="Please enter smaller parameter values. For larger numbers, use Cryptography PowerToys." />
 
+            <InfoBar
+                x:Name="DiffieHellmanStatusInfoBar"
+                IsOpen="True"
+                IsIconVisible="True"
+                IsClosable="False"
+                Severity="Informational"
+                Title="Status"
+                Message="Please enter correct parameters." />
+
             <TextBlock Text="Diffie–Hellman Set-up"
                        Style="{StaticResource BodyStrongTextBlockStyle}"
                        Margin="0,8,0,8"/>
@@ -94,7 +103,26 @@
                     <FontIcon Glyph="&#xE819;" />
                 </controls:SettingsExpander.HeaderIcon>
                 <controls:SettingsExpander.Items>
-
+                    <controls:SettingsCard Description=""
+                                           Header="Prime modulus p">
+                        <NumberBox
+                            x:Name="DiffieHellmanModulusNumberBox"
+                            Value="29"
+                            Minimum="2"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                                           Header="Generator g">
+                        <NumberBox
+                            x:Name="DiffieHellmanGeneratorNumberBox"
+                            Value="2"
+                            Minimum="2"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
 
@@ -108,7 +136,16 @@
                     <FontIcon Glyph="&#xE8AB;" />
                 </controls:SettingsExpander.HeaderIcon>
                 <controls:SettingsExpander.Items>
-
+                    <controls:SettingsCard Description=""
+                                           Header="Private key a">
+                        <NumberBox
+                            x:Name="DiffieHellmanPrivateKeyAliceNumberBox"
+                            Value="5"
+                            Minimum="2"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
 
@@ -118,7 +155,16 @@
                     <FontIcon Glyph="&#xE8AB;" />
                 </controls:SettingsExpander.HeaderIcon>
                 <controls:SettingsExpander.Items>
-
+                    <controls:SettingsCard Description=""
+                                           Header="Private key b">
+                        <NumberBox
+                            x:Name="DiffieHellmanPrivateKeyBobNumberBox"
+                            Value="12"
+                            Minimum="2"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
         </StackPanel>

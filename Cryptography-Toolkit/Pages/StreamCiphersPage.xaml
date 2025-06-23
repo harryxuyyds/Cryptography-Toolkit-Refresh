@@ -39,36 +39,36 @@
                                  Content="Navigate to ..."
                                  Click="PageNavigationHyperlinkButton_OnClick"/>
                 </controls:SettingsCard>
-                <controls:SettingsCard Description=""
-                                   Header="Salsa20">
-                    <controls:SettingsCard.HeaderIcon>
-                        <FontIcon Glyph="&#xF148;" />
-                    </controls:SettingsCard.HeaderIcon>
-                    <HyperlinkButton x:Name="Salsa20PageHyperlinkButton" 
-                                 Tag="Salsa20Page"
-                                 Content="Navigate to ..."
-                                 Click="PageNavigationHyperlinkButton_OnClick"/>
-                </controls:SettingsCard>
-                <controls:SettingsCard Description=""
-                                       Header="ChaCha">
-                    <controls:SettingsCard.HeaderIcon>
-                        <FontIcon Glyph="&#xF149;" />
-                    </controls:SettingsCard.HeaderIcon>
-                    <HyperlinkButton x:Name="ChaChaPageHyperlinkButton" 
-                                     Tag="ChaChaPage"
-                                     Content="Navigate to ..."
-                                     Click="PageNavigationHyperlinkButton_OnClick"/>
-                </controls:SettingsCard>
-                <controls:SettingsCard Description=""
-                                       Header="Trivium">
-                    <controls:SettingsCard.HeaderIcon>
-                        <FontIcon Glyph="&#xF14A;" />
-                    </controls:SettingsCard.HeaderIcon>
-                    <HyperlinkButton x:Name="TriviumPageHyperlinkButton" 
-                                     Tag="TriviumPage"
-                                     Content="Navigate to ..."
-                                     Click="PageNavigationHyperlinkButton_OnClick"/>
-                </controls:SettingsCard>
+                <!-- <controls:SettingsCard Description="" -->
+                <!--                    Header="Salsa20"> -->
+                <!--     <controls:SettingsCard.HeaderIcon> -->
+                <!--         <FontIcon Glyph="&#xF148;" /> -->
+                <!--     </controls:SettingsCard.HeaderIcon> -->
+                <!--     <HyperlinkButton x:Name="Salsa20PageHyperlinkButton"  -->
+                <!--                  Tag="Salsa20Page" -->
+                <!--                  Content="Navigate to ..." -->
+                <!--                  Click="PageNavigationHyperlinkButton_OnClick"/> -->
+                <!-- </controls:SettingsCard> -->
+                <!-- <controls:SettingsCard Description="" -->
+                <!--                        Header="ChaCha"> -->
+                <!--     <controls:SettingsCard.HeaderIcon> -->
+                <!--         <FontIcon Glyph="&#xF149;" /> -->
+                <!--     </controls:SettingsCard.HeaderIcon> -->
+                <!--     <HyperlinkButton x:Name="ChaChaPageHyperlinkButton"  -->
+                <!--                      Tag="ChaChaPage" -->
+                <!--                      Content="Navigate to ..." -->
+                <!--                      Click="PageNavigationHyperlinkButton_OnClick"/> -->
+                <!-- </controls:SettingsCard> -->
+                <!-- <controls:SettingsCard Description="" -->
+                <!--                        Header="Trivium"> -->
+                <!--     <controls:SettingsCard.HeaderIcon> -->
+                <!--         <FontIcon Glyph="&#xF14A;" /> -->
+                <!--     </controls:SettingsCard.HeaderIcon> -->
+                <!--     <HyperlinkButton x:Name="TriviumPageHyperlinkButton"  -->
+                <!--                      Tag="TriviumPage" -->
+                <!--                      Content="Navigate to ..." -->
+                <!--                      Click="PageNavigationHyperlinkButton_OnClick"/> -->
+                <!-- </controls:SettingsCard> -->
 
             </StackPanel>
         </StackPanel>

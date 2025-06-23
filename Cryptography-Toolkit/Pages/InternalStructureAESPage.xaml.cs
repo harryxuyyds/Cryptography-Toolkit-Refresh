@@ -38,28 +38,27 @@ public sealed partial class InternalStructureAESPage : Page
     private void AesPlaintextPresetsComboBox_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         int aexPlaintextTypeIndex = AesPlaintextPresetsComboBox.SelectedIndex;
-        if (aexPlaintextTypeIndex == 0)
+        switch (aexPlaintextTypeIndex)
         {
-            AesPlaintextTextBox.Text = string.Empty;
-            AesPlaintextTextBox.Text = "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00";
-        }
-        else if (aexPlaintextTypeIndex == 1)
-        {
-            AesPlaintextTextBox.Text = string.Empty;
-            AesPlaintextTextBox.Text = "FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF";
-        }
-        else if (aexPlaintextTypeIndex == 2)
-        {
-            AesPlaintextTextBox.Text = string.Empty;
-            AesPlaintextTextBox.Text = "F0 F0 F0 F0 F0 F0 F0 F0 F0 F0 F0 F0 F0 F0 F0 F0";
-        }
-        else if (aexPlaintextTypeIndex == 3)
-        {
-            AesPlaintextTextBox.Text = string.Empty;
-            AesPlaintextTextBox.Text += _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " ";
-            AesPlaintextTextBox.Text += _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " ";
-            AesPlaintextTextBox.Text += _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " ";
-            AesPlaintextTextBox.Text += _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2);
+            case 0:
+                AesPlaintextTextBox.Text = string.Empty;
+                AesPlaintextTextBox.Text = "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00";
+                break;
+            case 1:
+                AesPlaintextTextBox.Text = string.Empty;
+                AesPlaintextTextBox.Text = "FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF FF";
+                break;
+            case 2:
+                AesPlaintextTextBox.Text = string.Empty;
+                AesPlaintextTextBox.Text = "F0 F0 F0 F0 F0 F0 F0 F0 F0 F0 F0 F0 F0 F0 F0 F0";
+                break;
+            case 3:
+                AesPlaintextTextBox.Text = string.Empty;
+                AesPlaintextTextBox.Text += _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " ";
+                AesPlaintextTextBox.Text += _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " ";
+                AesPlaintextTextBox.Text += _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " ";
+                AesPlaintextTextBox.Text += _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2) + " " + _common.GenerateRandomNumber(2);
+                break;
         }
     }
 

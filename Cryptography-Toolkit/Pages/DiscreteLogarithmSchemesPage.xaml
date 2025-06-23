@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Cryptography_Toolkit.Pages.DiscreteLogarithmSchemesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cryptography_Toolkit.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    mc:Ignorable="d">
+
+    <ScrollViewer>
+        <StackPanel Spacing="4" BorderThickness="2" CornerRadius="10" Padding="40">
+
+            <TextBlock Text="Discrete Logarithm Schemes" 
+                   Style="{StaticResource TitleTextBlockStyle}" 
+                   Margin="0,0,0,8"/>
+
+            <StackPanel Orientation="Vertical" 
+                    Spacing="8" 
+                    Margin="0,8,0,8">
+                <controls:SettingsCard Description="DHKE method allows two parties to jointly establish a shared secret key over an insecure channel. This key can then be used to encrypt subsequent communications using a symmetric-key cipher."
+                                   Header="Diffie–Hellman Key Exchange">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF146;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="DiffieHellmanKeyExchangePageHyperlinkButton" 
+                                 Tag="DiffieHellmanKeyExchangePage"
+                                 Content="Navigate to ..."
+                                 Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Description="This section gives a brief overview of algorithms for computing discrete logarithms, which can be classified into generic algorithms and nongeneric algorithms."
+                                   Header="Attacks Against the DLP">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF147;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="AttacksDLPPageHyperlinkButton" 
+                                 Tag="AttacksDLPPage"
+                                 Content="Navigate to ..."
+                                 Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Description="ElGamal encryption system is an asymmetric key encryption algorithm for public-key cryptography which is based on the Diffie–Hellman key exchange."
+                                   Header="Elgamal Encryption Scheme">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF148;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="ElgamalEncryptionSchemePageHyperlinkButton" 
+                                 Tag="ElgamalEncryptionSchemePage"
+                                 Content="Navigate to ..."
+                                 Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

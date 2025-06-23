@@ -47,32 +47,19 @@
                                VerticalAlignment="Center"  
                                HorizontalAlignment="Center"
                                Opacity="0.8"/>
-                    </Grid> 
+                    </Grid>
 
                     <StackPanel  
                         Margin="72,72,0,0"
-                        Orientation="Vertical">  
+                        Orientation="Vertical">
                         <TextBlock  
                             x:Name="SmallHeaderText"  
                             Text="{StaticResource AppVersionName}" 
-                            Style="{StaticResource BodyStrongTextBlockStyle}"/>  
+                            Style="{StaticResource BodyStrongTextBlockStyle}"/>
                         <TextBlock x:Name="HeaderText" 
                                    Text="{StaticResource AppTitleName}" 
-                                   Style="{StaticResource TitleLargeTextBlockStyle}"/>  
+                                   Style="{StaticResource TitleLargeTextBlockStyle}"/>
                     </StackPanel>
-
-                    <!-- <FlipView Grid.Row="1" MaxWidth="800" Height="270"> -->
-                    <!--     <Image Source="ms-appx:///Assets/HomePageHeaderImage.png" AutomationProperties.Name="Cliff"/> -->
-                    <!--     <Image Source="ms-appx:///Assets/HomePageHeaderImage.png" AutomationProperties.Name="Grapes"/> -->
-                    <!--     <Image Source="ms-appx:///Assets/HomePageHeaderImage.png" AutomationProperties.Name="Rainier"/> -->
-                    <!--     <Image Source="ms-appx:///Assets/HomePageHeaderImage.png" AutomationProperties.Name="Sunset"/> -->
-                    <!--     <Image Source="ms-appx:///Assets/HomePageHeaderImage.png" AutomationProperties.Name="Valley"/> -->
-                    <!--     <FlipView.ItemsPanel > -->
-                    <!--         <ItemsPanelTemplate> -->
-                    <!--             <VirtualizingStackPanel Orientation="Horizontal"/> -->
-                    <!--         </ItemsPanelTemplate> -->
-                    <!--     </FlipView.ItemsPanel> -->
-                    <!-- </FlipView> -->
 
 
                 </Grid>
