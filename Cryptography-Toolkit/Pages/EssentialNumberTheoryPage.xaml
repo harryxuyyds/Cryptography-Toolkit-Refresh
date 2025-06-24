@@ -71,7 +71,7 @@
                     </DropDownButton.Flyout>
                 </DropDownButton>
             </StackPanel>
-            <TextBlock Text="We introduce the Euclidean algorithm, Euler’s phi function, Fermat’s Little Theorem and Euler’s theorem. All are important for asymmetric algorithms, especially for the RSA scheme." 
+            <TextBlock Text="We introduce the Euclidean algorithm, Euler’s phi function, Fermat’s Little Theorem, Euler’s theorem and Square-and-Multiply algorithm. All are important for asymmetric algorithms, especially for the RSA scheme." 
                TextWrapping="Wrap"
                Margin="0,0,0,12"/>
             <!-- Page Title Format End -->
@@ -179,7 +179,7 @@
 
             <TextBox x:Name="ExtendedEuclideanAlgorithmLogTextBox" 
                      Text="The running log generated during the extended euclidean algorithm will be displayed here."
-                     Height="100" 
+                     Height="120" 
                      AcceptsReturn="True"
                      IsReadOnly="True"
                      ScrollViewer.VerticalScrollBarVisibility="Auto"
@@ -213,7 +213,7 @@
             </controls:SettingsExpander>
 
             <Button x:Name="EulerPhiFunctionExecuteButton" 
-                    Content="Click to Execute Extended Euclidean Algorithm" 
+                    Content="Click to Execute Euler’s Phi Function" 
                     Click="EulerPhiFunctionExecuteButton_OnClick"
                     HorizontalAlignment="Stretch"/>
 
@@ -242,6 +242,66 @@
 
             <TextBlock Text="Euler’s Theorem states that if n is a positive integer and a is an integer coprime to n, then a^φ(n) ≡ 1 (mod n), where φ(n) is Euler’s totient function. This theorem generalizes Fermat’s Little Theorem and is fundamental in public-key cryptography, especially for modular inverses and RSA." 
                      TextWrapping="Wrap"/>
+
+            <TextBlock Text="Square-and-Multiply Algorithm for Modular Exponentiation" 
+                       Style="{StaticResource SubtitleTextBlockStyle}" 
+                       Margin="0,32,0,8"/>
+
+            <controls:SettingsExpander Description=""
+                                       Header="Square-and-Multiply Algorithm Set-up">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xE819;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <controls:SettingsCard Description=""
+                                           Header="Base element x">
+                        <NumberBox
+                            x:Name="SquareMultiplyAlgorithmBaseElementNumberBox"
+                            Value="5"
+                            Minimum="1"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                                           Header="Exponent H">
+                        <NumberBox
+                            x:Name="SquareMultiplyAlgorithmExponentNumberBox"
+                            Value="218"
+                            Minimum="1"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                                           Header="Modulus n">
+                        <NumberBox
+                            x:Name="SquareMultiplyAlgorithmModulusNumberBox"
+                            Value="101"
+                            Minimum="1"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
+            <Button x:Name="SquareMultiplyAlgorithmExecuteButton" 
+                    Content="Click to Execute Square-and-Multiply Algorithm for Modular Exponentiation"
+                    Click="SquareMultiplyAlgorithmExecuteButton_OnClick"
+                    HorizontalAlignment="Stretch"/>
+
+            <TextBlock Text="Log Output"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"
+                       Margin="0,8,0,8"/>
+
+            <TextBox x:Name="SquareMultiplyAlgorithmLogTextBox" 
+                     Text="The running log generated during the square-and-multiply algorithm will be displayed here."
+                     Height="60" 
+                     AcceptsReturn="True"
+                     IsReadOnly="True"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
 
         </StackPanel>
     </ScrollViewer>

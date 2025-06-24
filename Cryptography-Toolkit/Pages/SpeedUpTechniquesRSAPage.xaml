@@ -77,34 +77,31 @@
             <!-- Page Title Format End -->
 
             <InfoBar
-            IsOpen="True"
-            IsIconVisible="True"
-            IsClosable="True"
-            Severity="Informational"
-            Title="Tip"
-            Message="Please enter smaller parameter values. For larger numbers, use Cryptography PowerToys." />
+                IsOpen="True"
+                IsIconVisible="True"
+                IsClosable="True"
+                Severity="Informational"
+                Title="Tip"
+                Message="Please enter smaller parameter values. For larger numbers, use Cryptography PowerToys." />
 
             <TextBlock Text="Fast Encryption with Short Public Exponents" 
                    Style="{StaticResource SubtitleTextBlockStyle}" 
                    Margin="0,8,0,8"/>
 
-            <TextBlock Text="Key Generation"
-                   Style="{StaticResource BodyStrongTextBlockStyle}"
-                   Margin="0,8,0,8"/>
+            <TextBlock Text="A simple and very powerful trick can be used when RSA operations with the public key e are concerned. This is in practice encryption and, as we’ll learn later, verification of an RSA digital signature. In this situation, the public key e can be chosen to be a very small value. In practice, the three values e = 3, e = 17 and e = 2 ^ 16 +1 are of particular importance. The resulting complexities when using these public keys are given in the Table below." 
+                       TextWrapping="Wrap"/>
 
-            <controls:SettingsExpander Description=""
-                                   Header="Key Generation for RSA">
-                <controls:SettingsExpander.HeaderIcon>
-                    <FontIcon Glyph="&#xE8D7;" />
-                </controls:SettingsExpander.HeaderIcon>
-                <controls:SettingsExpander.Items>
+            <TextBlock Text="All three exponents listed above have a low Hamming weight, i.e., number of ones in the binary representation. This results in a particularly low number of operations for performing an exponentiation. RSA is still secure if such short exponents are used. Note that in general, the private key d still has the full bit length t + 1 even though e is short." 
+                       TextWrapping="Wrap"/>
 
-                </controls:SettingsExpander.Items>
-            </controls:SettingsExpander>
+            <TextBlock Text="An important consequence of the use of short public exponents is that encryption of a message and verification of an RSA signature are a very fast operations. In fact, for these two operations, RSA is in almost all practical cases the fastest public-key scheme available. Unfortunately, there is no such easy way to accelerate RSA when the private key d is involved, i.e., for decryption and signature generation. Hence, these two operations tend to be slow." 
+                       TextWrapping="Wrap"/>
 
             <TextBlock Text="Fast Decryption with the Chinese Remainder Theorem" 
                        Style="{StaticResource SubtitleTextBlockStyle}" 
                        Margin="0,8,0,8"/>
+
+
 
         </StackPanel>
     </ScrollViewer>

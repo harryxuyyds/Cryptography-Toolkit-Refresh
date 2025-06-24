@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -37,6 +38,9 @@ public sealed partial class EssentialNumberTheoryPage : Page
         ExtendedEuclideanAlgorithmParaR0NumberBox.ValueChanged += ExtendedEuclideanAlgorithmParaNumberBox_OnValueChanged;
         ExtendedEuclideanAlgorithmParaR1NumberBox.ValueChanged += ExtendedEuclideanAlgorithmParaNumberBox_OnValueChanged;
         EulerPhiFunctionParaMNumberBox.ValueChanged += EulerPhiFunctionParaMNumberBox_OnValueChanged;
+        SquareMultiplyAlgorithmBaseElementNumberBox.ValueChanged += SquareMultiplyAlgorithmNumberBox_OnValueChanged;
+        SquareMultiplyAlgorithmExponentNumberBox.ValueChanged += SquareMultiplyAlgorithmNumberBox_OnValueChanged;
+        SquareMultiplyAlgorithmModulusNumberBox.ValueChanged += SquareMultiplyAlgorithmNumberBox_OnValueChanged;
     }
 
     private void EuclideanAlgorithmParaR0NumberBox_ValueChanged(NumberBox sender, NumberBoxValueChangedEventArgs args)
@@ -120,5 +124,26 @@ public sealed partial class EssentialNumberTheoryPage : Page
     private void EulerPhiFunctionParaMNumberBox_OnValueChanged(NumberBox sender, NumberBoxValueChangedEventArgs args)
     {
         EulerPhiFunctionLogTextBox.Text = "The result of the Euler's phi function will be displayed here.";
+    }
+
+    private void SquareMultiplyAlgorithmExecuteButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        if (int.TryParse(SquareMultiplyAlgorithmBaseElementNumberBox.Text, out var baseElement) &&
+            int.TryParse(SquareMultiplyAlgorithmExponentNumberBox.Text, out var exponent) &&
+             int.TryParse(SquareMultiplyAlgorithmModulusNumberBox.Text, out var modulus))
+        {
+            var squareMultiplyResult = _common.SquareMultiplyAlgorithmCalc(baseElement, exponent, modulus);
+            SquareMultiplyAlgorithmLogTextBox.Text = $"Result: {baseElement} ^ {exponent} mod {modulus} = {squareMultiplyResult}\n";
+        }
+        else
+        {
+            SquareMultiplyAlgorithmLogTextBox.Text = "Please enter correct parameters.";
+        }
+    }
+
+    private void SquareMultiplyAlgorithmNumberBox_OnValueChanged(NumberBox sender, NumberBoxValueChangedEventArgs args)
+    {
+        SquareMultiplyAlgorithmLogTextBox.Text =
+            "The running log generated during the square-and-multiply algorithm will be displayed here.";
     }
 }

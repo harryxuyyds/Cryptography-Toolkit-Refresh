@@ -67,7 +67,7 @@ public sealed partial class ToolkitSettingsPage : Page
         var window = App.MainWindow;
         if (window?.Content is FrameworkElement rootElement)
         {
-            var appWindow = AppWindow.GetFromWindowId(window.AppWindow.Id); // 使用 AppWindow 获取 TitleBar
+            var appWindow = AppWindow.GetFromWindowId(window.AppWindow.Id);
             var titleBar = appWindow.TitleBar;
 
             switch (selectedIndex)
@@ -160,7 +160,6 @@ public sealed partial class ToolkitSettingsPage : Page
             _selectedFontFamily = item.Content.ToString()!;
             ApplicationData.Current.LocalSettings.Values[FontSettingKey] = _selectedFontFamily;
 
-            // 动态更新全局字体资源
             var newFontFamily = new FontFamily(_selectedFontFamily);
             Application.Current.Resources[FontSettingKey] = newFontFamily;
 

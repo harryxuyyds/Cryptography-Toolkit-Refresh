@@ -26,7 +26,7 @@
                            Margin="0,12,0,8" />
 
                 <controls:SettingsCard Description="Select which app theme to display."
-                                       Header="App theme">
+                                       Header="App Theme">
                     <controls:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xE790;" />
                     </controls:SettingsCard.HeaderIcon>
@@ -39,7 +39,7 @@
                 </controls:SettingsCard>
 
                 <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}"
-                           Text="Text editor" 
+                           Text="Text Editor" 
                            Margin="0,12,0,8" />
 
                 <controls:SettingsCard x:Name="SettingsFontSettingsCard" 
@@ -58,6 +58,20 @@
                     Severity="Informational"
                     Title=""
                     Message="Font settings will take effect after restarting app." />
+
+                <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}"
+                           Text="AI Feature Integration" 
+                           Margin="0,12,0,8" />
+
+                <controls:SettingsExpander Description=""
+                                           Header="DeepSeek API">
+                    <controls:SettingsExpander.HeaderIcon>
+                        <PathIcon Data="{StaticResource DeepSeekIconPath}" />
+                    </controls:SettingsExpander.HeaderIcon>
+                    <controls:SettingsExpander.Items>
+                        
+                    </controls:SettingsExpander.Items>
+                </controls:SettingsExpander>
 
                 <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}"
                            Text="About" 

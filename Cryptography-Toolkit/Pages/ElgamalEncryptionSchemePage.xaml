@@ -6,6 +6,7 @@
     xmlns:local="using:Cryptography_Toolkit.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     mc:Ignorable="d">
 
     <ScrollViewer>
@@ -74,6 +75,135 @@
                TextWrapping="Wrap"
                Margin="0,0,0,12"/>
             <!-- Page Title Format End -->
+
+            <InfoBar
+                IsOpen="True"
+                IsIconVisible="True"
+                IsClosable="True"
+                Severity="Informational"
+                Title="Tip"
+                Message="Please enter smaller parameter values. For larger numbers, use Cryptography PowerToys." />
+
+            <TextBlock Text="Elgamal Key Generation"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"
+                       Margin="0,8,0,8"/>
+
+            <controls:SettingsExpander Description=""
+                                       Header="Elgamal Key Generation">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xE8D7;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <controls:SettingsCard Description=""
+                                           Header="Prime modulus p">
+                        <NumberBox
+                            x:Name="ElgamalModulusNumberBox"
+                            Value="29"
+                            Minimum="2"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                                           Header="Generator g">
+                        <NumberBox
+                            x:Name="ElgamalGeneratorNumberBox"
+                            Value="2"
+                            Minimum="2"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
+            <TextBlock Text="Encryption and Decryption"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"
+                       Margin="0,16,0,8"/>
+
+            <controls:SettingsExpander Description=""
+                                       Header="RSA Encryption">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xE72E;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <controls:SettingsCard Description=""
+                                           Header="Plaintext">
+                        <NumberBox
+                            x:Name="RsaEncryptionPlaintextNumberBox"
+                            Minimum="1"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                                           Header="Public Key n">
+                        <NumberBox
+                            x:Name="RsaEncryptionPublicKeyNNumberBox"
+                            Minimum="1"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                                           Header="Public Key e">
+                        <NumberBox
+                            x:Name="RsaEncryptionPublicKeyENumberBox"
+                            Minimum="1"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
+            <controls:SettingsExpander Description=""
+                                       Header="RSA Decryption">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xE785;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <controls:SettingsCard Description=""
+                                           Header="Ciphertext">
+                        <NumberBox
+                            x:Name="RsaDecryptionCiphertextNumberBox"
+                            Minimum="1"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                                           Header="Public Key n">
+                        <NumberBox
+                            x:Name="RsaDecryptionPublicKeyNNumberBox"
+                            Minimum="1"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                                           Header="Private Key d">
+                        <NumberBox
+                            x:Name="RsaDecryptionPrivateKeyDNumberBox"
+                            Minimum="1"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
+            <TextBlock Text="RSA Encryption and Decryption Output"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"
+                       Margin="0,8,0,8"/>
+
+            <TextBox x:Name="RsaEncryptionDecryptionLogTextBox" 
+                     Text="The running log generated during the RSA encryption and decryption will be displayed here."
+                     Height="120" 
+                     AcceptsReturn="True"
+                     IsReadOnly="True"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
         </StackPanel>
     </ScrollViewer>
 </Page>

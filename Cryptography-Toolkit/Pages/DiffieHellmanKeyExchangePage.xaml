@@ -98,7 +98,8 @@
                        Margin="0,8,0,8"/>
 
             <controls:SettingsExpander Description=""
-                                       Header="Diffie–Hellman Set-up">
+                                       Header="Diffie–Hellman Set-up"
+                                       IsExpanded="True">
                 <controls:SettingsExpander.HeaderIcon>
                     <FontIcon Glyph="&#xE819;" />
                 </controls:SettingsExpander.HeaderIcon>
@@ -131,7 +132,8 @@
                        Margin="0,8,0,8"/>
 
             <controls:SettingsExpander Description=""
-                                       Header="Diffie–Hellman Key Exchange for Alice">
+                                       Header="Diffie–Hellman Key Exchange for Alice"
+                                       IsExpanded="True">
                 <controls:SettingsExpander.HeaderIcon>
                     <FontIcon Glyph="&#xE8AB;" />
                 </controls:SettingsExpander.HeaderIcon>
@@ -150,7 +152,8 @@
             </controls:SettingsExpander>
 
             <controls:SettingsExpander Description=""
-                                       Header="Diffie–Hellman Key Exchange for Bob">
+                                       Header="Diffie–Hellman Key Exchange for Bob"
+                                       IsExpanded="True">
                 <controls:SettingsExpander.HeaderIcon>
                     <FontIcon Glyph="&#xE8AB;" />
                 </controls:SettingsExpander.HeaderIcon>
@@ -167,6 +170,20 @@
                     </controls:SettingsCard>
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
+
+            <TextBlock Text="Diffie–Hellman Output"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"
+                       Margin="0,8,0,8"/>
+
+            <TextBox x:Name="DiffieHellmanLogTextBox" 
+                     Text="The running log generated during the Diffie–Hellman key exchange will be displayed here."
+                     Height="160" 
+                     AcceptsReturn="True"
+                     IsReadOnly="True"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+
+
         </StackPanel>
     </ScrollViewer>
 </Page>
