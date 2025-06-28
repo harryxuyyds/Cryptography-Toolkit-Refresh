@@ -201,7 +201,7 @@
                         <NavigationViewItem  Content="Elgamal Encryption Scheme" Tag="ElgamalEncryptionSchemePage" />
                     </NavigationViewItem.MenuItems>
                 </NavigationViewItem>
-                <NavigationViewItem  Content="Elliptic Curve (EC) Schemes" Tag="ECSchemesPage">
+                <NavigationViewItem  Content="Elliptic Curve Cryptosystems" Tag="ECSchemesPage">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xF148;" />
                     </NavigationViewItem.Icon>
@@ -209,7 +209,7 @@
                         <NavigationViewItem  Content="Definition of Elliptic Curves" Tag="DefinitionECPage" />
                         <NavigationViewItem  Content="Group Operations on Elliptic Curves" Tag="GroupOperationsECPage" />
                         <NavigationViewItem  Content="DLP with Elliptic Curves" Tag="DLPWithECPage" />
-                        <NavigationViewItem  Content="Diffie–Hellman Key Exchange with Elliptic Curves" Tag="DHKEWithECPage" />
+                        <NavigationViewItem  Content="Diffie–Hellman Key Exchange with EC" Tag="DHKEWithECPage" />
                     </NavigationViewItem.MenuItems>
                 </NavigationViewItem>
                 <NavigationViewItem  Content="Digital Signatures" Tag="DigitalSignaturesPage">

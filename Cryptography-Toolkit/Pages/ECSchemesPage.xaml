@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Cryptography_Toolkit.Pages.ECSchemesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cryptography_Toolkit.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    mc:Ignorable="d">
+
+    <ScrollViewer>
+        <StackPanel Spacing="4" BorderThickness="2" CornerRadius="10" Padding="40">
+
+            <TextBlock Text="Elliptic Curve Cryptosystems" 
+                       Style="{StaticResource TitleTextBlockStyle}" 
+                       Margin="0,0,0,8"/>
+
+            <StackPanel Orientation="Vertical" 
+                        Spacing="8" 
+                        Margin="0,8,0,8">
+                <controls:SettingsCard Description="An elliptic curve is a smooth algebraic curve defined by a cubic equation in two variables, with all computations performed in a finite field, most commonly a prime field."
+                               Header="Definition of Elliptic Curves">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF146;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="DefinitionECPageHyperlinkButton" 
+                             Tag="DefinitionECPage"
+                             Content="Navigate to ..."
+                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Description="Group operations on ECC include point addition, point doubling, and scalar multiplication. These operations form the foundation for cryptographic algorithms like ECDSA and secure key exchange."
+                               Header="Group Operations on Elliptic Curves">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF147;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="GroupOperationsECPageHyperlinkButton" 
+                             Tag="GroupOperationsECPage"
+                             Content="Navigate to ..."
+                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Description=""
+                               Header="Discrete Logarithm Problem with Elliptic Curves">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF148;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="DLPWithECPageHyperlinkButton" 
+                             Tag="DLPWithECPage"
+                             Content="Navigate to ..."
+                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Description=""
+                                       Header="Diffie–Hellman Key Exchange with Elliptic Curves">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF149;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="DHKEWithECPageHyperlinkButton" 
+                                     Tag="DHKEWithECPage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

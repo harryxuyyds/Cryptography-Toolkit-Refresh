@@ -308,6 +308,60 @@
                     </controls:SettingsExpander.Items>
                 </controls:SettingsExpander>
 
+                <controls:SettingsExpander Description="Elliptic curve cryptosystems leverage elliptic curves over finite fields for encryption. They offer strong security with shorter keys than traditional methods."
+                                           Header="Elliptic Curve Cryptosystems">
+                    <controls:SettingsExpander.HeaderIcon>
+                        <FontIcon Glyph="&#xF148;" />
+                    </controls:SettingsExpander.HeaderIcon>
+                    <HyperlinkButton x:Name="ECSchemesPageHyperlinkButton" 
+                                     Tag="ECSchemesPage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
+                    <controls:SettingsExpander.Items>
+                        <controls:SettingsCard Description="An elliptic curve is a smooth algebraic curve defined by a cubic equation in two variables, with all computations performed in a finite field, most commonly a prime field."
+                                               Header="Definition of Elliptic Curves">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF146;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="DefinitionECPageHyperlinkButton" 
+                                             Tag="DefinitionECPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Description="Group operations on ECC include point addition, point doubling, and scalar multiplication. These operations form the foundation for cryptographic algorithms like ECDSA and secure key exchange."
+                                               Header="Group Operations on Elliptic Curves">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF147;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="GroupOperationsECPageHyperlinkButton" 
+                                             Tag="GroupOperationsECPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Description=""
+                                               Header="Discrete Logarithm Problem with Elliptic Curves">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF148;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="DLPWithECPageHyperlinkButton" 
+                                             Tag="DLPWithECPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Description=""
+                                               Header="Diffie–Hellman Key Exchange with Elliptic Curves">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF149;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="DHKEWithECPageHyperlinkButton" 
+                                             Tag="DHKEWithECPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                    </controls:SettingsExpander.Items>
+                </controls:SettingsExpander>
+
+
 
                 <controls:SettingsExpander Description="Digital signatures share some functionality with handwritten signatures. In particular, they provide a method to ensure message integrity, message authentication and nonrepudiation."
                                            Header="Digital Signatures">
