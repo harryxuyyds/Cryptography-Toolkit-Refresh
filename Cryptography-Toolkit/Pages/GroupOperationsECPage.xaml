@@ -74,6 +74,16 @@
                        TextWrapping="Wrap"
                        Margin="0,0,0,12"/>
             <!-- Page Title Format End -->
+
+            <InfoBar
+                IsOpen="True"
+                IsIconVisible="True"
+                IsClosable="True"
+                Severity="Informational"
+                Title="Tip"
+                Message="Please enter smaller parameter values. For larger numbers, use Cryptography PowerToys." />
+            
+            
         </StackPanel>
     </ScrollViewer>
 </Page>
