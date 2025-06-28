@@ -67,7 +67,7 @@
                                        Description="Enable this feature to activate advanced AI integration within the application. Requires DeepSeek API key."
                                        Header="Enable AI Features">
                     <controls:SettingsCard.HeaderIcon>
-                        <PathIcon Data="{StaticResource DeepSeekIconPath}" />
+                        <PathIcon Data="{StaticResource AiIntegrationIconPath}" />
                     </controls:SettingsCard.HeaderIcon>
                     <ToggleSwitch x:Name="SettingsAiIntegrationToggleSwitch" 
                                   Toggled="SettingsAiIntegrationToggleSwitch_OnToggled"
@@ -134,7 +134,7 @@
                                 <TextBlock Text="Useful links"
                                            Style="{StaticResource BodyStrongTextBlockStyle}" 
                                            Margin="0,8,0,8"/>
-                                <HyperlinkButton Content="Source code" NavigateUri=""/>
+                                <HyperlinkButton Content="Source code" NavigateUri="https://github.com/harryxuyyds/Cryptography-Toolkit-Refresh"/>
                                 <HyperlinkButton Content="Documentation" NavigateUri=""/>
                                 <HyperlinkButton Content="Feedback" NavigateUri=""/>
                             </StackPanel>

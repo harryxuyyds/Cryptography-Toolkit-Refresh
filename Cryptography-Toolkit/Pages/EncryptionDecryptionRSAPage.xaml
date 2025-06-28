@@ -88,8 +88,10 @@
                    Style="{StaticResource BodyStrongTextBlockStyle}"
                    Margin="0,8,0,8"/>
 
-            <controls:SettingsExpander Description=""
-                                   Header="RSA Prime Generation">
+            <controls:SettingsExpander x:Name="RsaPrimeGenerationSettingsExpander" 
+                                       Description=""
+                                       Header="RSA Prime Generation"
+                                       IsExpanded="True">
                 <controls:SettingsExpander.HeaderIcon>
                     <FontIcon Glyph="&#xE75F;" />
                 </controls:SettingsExpander.HeaderIcon>
@@ -98,7 +100,7 @@
                                            Header="Large prime p">
                         <NumberBox
                             x:Name="RsaPrimeGenerationParaPNumberBox"
-                            Value="3"
+                            Value="13"
                             Minimum="2"
                             SpinButtonPlacementMode="Inline"
                             SmallChange="1"
@@ -108,7 +110,7 @@
                                            Header="Large prime q">
                         <NumberBox
                             x:Name="RsaPrimeGenerationParaQNumberBox"
-                            Value="11"
+                            Value="17"
                             Minimum="2"
                             SpinButtonPlacementMode="Inline"
                             SmallChange="1"
@@ -122,7 +124,8 @@
                     Click="RsaPrimeGenerationExecuteButton_OnClick"
                     HorizontalAlignment="Stretch"/>
 
-            <controls:SettingsExpander Description=""
+            <controls:SettingsExpander x:Name="RsaKeyGenerationSettingsExpander" 
+                                       Description=""
                                        Header="RSA Key Generation">
                 <controls:SettingsExpander.HeaderIcon>
                     <FontIcon Glyph="&#xE8D7;" />
@@ -146,9 +149,9 @@
                     Click="RsaKeyGenerationExecuteButton_OnClick"
                     HorizontalAlignment="Stretch"/>
 
-            <TextBlock Text="RSA Key Generation Output"
-                       Style="{StaticResource BodyStrongTextBlockStyle}"
-                       Margin="0,8,0,8"/>
+            <!-- <TextBlock Text="RSA Key Generation Output" -->
+            <!--            Style="{StaticResource BodyStrongTextBlockStyle}" -->
+            <!--            Margin="0,8,0,8"/> -->
 
             <TextBox x:Name="RsaKeyGenerationLogTextBox" 
                      Text="The running log generated during the RSA key generation will be displayed here."
@@ -158,22 +161,22 @@
                      ScrollViewer.VerticalScrollBarVisibility="Auto"
                      ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
 
-            <TextBlock Text="Encryption and Decryption"
+            <TextBlock Text="RSA Encryption"
                    Style="{StaticResource BodyStrongTextBlockStyle}"
                    Margin="0,16,0,8"/>
 
-            <controls:SettingsExpander Description=""
-                                   Header="RSA Encryption">
+            <controls:SettingsExpander x:Name="RsaEncryptionSettingsExpander" 
+                                       Description=""
+                                       Header="RSA Encryption">
                 <controls:SettingsExpander.HeaderIcon>
                     <FontIcon Glyph="&#xE72E;" />
                 </controls:SettingsExpander.HeaderIcon>
-                <HyperlinkButton Content="Load Default Settings"/>
                 <controls:SettingsExpander.Items>
                     <controls:SettingsCard Description=""
                                            Header="Plaintext">
                         <NumberBox
                             x:Name="RsaEncryptionPlaintextNumberBox"
-                            Minimum="1"
+                            Minimum="0"
                             SpinButtonPlacementMode="Inline"
                             SmallChange="1"
                             LargeChange="1" />
@@ -199,12 +202,33 @@
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
 
-            <controls:SettingsExpander Description=""
-                                   Header="RSA Decryption">
+            <Button x:Name="RsaEncryptionExecuteButton" 
+                    Content="Click to Execute RSA Encryption"
+                    Click="RsaEncryptionExecuteButton_OnClick"
+                    HorizontalAlignment="Stretch"/>
+
+            <!-- <TextBlock Text="RSA Encryption Output" -->
+            <!--            Style="{StaticResource BodyStrongTextBlockStyle}" -->
+            <!--            Margin="0,8,0,8"/> -->
+
+            <TextBox x:Name="RsaEncryptionLogTextBox" 
+                     Text="The running log generated during the RSA encryption will be displayed here."
+                     Height="120" 
+                     AcceptsReturn="True"
+                     IsReadOnly="True"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+
+            <TextBlock Text="RSA Decryption"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"
+                       Margin="0,16,0,8"/>
+
+            <controls:SettingsExpander x:Name="RsaDecryptionSettingsExpander" 
+                                       Description=""
+                                       Header="RSA Decryption">
                 <controls:SettingsExpander.HeaderIcon>
                     <FontIcon Glyph="&#xE785;" />
                 </controls:SettingsExpander.HeaderIcon>
-                <HyperlinkButton Content="Load Default Settings"/>
                 <controls:SettingsExpander.Items>
                     <controls:SettingsCard Description=""
                                            Header="Ciphertext">
@@ -236,12 +260,17 @@
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
 
-            <TextBlock Text="RSA Encryption and Decryption Output"
-                       Style="{StaticResource BodyStrongTextBlockStyle}"
-                       Margin="0,8,0,8"/>
+            <Button x:Name="RsaDecryptionExecuteButton" 
+                    Content="Click to Execute RSA Decryption"
+                    Click="RsaDecryptionExecuteButton_OnClick"
+                    HorizontalAlignment="Stretch"/>
 
-            <TextBox x:Name="RsaEncryptionDecryptionLogTextBox" 
-                     Text="The running log generated during the RSA encryption and decryption will be displayed here."
+            <!-- <TextBlock Text="RSA Decryption Output" -->
+            <!--            Style="{StaticResource BodyStrongTextBlockStyle}" -->
+            <!--            Margin="0,8,0,8"/> -->
+
+            <TextBox x:Name="RsaDecryptionLogTextBox" 
+                     Text="The running log generated during the RSA decryption will be displayed here."
                      Height="120" 
                      AcceptsReturn="True"
                      IsReadOnly="True"
