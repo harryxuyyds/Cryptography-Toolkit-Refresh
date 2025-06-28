@@ -120,36 +120,36 @@
                        Style="{StaticResource SubtitleTextBlockStyle}" 
                        Margin="0,32,0,8"/>
 
-            <ListView ItemsSource="{x:Bind PublicKeyAlgorithmSecurityLevelItems}">
-                <ListView.Header>
-                    <controls:DataTable Margin="12,0,0,0">
-                        <controls:DataColumn Content="Algorithm Family"
-                                             DesiredWidth="140" />
-                        <controls:DataColumn DesiredWidth="*"
-                                             Content="Cryptosystems" />
-                        <controls:DataColumn Content=" ( 80 ) bits Security Level"
-                                             DesiredWidth="*" />
-                        <controls:DataColumn Content="128 bits"
-                                             DesiredWidth="*"  />
-                        <controls:DataColumn Content="192 bits"
-                                             DesiredWidth="*" />
-                        <controls:DataColumn Content="256 bits"
-                                             DesiredWidth="*"  />
-                    </controls:DataTable>
-                </ListView.Header>
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="local:PublicKeyAlgorithmSecurityLevelItem">
-                        <controls:DataRow VerticalAlignment="Center" HorizontalAlignment="Left">
-                            <TextBlock Text="{x:Bind AlgorithmFamily}" VerticalAlignment="Center" />
-                            <TextBlock Text="{x:Bind Cryptosystems}" VerticalAlignment="Center" />
-                            <TextBlock Text="{x:Bind SecurityLevel80}" VerticalAlignment="Center" />
-                            <TextBlock Text="{x:Bind SecurityLevel128}" VerticalAlignment="Center" />
-                            <TextBlock Text="{x:Bind SecurityLevel192}" VerticalAlignment="Center" />
-                            <TextBlock Text="{x:Bind SecurityLevel256}" VerticalAlignment="Center" />
-                        </controls:DataRow>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <!-- <ListView ItemsSource="{x:Bind PublicKeyAlgorithmSecurityLevelItems}"> -->
+            <!--     <ListView.Header> -->
+            <!--         <controls:DataTable Margin="12,0,0,0"> -->
+            <!--             <controls:DataColumn Content="Algorithm Family" -->
+            <!--                                  DesiredWidth="140" /> -->
+            <!--             <controls:DataColumn DesiredWidth="*" -->
+            <!--                                  Content="Cryptosystems" /> -->
+            <!--             <controls:DataColumn Content=" ( 80 ) bits Security Level" -->
+            <!--                                  DesiredWidth="*" /> -->
+            <!--             <controls:DataColumn Content="128 bits" -->
+            <!--                                  DesiredWidth="*"  /> -->
+            <!--             <controls:DataColumn Content="192 bits" -->
+            <!--                                  DesiredWidth="*" /> -->
+            <!--             <controls:DataColumn Content="256 bits" -->
+            <!--                                  DesiredWidth="*"  /> -->
+            <!--         </controls:DataTable> -->
+            <!--     </ListView.Header> -->
+            <!--     <ListView.ItemTemplate> -->
+            <!--         <DataTemplate x:DataType="local:PublicKeyAlgorithmSecurityLevelItem"> -->
+            <!--             <controls:DataRow VerticalAlignment="Center" HorizontalAlignment="Left"> -->
+            <!--                 <TextBlock Text="{x:Bind AlgorithmFamily}" VerticalAlignment="Center" /> -->
+            <!--                 <TextBlock Text="{x:Bind Cryptosystems}" VerticalAlignment="Center" /> -->
+            <!--                 <TextBlock Text="{x:Bind SecurityLevel80}" VerticalAlignment="Center" /> -->
+            <!--                 <TextBlock Text="{x:Bind SecurityLevel128}" VerticalAlignment="Center" /> -->
+            <!--                 <TextBlock Text="{x:Bind SecurityLevel192}" VerticalAlignment="Center" /> -->
+            <!--                 <TextBlock Text="{x:Bind SecurityLevel256}" VerticalAlignment="Center" /> -->
+            <!--             </controls:DataRow> -->
+            <!--         </DataTemplate> -->
+            <!--     </ListView.ItemTemplate> -->
+            <!-- </ListView> -->
 
             <TextBlock Text="Table shows recommended bit lengths for public-key algorithms for the four security levels 80, 128, 192 and 256 bits. We see from the table that RSA-like schemes and discrete logarithm schemes require very long operands and keys. The key length of elliptic curve schemes is significantly smaller, yet still twice as long as for symmetric ciphers with the same cryptographic strength." 
                        TextWrapping="Wrap"

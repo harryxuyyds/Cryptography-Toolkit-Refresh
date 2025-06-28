@@ -26,9 +26,22 @@ public sealed partial class GaloisFieldsPage : Page
     public GaloisFieldsPage()
     {
         InitializeComponent();
+        GfAdditionElement1TextBox.TextChanged += GfAdditionElementTextBox_OnTextChanged;
+        GfAdditionElement2TextBox.TextChanged += GfAdditionElementTextBox_OnTextChanged;
+        GfMultiplicationElement1TextBox.TextChanged += GfMultiplicationElementTextBox_OnTextChanged;
+        GfMultiplicationElement2TextBox.TextChanged += GfMultiplicationElementTextBox_OnTextChanged;
+        GfInversionElement1TextBox.TextChanged += GfInversionElementTextBox_OnTextChanged;
+        GfAdditionRun();
+        GfMultiplicationRun();
+        GfInversionRun();
     }
 
     private void GfAdditionElementTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+    {
+        GfAdditionRun();
+    }
+
+    private void GfAdditionRun()
     {
         string input1 = GfAdditionElement1TextBox.Text.Trim();
         string input2 = GfAdditionElement2TextBox.Text.Trim();
@@ -53,6 +66,11 @@ public sealed partial class GaloisFieldsPage : Page
     }
 
     private void GfMultiplicationElementTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+    {
+        GfMultiplicationRun();
+    }
+
+    private void GfMultiplicationRun()
     {
         var galoisFields = new Components.GaloisFields();
 
@@ -83,6 +101,11 @@ public sealed partial class GaloisFieldsPage : Page
     }
 
     private void GfInversionElementTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+    {
+        GfInversionRun();
+    }
+
+    private void GfInversionRun()
     {
         var galoisFields = new Components.GaloisFields();
 

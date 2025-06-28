@@ -69,6 +69,7 @@ namespace Cryptography_Toolkit
         private void LoadThemeSetting()
         {
             var localThemeSettingsKey = ApplicationData.Current.LocalSettings.Values[ThemeSettingKey];
+            localThemeSettingsKey ??= 2;
             ApplyTheme((int)localThemeSettingsKey);
         }
 

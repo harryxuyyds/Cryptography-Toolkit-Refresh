@@ -140,12 +140,16 @@
                     Click="BabyStepGiantStepExecuteButton_OnClick"
                     HorizontalAlignment="Stretch"/>
 
-            <controls:SettingsExpander Description=""
-                                       Header="Shanks' Baby-Step Giant-Step Method Output">
-                <controls:SettingsExpander.HeaderIcon>
-                    <FontIcon Glyph="&#xE8BC;" />
-                </controls:SettingsExpander.HeaderIcon>
-                <controls:SettingsExpander.Items>
+            <TextBlock Text="Shanks' Baby-Step Giant-Step Method Output" 
+                       Style="{StaticResource BodyStrongTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
+            <!-- <controls:SettingsExpander Description="" -->
+            <!--                            Header="Shanks' Baby-Step Giant-Step Method Output"> -->
+            <!--     <controls:SettingsExpander.HeaderIcon> -->
+            <!--         <FontIcon Glyph="&#xE8BC;" /> -->
+            <!--     </controls:SettingsExpander.HeaderIcon> -->
+            <!--     <controls:SettingsExpander.Items> -->
                     <TextBox x:Name="BabyStepGiantStepLogTextBox" 
                              Text="The running log generated during the Shanks' baby-step giant-step method will be displayed here."
                              Height="240" 
@@ -153,8 +157,8 @@
                              IsReadOnly="True"
                              ScrollViewer.VerticalScrollBarVisibility="Auto"
                              ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
-                </controls:SettingsExpander.Items>
-            </controls:SettingsExpander>
+            <!--     </controls:SettingsExpander.Items> -->
+            <!-- </controls:SettingsExpander> -->
 
             <TextBlock Text="Pollard's Rho Method" 
                        Style="{StaticResource BodyStrongTextBlockStyle}" 
@@ -216,12 +220,16 @@
                     Click="PollardRhoExecuteButton_OnClick"
                     HorizontalAlignment="Stretch"/>
 
-            <controls:SettingsExpander Description=""
-                           Header="Pollard's Rho Method Output">
-                <controls:SettingsExpander.HeaderIcon>
-                    <FontIcon Glyph="&#xE8BC;" />
-                </controls:SettingsExpander.HeaderIcon>
-                <controls:SettingsExpander.Items>
+            <TextBlock Text="Pollard's Rho Method Output" 
+                       Style="{StaticResource BodyStrongTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
+            <!-- <controls:SettingsExpander Description="" -->
+            <!--                Header="Pollard's Rho Method Output"> -->
+            <!--     <controls:SettingsExpander.HeaderIcon> -->
+            <!--         <FontIcon Glyph="&#xE8BC;" /> -->
+            <!--     </controls:SettingsExpander.HeaderIcon> -->
+            <!--     <controls:SettingsExpander.Items> -->
                     <TextBox x:Name="PollardRhoLogTextBox" 
                              Text="The running log generated during the Pollard's rho method will be displayed here."
                              Height="240" 
@@ -229,8 +237,8 @@
                              IsReadOnly="True"
                              ScrollViewer.VerticalScrollBarVisibility="Auto"
                              ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
-                </controls:SettingsExpander.Items>
-            </controls:SettingsExpander>
+            <!--     </controls:SettingsExpander.Items> -->
+            <!-- </controls:SettingsExpander> -->
 
             <TextBlock Text="Nongeneric Algorithms: The Index-Calculus Method" 
                        Style="{StaticResource SubtitleTextBlockStyle}" 

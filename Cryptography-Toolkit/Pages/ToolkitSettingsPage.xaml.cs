@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -19,6 +20,9 @@ using Windows.Foundation.Collections;
 using Windows.Storage;
 
 using Cryptography_Toolkit.Helpers;
+using Microsoft.UI.Text;
+using Microsoft.Windows.AppNotifications;
+using Microsoft.Windows.AppNotifications.Builder;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -43,6 +47,21 @@ public sealed partial class ToolkitSettingsPage : Page
         LoadThemeSetting();
         LoadSystemFonts();
         SettingsAppThemeComboBox.SelectionChanged += SettingsAppThemeComboBox_SelectionChanged;
+        LoadAiIntegrationToggleSetting();
+    }
+
+    private void LoadAiIntegrationToggleSetting()
+    {
+        var localSettings = ApplicationData.Current.LocalSettings;
+        // var aiIntegrationSettings = localSettings.Values["AiIntegrationEnabled"];
+        if (localSettings.Values.TryGetValue("AiIntegrationEnabled", out object? aiIntegrationSettings) && (bool)aiIntegrationSettings)
+        {
+            SettingsAiIntegrationToggleSwitch.IsOn = true;
+        }
+        else
+        {
+            SettingsAiIntegrationToggleSwitch.IsOn = false;
+        }
     }
 
     private void LoadThemeSetting()
@@ -125,7 +144,7 @@ public sealed partial class ToolkitSettingsPage : Page
             ? _selectedFontFamily
             : (localSettings.Values.TryGetValue(FontSettingKey, out object? fontName) && fontName is string fontFamilyName
                 ? fontFamilyName
-                : null);
+                : "Consolas");
 
         var fontFamilies = CanvasTextFormat.GetSystemFontFamilies().OrderBy(f => f).ToList();
 
@@ -167,4 +186,106 @@ public sealed partial class ToolkitSettingsPage : Page
         }
     }
 
+    private async void SettingsDeepSeekApiSettingsButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        // 从本地设置读取 DeepSeekApiKey，如果没有则为空字符串
+        var apiKey = ApplicationData.Current.LocalSettings.Values.TryGetValue("DeepSeekApiKey", out object? value) && value is string s ? s : string.Empty;
+
+        var apiKeyTextBox = new TextBox
+        {
+            Name = "SettingsDeepSeekApiTextBox",
+            Header = "DeepSeek API Key",
+            Text = apiKey
+        };
+
+        var dialog = new ContentDialog
+        {
+            Title = "DeepSeek API Settings",
+            XamlRoot = this.XamlRoot,
+            CloseButtonText = "Cancel",
+            PrimaryButtonText = "Confirmed",
+            Content = new StackPanel
+            {
+                Orientation = Orientation.Vertical,
+                Spacing = 12,
+                Children =
+                {
+                    new Image
+                    {
+                        Source = new Microsoft.UI.Xaml.Media.Imaging.BitmapImage(new Uri("ms-appx:///Assets/AIFeaturesSample.png")),
+                        Height = 300,
+                        HorizontalAlignment = HorizontalAlignment.Center
+                    },
+                    new TextBlock
+                    {
+                        Text = "Enable Advanced AI Integration to unlock multiple AI features including AI-powered search, expanding the breadth and depth of this toolkit application. Learn more about DeepSeek usage and privacy terms.",
+                        TextWrapping = TextWrapping.Wrap,
+                        Margin = new Thickness(0, 4, 0, 0),
+                        HorizontalAlignment = HorizontalAlignment.Center
+                    },
+                    new TextBlock
+                    {
+                        Text = "Configure DeepSeek API Key",
+                        FontWeight = FontWeights.Bold,
+                        TextWrapping = TextWrapping.Wrap,
+                        Margin = new Thickness(0, 4, 0, 0),
+                    },
+                    new TextBlock
+                    {
+                        Text = " - Log in to your DeepSeek Open Platform,\n - Create a new API key, and paste it in the field below,\n - Note: Your DeepSeek account must have active paid credits.",
+                        TextWrapping = TextWrapping.Wrap,
+                        Margin = new Thickness(0, 0, 0, 4),
+                    },
+                    apiKeyTextBox
+                }
+            }
+        };
+
+        var result = await dialog.ShowAsync();
+
+        if (result == ContentDialogResult.Primary)
+        {
+            var apiKeyTemp = apiKeyTextBox.Text;
+            var apiCheck = await AiPlatformHelper.ApiConnectivityTest(apiKeyTemp);
+
+            if (apiKeyTemp == "" && apiCheck != 0)
+            {
+                AppNotification notification = new AppNotificationBuilder()
+                    .AddText("DeepSeek API Removed")
+                    .AddText("Your DeepSeek API key has been successfully removed. All AI features requiring API access will be disabled until a new valid key is provided.")
+                    .BuildNotification();
+
+                AppNotificationManager.Default.Show(notification);
+
+                ApplicationData.Current.LocalSettings.Values["DeepSeekApiKey"] = "";
+            }
+            else if (apiCheck == 0)
+            {
+                AppNotification notification = new AppNotificationBuilder()
+                    .AddText("DeepSeek API Connected")
+                    .AddText("DeepSeek API configured successfully. Advanced AI features enabled.")
+                    .BuildNotification();
+
+                AppNotificationManager.Default.Show(notification);
+
+                // 保存API Key到应用设置
+                ApplicationData.Current.LocalSettings.Values["DeepSeekApiKey"] = apiKeyTemp;
+            }
+            else
+            {
+                AppNotification notification = new AppNotificationBuilder()
+                    .AddText("DeepSeek API Connection Failed")
+                    .AddText("Failed to connect to DeepSeek platform. Please verify your API key.")
+                    .BuildNotification();
+
+                AppNotificationManager.Default.Show(notification);
+            }
+        }
+    }
+
+    private void SettingsAiIntegrationToggleSwitch_OnToggled(object sender, RoutedEventArgs e)
+    {
+        bool isOn = SettingsAiIntegrationToggleSwitch.IsOn;
+        ApplicationData.Current.LocalSettings.Values["AiIntegrationEnabled"] = isOn;
+    }
 }

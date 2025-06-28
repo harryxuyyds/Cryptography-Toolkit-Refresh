@@ -48,8 +48,8 @@ public sealed partial class PublicKeyAlgorithmFamiliesPage : Page
         InitializeComponent();
     }
 
-    public ObservableCollection<PublicKeyAlgorithmSecurityLevelItem> PublicKeyAlgorithmSecurityLevelItems { get; set; } = new()
-    {
+    public ObservableCollection<PublicKeyAlgorithmSecurityLevelItem> PublicKeyAlgorithmSecurityLevelItems { get; set; } =
+    [
         new()
         {
             AlgorithmFamily = "Integer factorization",
@@ -86,5 +86,5 @@ public sealed partial class PublicKeyAlgorithmFamiliesPage : Page
             SecurityLevel192 = "192 bits",
             SecurityLevel256 = "256 bits",
         },
-    };
+    ];
 }

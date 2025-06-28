@@ -63,15 +63,35 @@
                            Text="AI Feature Integration" 
                            Margin="0,12,0,8" />
 
-                <controls:SettingsExpander Description=""
-                                           Header="DeepSeek API">
-                    <controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsCard x:Name="SettingsAiIntegrationSettingsCard" 
+                                       Description="Enable this feature to activate advanced AI integration within the application. Requires DeepSeek API key."
+                                       Header="Enable AI Features">
+                    <controls:SettingsCard.HeaderIcon>
                         <PathIcon Data="{StaticResource DeepSeekIconPath}" />
-                    </controls:SettingsExpander.HeaderIcon>
-                    <controls:SettingsExpander.Items>
-                        
-                    </controls:SettingsExpander.Items>
-                </controls:SettingsExpander>
+                    </controls:SettingsCard.HeaderIcon>
+                    <ToggleSwitch x:Name="SettingsAiIntegrationToggleSwitch" 
+                                  Toggled="SettingsAiIntegrationToggleSwitch_OnToggled"
+                                  OffContent="Disable" 
+                                  OnContent="Enable" />
+                </controls:SettingsCard>
+
+                <controls:SettingsCard x:Name="SettingsDeepSeekApiSettingsCard" 
+                                       Header="DeepSeek Open Platform">
+                    <controls:SettingsCard.Description>
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <HyperlinkButton Content="DeepSeek Platform" NavigateUri="https://platform.deepseek.com/api_keys" />
+                            <HyperlinkButton Content="Open Platform Terms" NavigateUri="https://cdn.deepseek.com/policies/zh-CN/deepseek-open-platform-terms-of-service.html" />
+                            <HyperlinkButton Content="Privacy Policy" NavigateUri="https://cdn.deepseek.com/policies/zh-CN/deepseek-privacy-policy.html" />
+                        </StackPanel>
+                    </controls:SettingsCard.Description>
+                    <controls:SettingsCard.HeaderIcon>
+                        <PathIcon Data="{StaticResource DeepSeekIconPath}" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <Button x:Name="SettingsDeepSeekApiSettingsButton" 
+                            Style="{StaticResource AccentButtonStyle}" 
+                            Content="API Settings" 
+                            Click="SettingsDeepSeekApiSettingsButton_OnClick"/>
+                </controls:SettingsCard>
 
                 <TextBlock Style="{StaticResource BodyStrongTextBlockStyle}"
                            Text="About" 

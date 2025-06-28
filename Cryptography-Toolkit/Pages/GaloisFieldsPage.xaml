@@ -80,29 +80,31 @@
                        Style="{StaticResource SubtitleTextBlockStyle}" 
                        Margin="0,8,0,8"/>
 
-            <controls:SettingsExpander Description="The key addition layer of AES uses addition. The coefficient additions or subtractions are done in the underlying field GF(2)."
-                                       Header="Addition and Subtraction in GF ( 2^8 )">
-                <controls:SettingsExpander.HeaderIcon>
-                    <FontIcon Glyph="&#xE948;" />
-                </controls:SettingsExpander.HeaderIcon>
-                <controls:SettingsExpander.Items>
+            <!-- <controls:SettingsExpander Description="The key addition layer of AES uses addition. The coefficient additions or subtractions are done in the underlying field GF(2)." -->
+            <!--                            Header="Addition and Subtraction in GF ( 2^8 )" -->
+            <!--                            IsExpanded="True"> -->
+            <!--     <controls:SettingsExpander.HeaderIcon> -->
+            <!--         <FontIcon Glyph="&#xE948;" /> -->
+            <!--     </controls:SettingsExpander.HeaderIcon> -->
+            <!--     <controls:SettingsExpander.Items> -->
+            <TextBlock Text="Addition and Subtraction in GF ( 2^8 )" 
+                       Style="{StaticResource BodyStrongTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
                     <controls:SettingsCard Description="Sample parameters: x^7+x^6+x = (11000010)_2 = (C2)_hex, then type 'C2'."
                                            Header="Polynomials A(x) from GF(2^8)">
                         <TextBox x:Name="GfAdditionElement1TextBox"
-                                 PlaceholderText="A(x)" 
-                                 TextChanged="GfAdditionElementTextBox_OnTextChanged"/>
+                                 Text="C2" />
                     </controls:SettingsCard>
                     <controls:SettingsCard Description="Sample parameters: x^7+x^6+x = (11000010)_2 = (C2)_hex, then type 'C2'."
                                                    Header="Polynomials B(x) from GF(2^8)">
                         <TextBox x:Name="GfAdditionElement2TextBox"
-                                 PlaceholderText="B(x)" 
-                                 TextChanged="GfAdditionElementTextBox_OnTextChanged"/>
+                                 Text="36" />
                     </controls:SettingsCard>
                     <controls:SettingsCard Description=""
                                            Header="The sum &amp; difference of the two elements is">
                         <HyperlinkButton x:Name="GfAdditionResultHyperlinkButton" 
-                                         Content=""
-                                         ToolTipService.ToolTip="Copy to clipboard"/>
+                                         Content=""/>
                     </controls:SettingsCard>
                     <InfoBar
                         x:Name="GfAdditionStatusInfoBar"
@@ -112,32 +114,34 @@
                         Severity="Informational"
                         Title="Status"
                         Message="Please enter correct parameters." />
-                </controls:SettingsExpander.Items>
+            <!--     </controls:SettingsExpander.Items> -->
+            <!-- -->
+            <!-- </controls:SettingsExpander> -->
 
-            </controls:SettingsExpander>
+            <!-- <controls:SettingsExpander Description="Multiplication in GF ( 2^8 ) is the core operation of the MixColumn layer of AES." -->
+            <!--                            Header="Multiplication in GF ( 2^8 )" -->
+            <!--                            IsExpanded="True"> -->
+            <!--     <controls:SettingsExpander.HeaderIcon> -->
+            <!--         <FontIcon Glyph="&#xE947;" /> -->
+            <!--     </controls:SettingsExpander.HeaderIcon> -->
+            <!--     <controls:SettingsExpander.Items> -->
+            <TextBlock Text="Multiplication in GF ( 2^8 )" 
+                       Style="{StaticResource BodyStrongTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
 
-            <controls:SettingsExpander Description="Multiplication in GF ( 2^8 ) is the core operation of the MixColumn layer of AES."
-                                       Header="Multiplication in GF ( 2^8 )">
-                <controls:SettingsExpander.HeaderIcon>
-                    <FontIcon Glyph="&#xE947;" />
-                </controls:SettingsExpander.HeaderIcon>
-                <controls:SettingsExpander.Items>
                     <controls:SettingsCard Description="Sample parameters: x^7+x^6+x = (11000010)_2 = (C2)_hex, then type 'C2'."
                                            Header="Polynomials A(x) from GF(2^8)">
                         <TextBox x:Name="GfMultiplicationElement1TextBox" 
-                                 TextChanged="GfMultiplicationElementTextBox_OnTextChanged"
-                                 PlaceholderText="A(x)" />
+                                 Text="C2" />
                     </controls:SettingsCard>
                     <controls:SettingsCard Description="Sample parameters: x^7+x^6+x = (11000010)_2 = (C2)_hex, then type 'C2'."
                                            Header="Polynomials B(x) from GF(2^8)">
                         <TextBox x:Name="GfMultiplicationElement2TextBox" 
-                                 TextChanged="GfMultiplicationElementTextBox_OnTextChanged"
-                                 PlaceholderText="B(x)" />
+                                 Text="36" />
                     </controls:SettingsCard>
                     <controls:SettingsCard Description=""
                                            Header="The polynomial product in GF ( 2^8 ) is">
-                        <HyperlinkButton x:Name="GfMultiplicationResultHyperlinkButton" 
-                                         ToolTipService.ToolTip="Copy to clipboard"/>
+                        <HyperlinkButton x:Name="GfMultiplicationResultHyperlinkButton" />
                     </controls:SettingsCard>
                     <InfoBar
                         x:Name="GfMultiplicationStatusInfoBar"
@@ -148,25 +152,28 @@
                         Title="Status"
                         Message="Please enter correct parameters." />
 
-                </controls:SettingsExpander.Items>
-            </controls:SettingsExpander>
+            <!--     </controls:SettingsExpander.Items> -->
+            <!-- </controls:SettingsExpander> -->
 
-            <controls:SettingsExpander Description="Inversion in GF ( 2^8 ) is the core operation of the Byte Substitution layer, which contains the AES S-boxes."
-                                       Header="Inversion in GF ( 2^8 )">
-                <controls:SettingsExpander.HeaderIcon>
-                    <FontIcon Glyph="&#xE72C;" />
-                </controls:SettingsExpander.HeaderIcon>
-                <controls:SettingsExpander.Items>
+            <!-- <controls:SettingsExpander Description="Inversion in GF ( 2^8 ) is the core operation of the Byte Substitution layer, which contains the AES S-boxes." -->
+            <!--                            Header="Inversion in GF ( 2^8 )" -->
+            <!--                            IsExpanded="True"> -->
+            <!--     <controls:SettingsExpander.HeaderIcon> -->
+            <!--         <FontIcon Glyph="&#xE72C;" /> -->
+            <!--     </controls:SettingsExpander.HeaderIcon> -->
+            <!--     <controls:SettingsExpander.Items> -->
+            <TextBlock Text="Inversion in GF ( 2^8 )" 
+                       Style="{StaticResource BodyStrongTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
                     <controls:SettingsCard Description="Sample parameters: x^7+x^6+x = (11000010)_2 = (C2)_hex, then type 'C2'."
                                            Header="Polynomials A(x) from GF(2^8)">
                         <TextBox x:Name="GfInversionElement1TextBox" 
-                                 TextChanged="GfInversionElementTextBox_OnTextChanged"
-                                 PlaceholderText="A(x)" />
+                                 Text="C2" />
                     </controls:SettingsCard>
                     <controls:SettingsCard Description=""
                                            Header="The inversion of A(x) is">
-                        <HyperlinkButton x:Name="GfInversionResultHyperlinkButton" 
-                                         ToolTipService.ToolTip="Copy to clipboard"/>
+                        <HyperlinkButton x:Name="GfInversionResultHyperlinkButton" />
                     </controls:SettingsCard>
                     <InfoBar
                         x:Name="GfInversionStatusInfoBar"
@@ -177,8 +184,8 @@
                         Title="Status"
                         Message="Please enter correct parameters." />
 
-                </controls:SettingsExpander.Items>
-            </controls:SettingsExpander>
+            <!--     </controls:SettingsExpander.Items> -->
+            <!-- </controls:SettingsExpander> -->
         </StackPanel>
     </ScrollViewer>
 </Page>

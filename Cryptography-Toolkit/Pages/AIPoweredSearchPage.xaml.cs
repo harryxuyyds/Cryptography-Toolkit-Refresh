@@ -33,24 +33,52 @@ public sealed partial class AIPoweredSearchPage : Page
     public AIPoweredSearchPage()
     {
         InitializeComponent();
-        // TestDeepSeek();
+        AiPoweredSearchPreCheck();
     }
 
-    private async void TestDeepSeek()
+    private void AiPoweredSearchPreCheck()
     {
-        var apiKey = "sk-";
-        // 通过apiKey创建实例
+        var aiPlatformHelper = new Helpers.AiPlatformHelper();
+        if (!aiPlatformHelper.AiEnableCheck())
+        {
+            AiSearchButton.IsEnabled = false;
+            AiSearchInputTextBox.IsEnabled = false;
+            AiSearchAnswerTextBlock.Text = "AI feature is not enabled. Please enable it and configure the API key in Settings.";
+        }
+    }
+    private async void AiSearchButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        var systemMessage = ReadAiSearchSystemPromptFromFile();
+        var searchMessage = AiSearchInputTextBox.Text;
+        var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+        var apiKey = localSettings.Values["DeepSeekApiKey"] as string;
         var client = new DeepSeekClient(apiKey);
-
-        var modelResponse = await client.ListModelsAsync(CancellationToken.None);
-        if (modelResponse is null)
+        var request = new ChatRequest
+        {
+            Messages = [
+                Message.NewSystemMessage(systemMessage),
+                Message.NewUserMessage(searchMessage)
+            ],
+            Model = DeepSeekModels.ChatModel
+        };
+        
+        var chatResponse = await client.ChatAsync(request, CancellationToken.None);
+        if (chatResponse is null)
         {
             Debug.WriteLine(client.ErrorMsg);
-            return;
         }
-        foreach (var model in modelResponse.Data)
+        // Debug.WriteLine(chatResponse?.Choices.First().Message?.Content);
+        AiSearchAnswerTextBlock.Text = chatResponse?.Choices.First().Message?.Content ?? "No response from AI.";
+    }
+
+    private string ReadAiSearchSystemPromptFromFile()
+    {
+        var filePath = Path.Combine(AppContext.BaseDirectory, "Assets", "CryptoAiSearchSystemPrompts.md");
+        Debug.WriteLine(filePath);
+        if (!File.Exists(filePath))
         {
-            Debug.WriteLine(model);
+            return "System prompt file not found.";
         }
+        return File.ReadAllText(filePath);
     }
 }
