@@ -126,7 +126,7 @@
                 IsClosable="False"
                 Severity="Informational"
                 Title="Status"
-                Message="Pending Validation (Enter correct parameters to calculate)​" />
+                Message="Pending Computation (Enter correct parameters to calculate)​" />
 
             <controls:SettingsCard Description="Smallest positive integer k where aᵏ ≡ 1 mod n."
                                    Header="Order">
@@ -146,7 +146,7 @@
 
             <TextBox x:Name="OrderCalcLogTextBox" 
                      Text="The running log generated during the order calculation will be displayed here."
-                     Height="100" 
+                     Height="160" 
                      AcceptsReturn="True"
                      IsReadOnly="True"
                      ScrollViewer.VerticalScrollBarVisibility="Auto"
@@ -159,6 +159,60 @@
             <TextBlock Text="Identifies primitive roots modulo n — generators of the multiplicative group that achieve the maximum possible order φ(n), forming the foundation of cyclic modular structures." 
                        TextWrapping="Wrap"/>
 
+            <TextBlock Text="Configuration" 
+                       Style="{StaticResource BodyStrongTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
+            <controls:SettingsCard Description="Integer n for which to find primitive roots (must have primitive roots)."
+                                   Header="Modulus (n)">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE961;" />
+                </controls:SettingsCard.HeaderIcon>
+                <NumberBox
+                    x:Name="PrimitiveRootCalcModulusNNumberBox"
+                    Value="31"
+                    Minimum="2"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
+
+            <TextBlock Text="Output" 
+                       Style="{StaticResource BodyStrongTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
+            <InfoBar
+                x:Name="PrimitiveRootCalcCheckInfoBar"
+                IsOpen="True"
+                IsIconVisible="True"
+                IsClosable="False"
+                Severity="Informational"
+                Title="Status"
+                Message="Pending Computation (Enter correct parameters to calculate)​" />
+
+            <controls:SettingsCard Description="Total number of primitive roots (equals ϕ(ϕ(n)) if they exist)."
+                                   Header="Count">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE718;" />
+                </controls:SettingsCard.HeaderIcon>
+                <TextBlock x:Name="PrimitiveRootCalcCountTextBlock" Text=""/>
+            </controls:SettingsCard>
+
+            <controls:SettingsCard Description="Value of ϕ(n) ( used to verify ord_n​(g) = ϕ(n) )."
+                                   Header="​Euler’s Totient ϕ(n)">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE718;" />
+                </controls:SettingsCard.HeaderIcon>
+                <TextBlock x:Name="PrimitiveRootCalcEulerTotientTextBlock" Text=""/>
+            </controls:SettingsCard>
+
+            <TextBox x:Name="PrimitiveRootCalcLogTextBox" 
+                     Text="The running log generated during the primitive root calculation will be displayed here."
+                     Height="160" 
+                     AcceptsReturn="True"
+                     IsReadOnly="True"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
 
         </StackPanel>
     </ScrollViewer>

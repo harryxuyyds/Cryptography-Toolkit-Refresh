@@ -33,7 +33,10 @@ public sealed partial class QuadraticResiduePage : Page
         _common = new Common();
         LegendreCalcIntegerANumberBox.ValueChanged += LegendreCalcNumberBox_OnValueChanged;
         LegendreCalcModulusPNumberBox.ValueChanged += LegendreCalcNumberBox_OnValueChanged;
+        QuadraticCongruenceCalcIntegerANumberBox.ValueChanged += QuadraticCongruenceCalcNumberBox_OnValueChanged;
+        QuadraticCongruenceCalcModulusPNumberBox.ValueChanged += QuadraticCongruenceCalcNumberBox_OnValueChanged;
         LegendreCalcSetup();
+        QuadraticCongruenceCalc();
     }
 
     private void LegendreCalcNumberBox_OnValueChanged(NumberBox sender, NumberBoxValueChangedEventArgs args)
@@ -68,6 +71,70 @@ public sealed partial class QuadraticResiduePage : Page
         {
             LegendreCalcCheckInfoBar.Severity = InfoBarSeverity.Warning;
             LegendreCalcCheckInfoBar.Message = "Please enter correct parameters.";
+            LegendreCalcResultTextBlock.Text = "";
+        }
+    }
+
+    private void QuadraticCongruenceCalcNumberBox_OnValueChanged(NumberBox sender, NumberBoxValueChangedEventArgs args)
+    {
+        QuadraticCongruenceCalc();
+    }
+
+    private void QuadraticCongruenceCalc()
+    {
+        var millerRabinPrimalityTest = new Components.MillerRabinPrimalityTest();
+
+        if (QuadraticCongruenceCalcIntegerANumberBox.Value is double paraAValue &&
+            QuadraticCongruenceCalcModulusPNumberBox.Value is double modulusPValue &&
+            millerRabinPrimalityTest.MillerRabinPrimalityTestRun(8, (int)modulusPValue) &&
+            (int)modulusPValue % 4 == 3)
+        {
+            var paraA = (int)paraAValue;
+            var modulusP = (int)modulusPValue;
+
+            // Calculate Legendre Symbol
+            var legendreResult = _common.SquareMultiplyAlgorithmCalc(paraA, (modulusP - 1) / 2, modulusP);
+            int legendreSymbol = legendreResult == modulusP - 1 ? -1 : legendreResult;
+
+            // Calculate Explicit Formula (when p ≡ 3 mod 4)
+            // x ≡ a^((p+1)/4) mod p
+            int expFormula = _common.SquareMultiplyAlgorithmCalc(paraA, (modulusP + 1) / 4, modulusP);
+
+            // Calculate Solutions
+            List<int> solutions = new();
+            if (legendreSymbol == 1)
+            {
+                // Two solutions: x and p-x
+                solutions.Add(expFormula);
+                solutions.Add((modulusP - expFormula) % modulusP);
+                QuadraticCongruenceCalcCheckInfoBar.Severity = InfoBarSeverity.Success;
+                QuadraticCongruenceCalcCheckInfoBar.Message =
+                    $"Solutions: x ≡ {expFormula} mod {modulusP}, x ≡ {(modulusP - expFormula) % modulusP} mod {modulusP}";
+            }
+            else if (legendreSymbol == 0)
+            {
+                // Unique solution x ≡ 0 mod p
+                solutions.Add(0);
+                QuadraticCongruenceCalcCheckInfoBar.Severity = InfoBarSeverity.Success;
+                QuadraticCongruenceCalcCheckInfoBar.Message = $"Unique solution: x ≡ 0 mod {modulusP}";
+            }
+            else
+            {
+                // No solution
+                QuadraticCongruenceCalcCheckInfoBar.Severity = InfoBarSeverity.Warning;
+                QuadraticCongruenceCalcCheckInfoBar.Message = $"{paraA} is not a quadratic residue modulo {modulusP}, no solution.";
+            }
+
+            // 显示结果
+            QuadraticCongruenceCalcSolutionTextBlock.Text = string.Join(", ", solutions);
+            QuadraticCongruenceCalcLegendreValueTextBlock.Text = legendreSymbol.ToString();
+            QuadraticCongruenceCalcExplicitFormulaTextBlock.Text = expFormula.ToString();
+            
+        }
+        else
+        {
+            QuadraticCongruenceCalcCheckInfoBar.Severity = InfoBarSeverity.Warning;
+            QuadraticCongruenceCalcCheckInfoBar.Message = "Please enter correct parameters.";
             LegendreCalcResultTextBlock.Text = "";
         }
     }

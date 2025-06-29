@@ -48,6 +48,8 @@ public sealed partial class AIPoweredSearchPage : Page
     }
     private async void AiSearchButton_OnClick(object sender, RoutedEventArgs e)
     {
+        AiSearchButton.IsEnabled = false;
+        AiSearchButton.Content = "Waiting";
         var systemMessage = ReadAiSearchSystemPromptFromFile();
         var searchMessage = AiSearchInputTextBox.Text;
         var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
@@ -69,6 +71,8 @@ public sealed partial class AIPoweredSearchPage : Page
         }
         // Debug.WriteLine(chatResponse?.Choices.First().Message?.Content);
         AiSearchAnswerTextBlock.Text = chatResponse?.Choices.First().Message?.Content ?? "No response from AI.";
+        AiSearchButton.Content = "Send";
+        AiSearchButton.IsEnabled = true;
     }
 
     private string ReadAiSearchSystemPromptFromFile()

@@ -76,9 +76,85 @@
                Margin="0,0,0,12"/>
             <!-- Page Title Format End -->
 
-            <TextBlock Text="Legendre Symbol" 
+            <TextBlock Text="Quadratic Congruence Solver" 
                        Style="{StaticResource SubtitleTextBlockStyle}" 
                        Margin="0,8,0,8"/>
+
+            <TextBlock Text="Solves quadratic congruences of form x²≡a mod p, determining solution existence and computing explicit solutions when they exist." 
+                       TextWrapping="Wrap"/>
+
+            <TextBlock Text="Configuration" 
+                       Style="{StaticResource BodyStrongTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
+            <controls:SettingsCard Description="Value a in x² ≡ a mod p."
+                                   Header="​Quadratic Residue (a)​​">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE961;" />
+                </controls:SettingsCard.HeaderIcon>
+                <NumberBox
+                    x:Name="QuadraticCongruenceCalcIntegerANumberBox"
+                    Value="18"
+                    Minimum="1"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
+
+            <controls:SettingsCard Description="Prime modulus p where p ≡ 3 mod 4."
+                                   Header="Prime Modulus (p)">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE961;" />
+                </controls:SettingsCard.HeaderIcon>
+                <NumberBox
+                    x:Name="QuadraticCongruenceCalcModulusPNumberBox"
+                    Value="31"
+                    Minimum="3"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
+
+            <TextBlock Text="Output" 
+                       Style="{StaticResource BodyStrongTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
+            <InfoBar
+                x:Name="QuadraticCongruenceCalcCheckInfoBar"
+                IsOpen="True"
+                IsIconVisible="True"
+                IsClosable="False"
+                Severity="Informational"
+                Title="Status"
+                Message="Pending Computation (Enter correct parameters to calculate)​" />
+
+            <controls:SettingsCard Description="Array of solutions (empty if no solution)."
+                                   Header="Solutions">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE718;" />
+                </controls:SettingsCard.HeaderIcon>
+                <TextBlock x:Name="QuadraticCongruenceCalcSolutionTextBlock" Text=""/>
+            </controls:SettingsCard>
+
+            <controls:SettingsCard Description="1 (residue), -1 (non-residue), 0 (if a ≡ 0 mod p)."
+                                   Header="Legendre Symbol">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE718;" />
+                </controls:SettingsCard.HeaderIcon>
+                <TextBlock x:Name="QuadraticCongruenceCalcLegendreValueTextBlock" Text=""/>
+            </controls:SettingsCard>
+
+            <controls:SettingsCard Description="Computed solution: x≡±a^[(p+1)/4]  mod p."
+                                   Header="Explicit Formula">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE718;" />
+                </controls:SettingsCard.HeaderIcon>
+                <TextBlock x:Name="QuadraticCongruenceCalcExplicitFormulaTextBlock" Text=""/>
+            </controls:SettingsCard>
+
+            <TextBlock Text="Legendre Symbol" 
+                       Style="{StaticResource SubtitleTextBlockStyle}" 
+                       Margin="0,32,0,8"/>
 
             <TextBlock Text="The Legendre symbol (a/p) compactly encodes whether a is a quadratic residue modulo odd prime p, with values -1, 0, or 1 indicating non-residue, zero, or residue respectively." 
                        TextWrapping="Wrap"/>
@@ -128,20 +204,13 @@
                 Title="Status"
                 Message="Pending Computation (Enter correct parameters to calculate)​" />
 
-            <controls:SettingsCard Description=""
+            <controls:SettingsCard Description="1 (residue), -1 (non-residue), 0 (if a ≡ 0 mod p)."
                                    Header="Legendre Symbol (a/p) Value">
                 <controls:SettingsCard.HeaderIcon>
                     <FontIcon Glyph="&#xE718;" />
                 </controls:SettingsCard.HeaderIcon>
                 <TextBlock x:Name="LegendreCalcResultTextBlock" Text=""/>
             </controls:SettingsCard>
-
-            <TextBlock Text="Quadratic Congruence Solver" 
-                       Style="{StaticResource SubtitleTextBlockStyle}" 
-                       Margin="0,32,0,8"/>
-
-            <TextBlock Text="Solves quadratic congruences of form x²≡a mod p, determining solution existence and computing explicit solutions when they exist." 
-                       TextWrapping="Wrap"/>
 
         </StackPanel>
     </ScrollViewer>

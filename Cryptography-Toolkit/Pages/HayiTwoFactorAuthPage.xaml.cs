@@ -38,16 +38,10 @@ public sealed partial class HayiTwoFactorAuthPage : Page
 
     private void TestTwoFactor()
     {
-        // var secretKey = "7J64V3P3E77J3LKNUGSZ5QANTLRLTKVL";
-
         byte[] secretKey = Base32Encoding.ToBytes("7J64V3P3E77J3LKNUGSZ5QANTLRLTKVL");
-        var totp = new Totp(secretKey); // Pass byte array to Totp constructor
-        
-        var code = totp.ComputeTotp(DateTime.UtcNow); // 生成当前TOTP验证码
-        Debug.WriteLine($"当前TOTP验证码: {code}");
-        // there is also an overload that lets you specify the time
+        var totp = new Totp(secretKey);
+        var code = totp.ComputeTotp(DateTime.UtcNow);
         var remainingSeconds = totp.RemainingSeconds(DateTime.UtcNow);
-        Debug.WriteLine($"剩余时间: {remainingSeconds}秒");
     }
 
     private void AuthAppAddNewAuthenticatorButton_OnClick(object sender, RoutedEventArgs e)
@@ -140,9 +134,6 @@ public sealed partial class HayiTwoFactorAuthPage : Page
         }
         await Windows.Storage.FileIO.AppendTextAsync(file, line);
 
-        // AuthenticatorListPanel.Children.Clear();
-
-        // 3. 创建UI控件
         var stackPanel = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(0, 8, 0, 8) };
         var nameText = new TextBlock { Text = accountName, Width = 180, VerticalAlignment = VerticalAlignment.Center };
         var codeText = new TextBlock { Width = 100, FontSize = 20, VerticalAlignment = VerticalAlignment.Center };
@@ -153,7 +144,6 @@ public sealed partial class HayiTwoFactorAuthPage : Page
         stackPanel.Children.Add(progressBar);
         AuthenticatorListPanel.Children.Add(stackPanel);
 
-        // 4. TOTP逻辑
         byte[] secretBytes = OtpNet.Base32Encoding.ToBytes(secretKey);
         var totp = new OtpNet.Totp(secretBytes);
 
@@ -165,24 +155,17 @@ public sealed partial class HayiTwoFactorAuthPage : Page
                 var code = totp.ComputeTotp(now);
                 var remain = totp.RemainingSeconds(now);
 
-                Debug.WriteLine(now);
-                Debug.WriteLine($"当前TOTP验证码: {code}");
-                // 在UI线程上更新codeText.Text
                 await DispatcherQueue.EnqueueAsync(() =>
                 {
                     codeText.Text = code;
                     progressBar.Value = 30 - remain;
                 });
-                
-                Debug.WriteLine($"剩余时间: {remain}秒");
-
                 await Task.Delay(1000);
             }
         }
 
         _ = Task.Run(UpdateTotp);
 
-        // 5. 状态栏提示
         AuthAppAddNewAuthenticatorStatusInfoBar.Severity = InfoBarSeverity.Success;
         AuthAppAddNewAuthenticatorStatusInfoBar.Message = "Authenticator added successfully.";
         AuthAppAddNewAuthenticatorStatusInfoBar.IsOpen = true;
@@ -200,7 +183,6 @@ public sealed partial class HayiTwoFactorAuthPage : Page
         stackPanel.Children.Add(progressBar);
         AuthenticatorListPanel.Children.Add(stackPanel);
 
-        // 4. TOTP逻辑
         byte[] secretBytes = OtpNet.Base32Encoding.ToBytes(secretKey);
         var totp = new OtpNet.Totp(secretBytes);
 
@@ -212,24 +194,17 @@ public sealed partial class HayiTwoFactorAuthPage : Page
                 var code = totp.ComputeTotp(now);
                 var remain = totp.RemainingSeconds(now);
 
-                Debug.WriteLine(now);
-                Debug.WriteLine($"当前TOTP验证码: {code}");
-                // 在UI线程上更新codeText.Text
                 await DispatcherQueue.EnqueueAsync(() =>
                 {
                     codeText.Text = code;
                     progressBar.Value = 30 - remain;
                 });
-
-                Debug.WriteLine($"剩余时间: {remain}秒");
-
                 await Task.Delay(1000);
             }
         }
 
         _ = Task.Run(UpdateTotp);
 
-        // 5. 状态栏提示
         AuthAppAddNewAuthenticatorStatusInfoBar.Severity = InfoBarSeverity.Success;
         AuthAppAddNewAuthenticatorStatusInfoBar.Message = "Authenticator added successfully.";
         AuthAppAddNewAuthenticatorStatusInfoBar.IsOpen = true;

@@ -100,12 +100,18 @@
                     <NavigationViewItem.Icon>
                         <PathIcon Data="{StaticResource DeepSeekIconPath}" />
                     </NavigationViewItem.Icon>
+                    <NavigationViewItem.InfoBadge>
+                        <InfoBadge Style="{StaticResource AttentionIconInfoBadgeStyle}" HorizontalAlignment="Right"/>
+                    </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="HayiTwoFactorAuthPage"
                                     Content="Hayi Authenticator - 2FA">
                     <NavigationViewItem.Icon>
                         <PathIcon Data="{StaticResource TwoFactorAuthIconPath}" />
                     </NavigationViewItem.Icon>
+                    <NavigationViewItem.InfoBadge>
+                        <InfoBadge Style="{StaticResource AttentionIconInfoBadgeStyle}" HorizontalAlignment="Right"/>
+                    </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
 
                 <NavigationViewItemHeader Content="Components" />
