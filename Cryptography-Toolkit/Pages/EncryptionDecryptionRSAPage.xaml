@@ -72,17 +72,17 @@
                 </DropDownButton>
             </StackPanel>
             <TextBlock Text="A distinctive feature of all asymmetric schemes is that there is a key set-up phase. RSA encryption and decryption are done in the integer ring, and modular computations play a central role." 
-                   TextWrapping="Wrap"
-                   Margin="0,0,0,12"/>
+                       TextWrapping="Wrap"
+                       Margin="0,0,0,12"/>
             <!-- Page Title Format End -->
 
             <InfoBar
-            IsOpen="True"
-            IsIconVisible="True"
-            IsClosable="True"
-            Severity="Informational"
-            Title="Tip"
-            Message="Please enter smaller parameter values. For larger numbers, use Cryptography PowerToys." />
+                IsOpen="True"
+                IsIconVisible="True"
+                IsClosable="True"
+                Severity="Informational"
+                Title="Tip"
+                Message="Please enter smaller parameter values. For larger numbers, use Cryptography PowerToys." />
 
             <TextBlock Text="RSA Key Generation"
                    Style="{StaticResource BodyStrongTextBlockStyle}"

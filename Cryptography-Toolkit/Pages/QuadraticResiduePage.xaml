@@ -129,7 +129,7 @@
                 Message="Pending Computation (Enter correct parameters to calculate)​" />
 
             <controls:SettingsCard Description=""
-                                   Header="Legendre Symbol Value">
+                                   Header="Legendre Symbol (a/p) Value">
                 <controls:SettingsCard.HeaderIcon>
                     <FontIcon Glyph="&#xE718;" />
                 </controls:SettingsCard.HeaderIcon>

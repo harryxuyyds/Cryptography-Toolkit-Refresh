@@ -232,7 +232,6 @@ public sealed partial class NavigationRootPage : Page
         }
     }
 
-    // 修复方法：使用 null-forgiving 运算符 (!) 明确告知编译器此处返回 null 是预期行为。
     private NavigationViewItem? FindNavigationViewItemByPageType(Type pageType)
     {
         foreach (var item in NavigationViewControl.MenuItems)

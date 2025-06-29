@@ -84,24 +84,27 @@
 
             <Frame x:Name="RootFrame"/>
             <NavigationView.MenuItems>
-                <NavigationViewItem
-                    x:Name="Home"
-                    AutomationProperties.AutomationId="Home"
-                    Tag="HomePage"
-                    Content="Home"
-                    Icon="Home" />
-                <NavigationViewItem
-                    Tag="LovePage"
-                    Content="Think Different">
+                <NavigationViewItem x:Name="Home"
+                                    AutomationProperties.AutomationId="Home"
+                                    Tag="HomePage"
+                                    Content="Home"
+                                    Icon="Home" />
+                <NavigationViewItem Tag="LovePage"
+                                    Content="Think Different">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xEB51;" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
-                <NavigationViewItem
-                    Tag="AIPoweredSearchPage"
-                    Content="AI-Powered Search">
+                <NavigationViewItem Tag="AIPoweredSearchPage"
+                                    Content="AI-Powered Search">
                     <NavigationViewItem.Icon>
                         <PathIcon Data="{StaticResource DeepSeekIconPath}" />
+                    </NavigationViewItem.Icon>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="HayiTwoFactorAuthPage"
+                                    Content="Hayi Auth - 2FA">
+                    <NavigationViewItem.Icon>
+                        <PathIcon Data="{StaticResource TwoFactorAuthIconPath}" />
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
 
