@@ -102,7 +102,7 @@
                     </NavigationViewItem.Icon>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="HayiTwoFactorAuthPage"
-                                    Content="Hayi Auth - 2FA">
+                                    Content="Hayi Authenticator - 2FA">
                     <NavigationViewItem.Icon>
                         <PathIcon Data="{StaticResource TwoFactorAuthIconPath}" />
                     </NavigationViewItem.Icon>
