@@ -162,7 +162,7 @@
                        Style="{StaticResource BodyStrongTextBlockStyle}"
                        Margin="0,16,0,8"/>
 
-            <controls:SettingsExpander x:Name="RsaEncryptionSettingsExpander" 
+            <controls:SettingsExpander x:Name="RsaSignatureGenerationSettingsExpander" 
                                        Description=""
                                        Header="RSA Signature Generation">
                 <controls:SettingsExpander.HeaderIcon>
@@ -170,41 +170,42 @@
                 </controls:SettingsExpander.HeaderIcon>
                 <controls:SettingsExpander.Items>
                     <controls:SettingsCard Description=""
-                                           Header="Plaintext">
+                                           Header="Message">
                         <NumberBox
-                            x:Name="RsaEncryptionPlaintextNumberBox"
+                            x:Name="RsaSignatureGenerationMessageNumberBox"
                             Minimum="0"
                             SpinButtonPlacementMode="Inline"
                             SmallChange="1"
                             LargeChange="1" />
                     </controls:SettingsCard>
                     <controls:SettingsCard Description=""
-                               Header="Public Key n">
+                                           Header="Public Key n">
                         <NumberBox
-                            x:Name="RsaEncryptionPublicKeyNNumberBox"
+                            x:Name="RsaSignatureGenerationPublicKeyNNumberBox"
                             Minimum="1"
                             SpinButtonPlacementMode="Inline"
                             SmallChange="1"
                             LargeChange="1" />
                     </controls:SettingsCard>
                     <controls:SettingsCard Description=""
-                                           Header="Public Key e">
+                                           Header="Private Key d">
                         <NumberBox
-                            x:Name="RsaEncryptionPublicKeyENumberBox"
+                            x:Name="RsaSignatureGenerationPrivateKeyDNumberBox"
                             Minimum="1"
                             SpinButtonPlacementMode="Inline"
                             SmallChange="1"
                             LargeChange="1" />
                     </controls:SettingsCard>
+
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
 
-            <!-- <Button x:Name="RsaEncryptionExecuteButton"  -->
-            <!--         Content="Click to Execute RSA Signature Generation" -->
-            <!--         Click="RsaEncryptionExecuteButton_OnClick" -->
-            <!--         HorizontalAlignment="Stretch"/> -->
+            <Button x:Name="RsaSignatureGenerationExecuteButton" 
+                    Content="Click to Execute RSA Signature Generation" 
+                    Click="RsaSignatureGenerationExecuteButton_OnClick"
+                    HorizontalAlignment="Stretch"/>
 
-            <TextBox x:Name="RsaEncryptionLogTextBox" 
+            <TextBox x:Name="RsaSignatureGenerationLogTextBox" 
                      Text="The running log generated during the RSA signature generation will be displayed here."
                      Height="120" 
                      AcceptsReturn="True"
@@ -216,7 +217,7 @@
                        Style="{StaticResource BodyStrongTextBlockStyle}"
                        Margin="0,16,0,8"/>
 
-            <controls:SettingsExpander x:Name="RsaDecryptionSettingsExpander" 
+            <controls:SettingsExpander x:Name="RsaSignatureVerificationSettingsExpander" 
                                        Description=""
                                        Header="RSA Signature Verification">
                 <controls:SettingsExpander.HeaderIcon>
@@ -224,9 +225,18 @@
                 </controls:SettingsExpander.HeaderIcon>
                 <controls:SettingsExpander.Items>
                     <controls:SettingsCard Description=""
-                                           Header="Ciphertext">
+                                           Header="Message">
                         <NumberBox
-                            x:Name="RsaDecryptionCiphertextNumberBox"
+                            x:Name="RsaSignatureVerificationMessageNumberBox"
+                            Minimum="0"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                                           Header="Signature for Message">
+                        <NumberBox
+                            x:Name="RsaSignatureVerificationSignatureNumberBox"
                             Minimum="1"
                             SpinButtonPlacementMode="Inline"
                             SmallChange="1"
@@ -235,16 +245,16 @@
                     <controls:SettingsCard Description=""
                                            Header="Public Key n">
                         <NumberBox
-                            x:Name="RsaDecryptionPublicKeyNNumberBox"
+                            x:Name="RsaSignatureVerificationPublicKeyNNumberBox"
                             Minimum="1"
                             SpinButtonPlacementMode="Inline"
                             SmallChange="1"
                             LargeChange="1" />
                     </controls:SettingsCard>
                     <controls:SettingsCard Description=""
-                                           Header="Private Key d">
+                                           Header="Public Key e">
                         <NumberBox
-                            x:Name="RsaDecryptionPrivateKeyDNumberBox"
+                            x:Name="RsaSignatureVerificationPublicKeyENumberBox"
                             Minimum="1"
                             SpinButtonPlacementMode="Inline"
                             SmallChange="1"
@@ -253,12 +263,12 @@
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
 
-            <!-- <Button x:Name="RsaDecryptionExecuteButton"  -->
-            <!--         Content="Click to Execute RSA Signature Verification" -->
-            <!--         Click="RsaDecryptionExecuteButton_OnClick" -->
-            <!--         HorizontalAlignment="Stretch"/> -->
+            <Button x:Name="RsaSignatureVerificationExecuteButton" 
+                    Content="Click to Execute RSA Signature Verification" 
+                    Click="RsaSignatureVerificationExecuteButton_OnClick"
+                    HorizontalAlignment="Stretch"/>
 
-            <TextBox x:Name="RsaDecryptionLogTextBox" 
+            <TextBox x:Name="RsaSignatureVerificationLogTextBox" 
                      Text="The running log generated during the RSA signature verification will be displayed here."
                      Height="120" 
                      AcceptsReturn="True"

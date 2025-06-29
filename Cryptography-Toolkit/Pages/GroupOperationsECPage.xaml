@@ -6,6 +6,7 @@
     xmlns:local="using:Cryptography_Toolkit.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     mc:Ignorable="d">
 
     <ScrollViewer>
@@ -82,8 +83,114 @@
                 Severity="Informational"
                 Title="Tip"
                 Message="Please enter smaller parameter values. For larger numbers, use Cryptography PowerToys." />
-            
-            
+
+            <TextBlock Text="Elliptic Curve Configuration" 
+                       Style="{StaticResource BodyStrongTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
+            <controls:SettingsCard Description="Defines the first elliptic curve parameter in the equation y² ≡ x³ + ax + b (mod p)."
+                                   Header="Coefficient A">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE961;" />
+                </controls:SettingsCard.HeaderIcon>
+                <NumberBox
+                    x:Name="DefinitionEcCoefficientANumberBox"
+                    Value="9"
+                    Minimum="1"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
+
+            <controls:SettingsCard Description="Defines the second elliptic curve parameter in the equation y² ≡ x³ + ax + b (mod p)."
+                                   Header="Coefficient B">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE961;" />
+                </controls:SettingsCard.HeaderIcon>
+                <NumberBox
+                    x:Name="DefinitionEcCoefficientBNumberBox"
+                    Value="11"
+                    Minimum="1"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
+
+            <controls:SettingsCard Description="Prime number defining the finite field 𝔽ₚ for curve operations."
+                                   Header="​Field Modulus">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE961;" />
+                </controls:SettingsCard.HeaderIcon>
+                <NumberBox
+                    x:Name="DefinitionEcFieldModulusNumberBox"
+                    Value="53"
+                    Minimum="3"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
+
+            <TextBlock Text="Elliptic Curve Check" 
+                       Style="{StaticResource BodyStrongTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
+            <InfoBar
+                x:Name="DefinitionEcCheckInfoBar"
+                IsOpen="True"
+                IsIconVisible="True"
+                IsClosable="False"
+                Severity="Informational"
+                Title="Status"
+                Message="Pending Validation (Enter correct parameters to check)​" />
+
+            <controls:SettingsCard Description="The curve order #E(𝔽ₚ) is the total number of points, including infinity."
+                                   Header="Order of Elliptic Curve">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE718;" />
+                </controls:SettingsCard.HeaderIcon>
+                <TextBlock x:Name="DefinitionEcOrderTextBlock" Text=""/>
+            </controls:SettingsCard>
+
+            <TextBlock Text="Group Operations Configuration" 
+                       Style="{StaticResource BodyStrongTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
+            <controls:SettingsCard Description="First input point ( x_P​ ,y_P )."
+                                   Header="Point P">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xECAF;" />
+                </controls:SettingsCard.HeaderIcon>
+                <ComboBox x:Name="PointPComboBox"/>
+            </controls:SettingsCard>
+
+            <controls:SettingsCard Description="Second input point ( x_Q​ ,y_Q​ ) (for addition)."
+                                   Header="Point Q">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xECAF;" />
+                </controls:SettingsCard.HeaderIcon>
+                <ComboBox x:Name="PointQComboBox"/>
+            </controls:SettingsCard>
+
+            <TextBlock Text="Group Operations Output" 
+                       Style="{StaticResource BodyStrongTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
+            <controls:SettingsCard Description=""
+                                   Header="Point Addition ( P + Q )​">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xECAF;" />
+                </controls:SettingsCard.HeaderIcon>
+                <TextBlock x:Name="PointAdditionResultTextBlock"/>
+            </controls:SettingsCard>
+
+            <controls:SettingsCard Description=""
+                                   Header="Point Doubling ( P + P )">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xECAF;" />
+                </controls:SettingsCard.HeaderIcon>
+                <TextBlock x:Name="PointDoublingResultTextBlock"/>
+            </controls:SettingsCard>
+
         </StackPanel>
     </ScrollViewer>
 </Page>

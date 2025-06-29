@@ -72,12 +72,11 @@ public sealed partial class RSASignatureSchemePage : Page
                     _keyPrD += _eulerPhiN;
                 }
                 RsaKeyGenerationLogTextBox.Text = $"Public Key: k_pub(n, e) = ({_keyPubN}, {_keyPubE})\nPrivate Key: k_pr(d) = ({_keyPrD})";
-                RsaEncryptionPublicKeyNNumberBox.Value = _keyPubN;
-                RsaEncryptionPublicKeyENumberBox.Value = _keyPubE;
-                RsaDecryptionPublicKeyNNumberBox.Value = _keyPubN;
-                RsaDecryptionPrivateKeyDNumberBox.Value = _keyPrD;
-                // RsaKeyGenerationSettingsExpander.IsExpanded = false;
-                RsaEncryptionSettingsExpander.IsExpanded = true;
+                RsaSignatureVerificationPublicKeyNNumberBox.Value = _keyPubN;
+                RsaSignatureVerificationPublicKeyENumberBox.Value = _keyPubE;
+                RsaSignatureGenerationPublicKeyNNumberBox.Value = _keyPubN;
+                RsaSignatureGenerationPrivateKeyDNumberBox.Value = _keyPrD;
+                RsaSignatureGenerationSettingsExpander.IsExpanded = true;
             }
             else
             {
@@ -87,6 +86,52 @@ public sealed partial class RSASignatureSchemePage : Page
         else
         {
             RsaKeyGenerationLogTextBox.Text = "Please enter correct parameters.";
+        }
+    }
+
+    private void RsaSignatureGenerationExecuteButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        if (int.TryParse(RsaSignatureGenerationMessageNumberBox.Text, out var m) &&
+            int.TryParse(RsaSignatureGenerationPrivateKeyDNumberBox.Text, out var _keyPrD) &&
+            int.TryParse(RsaSignatureGenerationPublicKeyNNumberBox.Text, out var _keyPubN))
+        {
+            if (m < 0 || m >= _keyPubN)
+            {
+                RsaSignatureGenerationLogTextBox.Text = "Message m must be in the range 0 <= m < n.";
+                return;
+            }
+            var signature = _common.SquareMultiplyAlgorithmCalc(m, _keyPrD, _keyPubN);
+            RsaSignatureGenerationLogTextBox.Text = $"Signature generated successfully:\nSignature Value: {signature}\n\n";
+            RsaSignatureVerificationSignatureNumberBox.Value = signature;
+            RsaSignatureVerificationMessageNumberBox.Value = m;
+            RsaSignatureVerificationSettingsExpander.IsExpanded = true;
+        }
+        else
+        {
+            RsaSignatureGenerationLogTextBox.Text = "Please enter correct parameters.";
+        }
+    }
+
+    private void RsaSignatureVerificationExecuteButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        if (int.TryParse(RsaSignatureVerificationSignatureNumberBox.Text, out var s) &&
+            int.TryParse(RsaSignatureVerificationPublicKeyENumberBox.Text, out var _keyPubE) &&
+            int.TryParse(RsaSignatureVerificationPublicKeyNNumberBox.Text, out var _keyPubN) &&
+            int.TryParse(RsaSignatureVerificationMessageNumberBox.Text, out var m))
+        {
+            var mPrime = _common.SquareMultiplyAlgorithmCalc(s, _keyPubE, _keyPubN);
+            if (mPrime == m)
+            {
+                RsaSignatureVerificationLogTextBox.Text = "Signature is valid.";
+            }
+            else
+            {
+                RsaSignatureVerificationLogTextBox.Text = $"Signature is invalid. Computed message: {mPrime}";
+            }
+        }
+        else
+        {
+            RsaSignatureVerificationLogTextBox.Text = "Please enter correct parameters.";
         }
     }
 }

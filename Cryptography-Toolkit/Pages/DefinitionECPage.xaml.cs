@@ -132,11 +132,6 @@ public sealed partial class DefinitionECPage : Page
         DefinitionEcOrderTextBlock.Text = orderCount.ToString();
     }
 
-    private void UIElement_OnPointerReleased(object sender, PointerRoutedEventArgs e)
-    {
-        DefinitionEcSetup();
-    }
-
     private void DefinitionEcPreviewCanvas_OnSizeChanged(object sender, SizeChangedEventArgs e)
     {
         DefinitionEcSetup();

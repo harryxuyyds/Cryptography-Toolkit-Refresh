@@ -134,10 +134,36 @@ public sealed partial class HayiTwoFactorAuthPage : Page
         }
         await Windows.Storage.FileIO.AppendTextAsync(file, line);
 
-        var stackPanel = new StackPanel { Orientation = Orientation.Horizontal, Margin = new Thickness(0, 8, 0, 8) };
-        var nameText = new TextBlock { Text = accountName, Width = 180, VerticalAlignment = VerticalAlignment.Center };
-        var codeText = new TextBlock { Width = 100, FontSize = 20, VerticalAlignment = VerticalAlignment.Center };
-        var progressBar = new ProgressBar { Width = 120, Height = 8, Minimum = 0, Maximum = 30, Margin = new Thickness(12, 0, 0, 0), VerticalAlignment = VerticalAlignment.Center };
+        var stackPanel = new StackPanel
+        {
+            Orientation = Orientation.Horizontal,
+            Margin = new Thickness(0, 4, 0, 4),
+            VerticalAlignment = VerticalAlignment.Center
+        };
+        var nameText = new TextBlock
+        {
+            Text = accountName,
+            Width = 160,
+            VerticalAlignment = VerticalAlignment.Center,
+            FontSize = 14,
+            Margin = new Thickness(0, 0, 8, 0)
+        };
+        var codeText = new TextBlock
+        {
+            Width = 90,
+            FontSize = 22,
+            VerticalAlignment = VerticalAlignment.Center,
+            Margin = new Thickness(0, 0, 8, 0)
+        };
+        var progressBar = new ProgressBar
+        {
+            Width = 100,
+            Height = 6,
+            Minimum = 0,
+            Maximum = 30,
+            Margin = new Thickness(0, 0, 0, 0),
+            VerticalAlignment = VerticalAlignment.Center
+        };
 
         stackPanel.Children.Add(nameText);
         stackPanel.Children.Add(codeText);
