@@ -51,7 +51,7 @@ namespace Cryptography_Toolkit.Pages
                 RsaKeyGenerationPublicExponentENumberBox.Maximum = _eulerPhiN - 1;
                 RsaKeyGenerationPublicExponentENumberBox.Value = _eulerPhiN - 1;
                 RsaKeyGenerationPublicExponentENumberBox.IsEnabled = true;
-                RsaPrimeGenerationSettingsExpander.IsExpanded = false;
+                // RsaPrimeGenerationSettingsExpander.IsExpanded = false;
                 RsaKeyGenerationSettingsExpander.IsExpanded = true;
             }
             else
@@ -77,7 +77,7 @@ namespace Cryptography_Toolkit.Pages
                     RsaEncryptionPublicKeyENumberBox.Value = _keyPubE;
                     RsaDecryptionPublicKeyNNumberBox.Value = _keyPubN;
                     RsaDecryptionPrivateKeyDNumberBox.Value = _keyPrD;
-                    RsaKeyGenerationSettingsExpander.IsExpanded = false;
+                    // RsaKeyGenerationSettingsExpander.IsExpanded = false;
                     RsaEncryptionSettingsExpander.IsExpanded = true;
                 }
                 else
@@ -101,7 +101,7 @@ namespace Cryptography_Toolkit.Pages
                 var ciphertext = _common.SquareMultiplyAlgorithmCalc(plaintext, keyPubE, keyPubN);
                 RsaEncryptionLogTextBox.Text = $"Plaintext: {plaintext}\nPublic Key (n, e): ({keyPubN}, {keyPubE})\nCiphertext: {ciphertext}";
                 RsaDecryptionCiphertextNumberBox.Value = ciphertext;
-                RsaEncryptionSettingsExpander.IsExpanded = false;
+                // RsaEncryptionSettingsExpander.IsExpanded = false;
                 RsaDecryptionSettingsExpander.IsExpanded = true;
             }
             else
@@ -118,7 +118,7 @@ namespace Cryptography_Toolkit.Pages
             {
                 var plaintext = _common.SquareMultiplyAlgorithmCalc(ciphertext, keyPrD, keyPubN);
                 RsaDecryptionLogTextBox.Text = $"Ciphertext: {ciphertext}\nPublic Key (n): {keyPubN}\nPrivate Key (d): {keyPrD}\nPlaintext: {plaintext}";
-                RsaDecryptionSettingsExpander.IsExpanded = false;
+                // RsaDecryptionSettingsExpander.IsExpanded = false;
             }
             else
             {

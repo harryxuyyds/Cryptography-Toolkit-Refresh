@@ -29,7 +29,7 @@
                              Content="Navigate to ..."
                              Click="PageNavigationHyperlinkButton_OnClick"/>
                 </controls:SettingsCard>
-                <controls:SettingsCard Description="Group operations on ECC include point addition, point doubling, and scalar multiplication. These operations form the foundation for cryptographic algorithms like ECDSA and secure key exchange."
+                <controls:SettingsCard Description="Group operations on ECC include point addition, and point doubling. These operations form the foundation for cryptographic algorithms and secure key exchange."
                                Header="Group Operations on Elliptic Curves">
                     <controls:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xF147;" />
@@ -39,7 +39,7 @@
                              Content="Navigate to ..."
                              Click="PageNavigationHyperlinkButton_OnClick"/>
                 </controls:SettingsCard>
-                <controls:SettingsCard Description=""
+                <controls:SettingsCard Description="The elliptic curve discrete logarithm problem (ECDLP) seeks integer k satisfying Q = kP for given elliptic curve points. Its hardness secures compact-key cryptography."
                                Header="Discrete Logarithm Problem with Elliptic Curves">
                     <controls:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xF148;" />
@@ -49,7 +49,7 @@
                              Content="Navigate to ..."
                              Click="PageNavigationHyperlinkButton_OnClick"/>
                 </controls:SettingsCard>
-                <controls:SettingsCard Description=""
+                <controls:SettingsCard Description="ECDH ensures secure keys via elliptic curve discrete logarithm hardness.This method offers efficient key exchange with shorter keys than traditional DH."
                                        Header="Diffie–Hellman Key Exchange with Elliptic Curves">
                     <controls:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xF149;" />

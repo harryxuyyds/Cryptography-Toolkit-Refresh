@@ -328,7 +328,7 @@
                                              Content="Navigate to ..."
                                              Click="PageNavigationHyperlinkButton_OnClick"/>
                         </controls:SettingsCard>
-                        <controls:SettingsCard Description="Group operations on ECC include point addition, point doubling, and scalar multiplication. These operations form the foundation for cryptographic algorithms like ECDSA and secure key exchange."
+                        <controls:SettingsCard Description="Group operations on ECC include point addition, and point doubling. These operations form the foundation for cryptographic algorithms and secure key exchange."
                                                Header="Group Operations on Elliptic Curves">
                             <controls:SettingsCard.HeaderIcon>
                                 <FontIcon Glyph="&#xF147;" />
@@ -338,7 +338,7 @@
                                              Content="Navigate to ..."
                                              Click="PageNavigationHyperlinkButton_OnClick"/>
                         </controls:SettingsCard>
-                        <controls:SettingsCard Description=""
+                        <controls:SettingsCard Description="The elliptic curve discrete logarithm problem (ECDLP) seeks integer k satisfying Q = kP for given elliptic curve points. Its hardness secures compact-key cryptography."
                                                Header="Discrete Logarithm Problem with Elliptic Curves">
                             <controls:SettingsCard.HeaderIcon>
                                 <FontIcon Glyph="&#xF148;" />
@@ -348,7 +348,7 @@
                                              Content="Navigate to ..."
                                              Click="PageNavigationHyperlinkButton_OnClick"/>
                         </controls:SettingsCard>
-                        <controls:SettingsCard Description=""
+                        <controls:SettingsCard Description="ECDH ensures secure keys via elliptic curve discrete logarithm hardness.This method offers efficient key exchange with shorter keys than traditional DH."
                                                Header="Diffie–Hellman Key Exchange with Elliptic Curves">
                             <controls:SettingsCard.HeaderIcon>
                                 <FontIcon Glyph="&#xF149;" />
@@ -415,6 +415,40 @@
                         </controls:SettingsCard>
                     </controls:SettingsExpander.Items>
                 </controls:SettingsExpander>
+
+                <controls:SettingsExpander Description="Modular arithmetic builds upon fundamental concepts like element orders and primitive roots, which govern cyclic structures, and quadratic residues, which characterize solvable quadratic congruences."
+                                           Header="Other Mathematical Foundations">
+                    <controls:SettingsExpander.HeaderIcon>
+                        <FontIcon Glyph="&#xE7EE;" />
+                    </controls:SettingsExpander.HeaderIcon>
+                    <HyperlinkButton x:Name="OtherMathFoundationsPageHyperlinkButton" 
+                                     Tag="OtherMathFoundationsPage"
+                                     Content="Navigate to ..."
+                                     Click="PageNavigationHyperlinkButton_OnClick"/>
+                    <controls:SettingsExpander.Items>
+                        <controls:SettingsCard Description="The order of an integer modulo n is the smallest positive exponent k such that aᵏ ≡ 1 mod n. Primitive roots, as generators of multiplicative groups, unlock the structure of cyclic modular arithmetic."
+                                               Header="Order &amp; Primitive Root">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF146;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="OrderPrimitiveRootPageHyperlinkButton" 
+                                             Tag="OrderPrimitiveRootPage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                        <controls:SettingsCard Description="An integer q is a quadratic residue modulo p if x² ≡ q mod p has a solution. The Legendre symbol and quadratic congruences offer key insights, with applications in cryptography and algorithms."
+                                               Header="Quadratic Residue">
+                            <controls:SettingsCard.HeaderIcon>
+                                <FontIcon Glyph="&#xF147;" />
+                            </controls:SettingsCard.HeaderIcon>
+                            <HyperlinkButton x:Name="QuadraticResiduePageHyperlinkButton" 
+                                             Tag="QuadraticResiduePage"
+                                             Content="Navigate to ..."
+                                             Click="PageNavigationHyperlinkButton_OnClick"/>
+                        </controls:SettingsCard>
+                    </controls:SettingsExpander.Items>
+                </controls:SettingsExpander>
+
             </StackPanel>
         </StackPanel>
     </ScrollViewer>

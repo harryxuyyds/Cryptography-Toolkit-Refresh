@@ -22,10 +22,12 @@
     <None Remove="Pages\AttacksRSAPage.xaml" />
     <None Remove="Pages\DecryptionAESPage.xaml" />
     <None Remove="Pages\DefinitionECPage.xaml" />
+    <None Remove="Pages\DHKEWithECPage.xaml" />
     <None Remove="Pages\DiffieHellmanKeyExchangePage.xaml" />
     <None Remove="Pages\DigitalSignatureAlgorithmPage.xaml" />
     <None Remove="Pages\DigitalSignaturesPage.xaml" />
     <None Remove="Pages\DiscreteLogarithmSchemesPage.xaml" />
+    <None Remove="Pages\DLPWithECPage.xaml" />
     <None Remove="Pages\ECSchemesPage.xaml" />
     <None Remove="Pages\ElgamalDigitalSignatureSchemePage.xaml" />
     <None Remove="Pages\ElgamalEncryptionSchemePage.xaml" />
@@ -39,9 +41,12 @@
     <None Remove="Pages\InternalStructureAESPage.xaml" />
     <None Remove="Pages\LovePage.xaml" />
     <None Remove="Pages\NavigationRootPage.xaml" />
+    <None Remove="Pages\OrderPrimitiveRootPage.xaml" />
+    <None Remove="Pages\OtherMathFoundationsPage.xaml" />
     <None Remove="Pages\PrimalityTestsPage.xaml" />
     <None Remove="Pages\PublicKeyAlgorithmFamiliesPage.xaml" />
     <None Remove="Pages\PublicKeyCryptographyPage.xaml" />
+    <None Remove="Pages\QuadraticResiduePage.xaml" />
     <None Remove="Pages\RabinSchemePage.xaml" />
     <None Remove="Pages\RandomNumberGeneratorsPage.xaml" />
     <None Remove="Pages\RSACryptosystemPage.xaml" />
@@ -90,6 +95,31 @@
     <PackageReference Include="Microsoft.Graphics.Win2D" Version="1.3.2" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.4188" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.250610002-experimental3" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\DLPWithECPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\DHKEWithECPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\OtherMathFoundationsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\QuadraticResiduePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\OrderPrimitiveRootPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Pages\ECSchemesPage.xaml">

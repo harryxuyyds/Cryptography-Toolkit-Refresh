@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Page
-    x:Class="Cryptography_Toolkit.Pages.GroupOperationsECPage"
+    x:Class="Cryptography_Toolkit.Pages.DLPWithECPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Cryptography_Toolkit.Pages"
@@ -12,12 +12,12 @@
         <StackPanel Spacing="4" BorderThickness="2" CornerRadius="10" Padding="40">
 
             <!-- Page Title Format Begin -->
-            <TextBlock Text="Group Operations on Elliptic Curves" 
-                       Style="{StaticResource TitleTextBlockStyle}" 
-                       Margin="0,0,0,8"/>
+            <TextBlock Text="Discrete Logarithm Problem with Elliptic Curves" 
+                   Style="{StaticResource TitleTextBlockStyle}" 
+                   Margin="0,0,0,8"/>
             <StackPanel Orientation="Horizontal" 
-                        Spacing="8" 
-                        Margin="0,0,0,8">
+                    Spacing="8" 
+                    Margin="0,0,0,8">
                 <DropDownButton>
                     <DropDownButton.Content>
                         <StackPanel Orientation="Horizontal" Spacing="8">
@@ -70,9 +70,9 @@
                     </DropDownButton.Flyout>
                 </DropDownButton>
             </StackPanel>
-            <TextBlock Text="Group operations on ECC include point addition, and point doubling. These operations form the foundation for cryptographic algorithms and secure key exchange." 
-                       TextWrapping="Wrap"
-                       Margin="0,0,0,12"/>
+            <TextBlock Text="The elliptic curve discrete logarithm problem (ECDLP) seeks integer k satisfying Q = kP for given elliptic curve points. Its hardness secures compact-key cryptography." 
+                   TextWrapping="Wrap"
+                   Margin="0,0,0,12"/>
             <!-- Page Title Format End -->
 
             <InfoBar
@@ -82,8 +82,8 @@
                 Severity="Informational"
                 Title="Tip"
                 Message="Please enter smaller parameter values. For larger numbers, use Cryptography PowerToys." />
-            
-            
+
+
         </StackPanel>
     </ScrollViewer>
 </Page>

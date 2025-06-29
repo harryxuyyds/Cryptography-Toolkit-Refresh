@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Cryptography_Toolkit.Pages.OtherMathFoundationsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cryptography_Toolkit.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
+    mc:Ignorable="d">
+
+    <ScrollViewer>
+        <StackPanel Spacing="4" BorderThickness="2" CornerRadius="10" Padding="40">
+
+            <TextBlock Text="Other Mathematical Foundations" 
+                   Style="{StaticResource TitleTextBlockStyle}" 
+                   Margin="0,0,0,8"/>
+
+            <StackPanel Orientation="Vertical" 
+                    Spacing="8" 
+                    Margin="0,8,0,8">
+                <controls:SettingsCard Description="The order of an integer modulo n is the smallest positive exponent k such that aᵏ ≡ 1 mod n. Primitive roots, as generators of multiplicative groups, unlock the structure of cyclic modular arithmetic."
+                           Header="Order &amp; Primitive Root">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF146;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="OrderPrimitiveRootPageHyperlinkButton" 
+                         Tag="OrderPrimitiveRootPage"
+                         Content="Navigate to ..."
+                         Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+                <controls:SettingsCard Description="An integer q is a quadratic residue modulo p if x² ≡ q mod p has a solution. The Legendre symbol and quadratic congruences offer key insights, with applications in cryptography and algorithms."
+                           Header="Quadratic Residue">
+                    <controls:SettingsCard.HeaderIcon>
+                        <FontIcon Glyph="&#xF147;" />
+                    </controls:SettingsCard.HeaderIcon>
+                    <HyperlinkButton x:Name="QuadraticResiduePageHyperlinkButton" 
+                         Tag="QuadraticResiduePage"
+                         Content="Navigate to ..."
+                         Click="PageNavigationHyperlinkButton_OnClick"/>
+                </controls:SettingsCard>
+                
+            </StackPanel>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

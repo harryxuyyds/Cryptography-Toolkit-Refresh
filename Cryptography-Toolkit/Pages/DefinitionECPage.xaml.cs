@@ -58,7 +58,6 @@ public sealed partial class DefinitionECPage : Page
             {
                 DefinitionEcCheckInfoBar.Severity = InfoBarSeverity.Success;
                 DefinitionEcCheckInfoBar.Message = $"Valid Curve (4a³ + 27b² ≡ {check} ≢ 0 mod p)​";
-                Debug.WriteLine("00000");
                 LoadEllipticCurvePreview(ecCoeffA, ecCoeffB, ecModulusP);
             }
             else
