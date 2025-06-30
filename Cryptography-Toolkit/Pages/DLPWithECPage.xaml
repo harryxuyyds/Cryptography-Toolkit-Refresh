@@ -190,6 +190,14 @@
                 <TextBlock x:Name="PointMultiplicationResultTextBlock"/>
             </controls:SettingsCard>
 
+            <TextBox x:Name="PointMultiplicationLogTextBox" 
+                     Text="The running log generated during the point multiplication will be displayed here."
+                     Height="180" 
+                     AcceptsReturn="True"
+                     IsReadOnly="True"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+
         </StackPanel>
     </ScrollViewer>
 </Page>

@@ -157,7 +157,7 @@ public sealed partial class GroupOperationsECPage : Page
                 // Point addition
                 if (px == qx && (py + qy) % p == 0)
                 {
-                    result = "Addition not defined (P + Q = point at infinity).";
+                    result = "Addition undefined (P + Q = ∞)";
                 }
                 else
                 {
@@ -167,7 +167,7 @@ public sealed partial class GroupOperationsECPage : Page
                     int invDenominator = ModInverse(denominator, p);
                     if (invDenominator == -1)
                     {
-                        result = "Addition not defined (no modular inverse for denominator).";
+                        result = "Addition undefined (no inverse)";
                     }
                     else
                     {

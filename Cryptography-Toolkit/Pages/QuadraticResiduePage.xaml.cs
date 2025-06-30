@@ -136,6 +136,9 @@ public sealed partial class QuadraticResiduePage : Page
             QuadraticCongruenceCalcCheckInfoBar.Severity = InfoBarSeverity.Warning;
             QuadraticCongruenceCalcCheckInfoBar.Message = "Please enter correct parameters.";
             LegendreCalcResultTextBlock.Text = "";
+            QuadraticCongruenceCalcSolutionTextBlock.Text = String.Empty;
+            QuadraticCongruenceCalcLegendreValueTextBlock.Text = String.Empty;
+            QuadraticCongruenceCalcExplicitFormulaTextBlock.Text = String.Empty;
         }
     }
 }

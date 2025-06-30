@@ -66,6 +66,7 @@ public sealed partial class DefinitionECPage : Page
                 DefinitionEcCheckInfoBar.Message = "Invalid Curve (4a³ + 27b² ≡ 0 mod p)​";
                 DefinitionEcPreviewTextBox.Text = "";
                 DefinitionEcPreviewCanvas.Children.Clear();
+                DefinitionEcOrderTextBlock.Text = String.Empty;
             }
         }
         else
@@ -74,6 +75,7 @@ public sealed partial class DefinitionECPage : Page
             DefinitionEcCheckInfoBar.Message = "Please enter correct parameters.";
             DefinitionEcPreviewTextBox.Text = "";
             DefinitionEcPreviewCanvas.Children.Clear();
+            DefinitionEcOrderTextBlock.Text = String.Empty;
         }
     }
 
