@@ -177,7 +177,7 @@
 
             <TextBox x:Name="DiffieHellmanLogTextBox" 
                      Text="The running log generated during the Diffie–Hellman key exchange will be displayed here."
-                     Height="160" 
+                     Height="120" 
                      AcceptsReturn="True"
                      IsReadOnly="True"
                      ScrollViewer.VerticalScrollBarVisibility="Auto"

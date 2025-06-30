@@ -118,6 +118,8 @@ public sealed partial class DLPWithECPage : Page
 
     private void PointMultiplicationSetup()
     {
+        var ellipticCurveHelper = new Helpers.EllipticCurveHelper();
+
         List<(string kIndex, string doublePx, string doublePy, string? addPx, string? addPy)> pointMultiplicationLog = new();
 
         if (DefinitionEcCoefficientANumberBox.Value is double ecCoeffAValue &&
@@ -151,12 +153,12 @@ public sealed partial class DLPWithECPage : Page
                 }
                 else
                 {
-                    int[] newPointPLocate = PointDoubleCalc(pointPx, pointPy, a, p);
+                    int[] newPointPLocate = ellipticCurveHelper.PointDoubleCalc(pointPx, pointPy, a, p);
                     pointPx = newPointPLocate[0];
                     pointPy = newPointPLocate[1];
                     if (kBin[index - 1] == '1')
                     {
-                        int[] newPointAddPLocate = PointAddCalc(pointGx, pointGy, pointPx, pointPy, a, p);
+                        int[] newPointAddPLocate = ellipticCurveHelper.PointAddCalc(pointGx, pointGy, pointPx, pointPy, a, p);
                         int pointAddPx = newPointAddPLocate[0];
                         int pointAddPy = newPointAddPLocate[1];
                         pointMultiplicationLog.Add((index.ToString(), pointPx.ToString(), pointPy.ToString(), pointAddPx.ToString(), pointAddPy.ToString()));
@@ -183,63 +185,6 @@ public sealed partial class DLPWithECPage : Page
                     $"{log.kIndex,-6} | {log.doublePx,-12} | {log.doublePy,-12} | {log.addPx ?? "",-16} | {log.addPy ?? "",-16}");
             }
             PointMultiplicationLogTextBox.Text = string.Join(Environment.NewLine, logLines);
-        }
-    }
-
-    private int PointSlopeCalc(int pointGx, int pointGy, int pointPx, int pointPy, int a, int p)
-    {
-        int pointSlope = -1;
-        if (pointGx % p != pointPx % p)
-        {
-            int temp = pointPx - pointGx;
-            while (temp < 0)
-                temp = (temp + p) % p;
-            (int gcd, int s, int t) = _common.ExtendedEuclideanAlgorithmCalc(p, temp);
-            pointSlope = (pointPy - pointGy) * t % p;
-            while (pointSlope < 0)
-                pointSlope = (pointSlope + p) % p;
-        }
-        else if ((pointGx % p == pointPx % p) & (pointGy % p == pointPy % p))
-        {
-            (int gcd, int s, int t) = _common.ExtendedEuclideanAlgorithmCalc(p, 2 * pointGy);
-            pointSlope = (3 * pointGx * pointGx + a) * t % p;
-            while (pointSlope < 0)
-                pointSlope = (pointSlope + p) % p;
-        }
-        return pointSlope;
-    }
-
-    private int[] PointDoubleCalc(int pointGx, int pointGy, int a, int p)
-    {
-        int pointSlope = PointSlopeCalc(pointGx, pointGy, pointGx, pointGy, a, p);
-        int newPointX = (pointSlope * pointSlope - 2 * pointGx) % p;
-        int newPointY = (pointSlope * (pointGx - newPointX) - pointGy) % p;
-        while (newPointX < 0)
-            newPointX = (newPointX + p) % p;
-        while (newPointY < 0)
-            newPointY = (newPointY + p) % p;
-        int[] newPointLocate = [newPointX, newPointY];
-        return newPointLocate;
-    }
-
-    private int[] PointAddCalc(int pointGx, int pointGy, int pointPx, int pointPy, int a, int p)
-    {
-        int pointSlope = PointSlopeCalc(pointGx, pointGy, pointPx, pointPy, a, p);
-        if (pointSlope != -1)
-        {
-            int newPointX = (pointSlope * pointSlope - pointGx - pointPx) % p;
-            int newPointY = (pointSlope * (pointGx - newPointX) - pointGy) % p;
-            while (newPointX < 0)
-                newPointX = (newPointX + p) % p;
-            while (newPointY < 0)
-                newPointY = (newPointY + p) % p;
-            int[] newPointLocate = [newPointX, newPointY];
-            return newPointLocate;
-        }
-        else
-        {
-            int[] newPointLocate = [0, 0];
-            return newPointLocate;
         }
     }
 }

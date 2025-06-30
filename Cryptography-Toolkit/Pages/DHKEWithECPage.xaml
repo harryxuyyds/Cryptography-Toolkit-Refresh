@@ -6,6 +6,7 @@
     xmlns:local="using:Cryptography_Toolkit.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     mc:Ignorable="d">
 
     <ScrollViewer>
@@ -83,6 +84,149 @@
                 Title="Tip"
                 Message="Please enter smaller parameter values. For larger numbers, use Cryptography PowerToys." />
 
+            <TextBlock Text="Elliptic Curve Configuration" 
+                       Style="{StaticResource BodyStrongTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
+            <controls:SettingsCard Description="Defines the first elliptic curve parameter in the equation y² ≡ x³ + ax + b (mod p)."
+                                   Header="Coefficient A">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE961;" />
+                </controls:SettingsCard.HeaderIcon>
+                <NumberBox
+                    x:Name="DefinitionEcCoefficientANumberBox"
+                    Value="9"
+                    Minimum="1"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
+
+            <controls:SettingsCard Description="Defines the second elliptic curve parameter in the equation y² ≡ x³ + ax + b (mod p)."
+                                   Header="Coefficient B">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE961;" />
+                </controls:SettingsCard.HeaderIcon>
+                <NumberBox
+                    x:Name="DefinitionEcCoefficientBNumberBox"
+                    Value="11"
+                    Minimum="1"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
+
+            <controls:SettingsCard Description="Prime number defining the finite field 𝔽ₚ for curve operations."
+                                   Header="​Field Modulus">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE961;" />
+                </controls:SettingsCard.HeaderIcon>
+                <NumberBox
+                    x:Name="DefinitionEcFieldModulusNumberBox"
+                    Value="53"
+                    Minimum="3"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
+
+            <TextBlock Text="Elliptic Curve Check" 
+           Style="{StaticResource BodyStrongTextBlockStyle}" 
+           Margin="0,8,0,8"/>
+
+            <InfoBar
+                x:Name="DefinitionEcCheckInfoBar"
+                IsOpen="True"
+                IsIconVisible="True"
+                IsClosable="False"
+                Severity="Informational"
+                Title="Status"
+                Message="Pending Validation (Enter correct parameters to check)​" />
+
+            <controls:SettingsCard Description="The curve order #E(𝔽ₚ) is the total number of points, including infinity."
+                                   Header="Order of Elliptic Curve">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE718;" />
+                </controls:SettingsCard.HeaderIcon>
+                <TextBlock x:Name="DefinitionEcOrderTextBlock" Text=""/>
+            </controls:SettingsCard>
+
+            <TextBlock Text="Diffie–Hellman Key Exchange Setup" 
+                       Style="{StaticResource BodyStrongTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
+            <controls:SettingsCard Description="A fixed generator point on the curve, used for scalar multiplication."
+                                   Header="Base Point (Generator)​">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xECAF;" />
+                </controls:SettingsCard.HeaderIcon>
+                <ComboBox x:Name="PointPComboBox"/>
+            </controls:SettingsCard>
+
+            <TextBlock Text="Elliptic Curve Diffie–Hellman Key Exchange"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"
+                       Margin="0,8,0,8"/>
+
+            <controls:SettingsExpander Description=""
+                                       Header="Diffie–Hellman Key Exchange for Alice"
+                                       IsExpanded="True">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xE8AB;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <controls:SettingsCard Description=""
+                                           Header="Private key a">
+                        <NumberBox
+                            x:Name="DiffieHellmanPrivateKeyAliceNumberBox"
+                            Value="5"
+                            Minimum="2"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
+            <controls:SettingsExpander Description=""
+                                       Header="Diffie–Hellman Key Exchange for Bob"
+                                       IsExpanded="True">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xE8AB;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <controls:SettingsExpander.Items>
+                    <controls:SettingsCard Description=""
+                                           Header="Private key b">
+                        <NumberBox
+                            x:Name="DiffieHellmanPrivateKeyBobNumberBox"
+                            Value="12"
+                            Minimum="2"
+                            SpinButtonPlacementMode="Inline"
+                            SmallChange="1"
+                            LargeChange="1" />
+                    </controls:SettingsCard>
+                </controls:SettingsExpander.Items>
+            </controls:SettingsExpander>
+
+            <TextBlock Text="Diffie–Hellman Output"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"
+                       Margin="0,8,0,8"/>
+
+            <InfoBar
+                x:Name="DiffieHellmanStatusInfoBar"
+                IsOpen="True"
+                IsIconVisible="True"
+                IsClosable="False"
+                Severity="Informational"
+                Title="Status"
+                Message="Please enter correct parameters." />
+
+            <TextBox x:Name="DiffieHellmanLogTextBox" 
+                     Text="The running log generated during the elliptic curve Diffie–Hellman key exchange will be displayed here."
+                     Height="120" 
+                     AcceptsReturn="True"
+                     IsReadOnly="True"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
 
         </StackPanel>
     </ScrollViewer>
