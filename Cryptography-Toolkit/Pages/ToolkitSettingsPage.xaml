@@ -121,7 +121,8 @@
                                            Style="{StaticResource BodyStrongTextBlockStyle}" 
                                            Margin="0,8,0,8"/>
                                 <HyperlinkButton Content="Understanding Cryptography From Established Symmetric and Asymmetric Ciphers to Post-Quantum Algorithms" NavigateUri="https://www.cryptography-textbook.com/"/>
-                                <HyperlinkButton Content="{x:Bind WinAppSdkRuntimeDetails}" NavigateUri="https://aka.ms/windowsappsdk" />
+                                <HyperlinkButton Content="Cryptography Toolkit Version 1.0 Legacy - GitHub Repository" NavigateUri="https://github.com/harryxuyyds/CryptographyToolkit" />
+                                <HyperlinkButton Content="{x:Bind WinAppSdkRuntimeDetails}" NavigateUri="https://github.com/microsoft/WindowsAppSDK" />
                                 <HyperlinkButton Content="WinUI 3 Gallery" NavigateUri="https://github.com/microsoft/WinUI-Gallery"/>
                                 <HyperlinkButton Content="Windows Community Toolkit" NavigateUri="https://github.com/CommunityToolkit/Windows" />
                             </StackPanel>

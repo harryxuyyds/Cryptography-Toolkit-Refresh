@@ -197,7 +197,7 @@
                         <!-- <NavigationViewItem  Content="RSA in Practice: Padding" Tag="RSAPaddingPage" IsEnabled="False"/> -->
                         <!-- <NavigationViewItem  Content="Key Encapsulation for RSA" Tag="RSAKeyEncapsulationPage" /> -->
                         <NavigationViewItem  Content="Attacks against RSA" Tag="AttacksRSAPage" />
-                        <NavigationViewItem  Content="Rabin Scheme" Tag="RabinSchemePage" />
+                        <!-- <NavigationViewItem  Content="Rabin Scheme" Tag="RabinSchemePage" /> -->
                     </NavigationViewItem.MenuItems>
                 </NavigationViewItem>
                 <NavigationViewItem  Content="Discrete Logarithm Schemes" Tag="DiscreteLogarithmSchemesPage">

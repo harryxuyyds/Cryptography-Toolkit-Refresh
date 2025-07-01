@@ -59,16 +59,16 @@
                                      Content="Navigate to ..."
                                      Click="PageNavigationHyperlinkButton_OnClick"/>
                 </controls:SettingsCard>
-                <controls:SettingsCard Description="In contrast to RSA, Rabin scheme can be shown that the Rabin scheme is equivalent to factoring. Thus, it is said that the cryptosystem is provably secure."
-                                       Header="Rabin Scheme">
-                    <controls:SettingsCard.HeaderIcon>
-                        <FontIcon Glyph="&#xF14A;" />
-                    </controls:SettingsCard.HeaderIcon>
-                    <HyperlinkButton x:Name="RabinSchemePageHyperlinkButton" 
-                                     Tag="RabinSchemePage"
-                                     Content="Navigate to ..."
-                                     Click="PageNavigationHyperlinkButton_OnClick"/>
-                </controls:SettingsCard>
+                <!-- <controls:SettingsCard Description="In contrast to RSA, Rabin scheme can be shown that the Rabin scheme is equivalent to factoring. Thus, it is said that the cryptosystem is provably secure." -->
+                <!--                        Header="Rabin Scheme"> -->
+                <!--     <controls:SettingsCard.HeaderIcon> -->
+                <!--         <FontIcon Glyph="&#xF14A;" /> -->
+                <!--     </controls:SettingsCard.HeaderIcon> -->
+                <!--     <HyperlinkButton x:Name="RabinSchemePageHyperlinkButton"  -->
+                <!--                      Tag="RabinSchemePage" -->
+                <!--                      Content="Navigate to ..." -->
+                <!--                      Click="PageNavigationHyperlinkButton_OnClick"/> -->
+                <!-- </controls:SettingsCard> -->
 
             </StackPanel>
         </StackPanel>
