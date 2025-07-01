@@ -99,10 +99,70 @@
 
             <TextBlock Text="Fast Decryption with the Chinese Remainder Theorem" 
                        Style="{StaticResource SubtitleTextBlockStyle}" 
+                       Margin="0,32,0,8"/>
+
+            <TextBlock Text="Configuration"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"
                        Margin="0,8,0,8"/>
 
+            <controls:SettingsCard Description=""
+                                   Header="Large prime p">
+                <NumberBox
+                    x:Name="RsaWithCrtParaPNumberBox"
+                    Value="13"
+                    Minimum="2"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
 
+            <controls:SettingsCard Description=""
+                                   Header="Large prime q">
+                <NumberBox
+                    x:Name="RsaWithCrtParaQNumberBox"
+                    Value="17"
+                    Minimum="2"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
 
+            <controls:SettingsCard Description=""
+                                   Header="Public exponent e">
+                <NumberBox
+                    x:Name="RsaWithCrtPublicExponentENumberBox"
+                    Minimum="1"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
+
+            <controls:SettingsCard Description=""
+                                   Header="Ciphertext">
+                <NumberBox
+                    x:Name="RsaWithCrtPlaintextNumberBox"
+                    Minimum="0"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
+
+            <Button x:Name="RsaWithCrtExecuteButton" 
+                    Content="Click to Execute Fast Decryption with the Chinese Remainder Theorem"
+                    Click="RsaWithCrtExecuteButton_OnClick"
+                    HorizontalAlignment="Stretch"/>
+
+            <TextBlock Text="Output"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"
+                       Margin="0,8,0,8"/>
+
+            <TextBox x:Name="RsaWithCrtLogTextBox" 
+                     Text="The running log generated during the fast RSA decryption with the Chinese remainder theorem will be displayed here."
+                     Height="240" 
+                     AcceptsReturn="True"
+                     IsReadOnly="True"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
         </StackPanel>
     </ScrollViewer>
 </Page>

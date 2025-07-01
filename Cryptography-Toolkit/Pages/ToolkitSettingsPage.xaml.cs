@@ -116,12 +116,9 @@ public sealed partial class ToolkitSettingsPage : Page
         window.AppWindow.TitleBar.ButtonForegroundColor = color;
     }
 
-    // Fix for CS1061: Ensure the App class contains a method named GetRootFrame or replace the call with an appropriate alternative.
-
     private void ApplySystemThemeToCaptionButtons(Window window)
     {
-        // Replace the problematic line with a safer alternative or ensure the App class has the required method.
-        var frame = window.Content as FrameworkElement; // Use the window's content directly instead of relying on a non-existent method.
+        var frame = window.Content as FrameworkElement;
         Windows.UI.Color color;
 
         if (frame?.ActualTheme == ElementTheme.Dark)
@@ -138,7 +135,6 @@ public sealed partial class ToolkitSettingsPage : Page
 
     private void LoadSystemFonts()
     {
-        // 优先使用 _selectedFontFamily，如果为空则从本地设置读取
         var localSettings = ApplicationData.Current.LocalSettings;
         string? savedFontFamily = !string.IsNullOrEmpty(_selectedFontFamily)
             ? _selectedFontFamily
@@ -188,7 +184,6 @@ public sealed partial class ToolkitSettingsPage : Page
 
     private async void SettingsDeepSeekApiSettingsButton_OnClick(object sender, RoutedEventArgs e)
     {
-        // 从本地设置读取 DeepSeekApiKey，如果没有则为空字符串
         var apiKey = ApplicationData.Current.LocalSettings.Values.TryGetValue("DeepSeekApiKey", out object? value) && value is string s ? s : string.Empty;
 
         var apiKeyTextBox = new TextBox

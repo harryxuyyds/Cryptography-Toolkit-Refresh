@@ -43,11 +43,6 @@ public class PublicKeyAlgorithmSecurityLevelItem
 
 public sealed partial class PublicKeyAlgorithmFamiliesPage : Page
 {
-    public PublicKeyAlgorithmFamiliesPage()
-    {
-        InitializeComponent();
-    }
-
     public ObservableCollection<PublicKeyAlgorithmSecurityLevelItem> PublicKeyAlgorithmSecurityLevelItems { get; set; } =
     [
         new()
@@ -87,4 +82,9 @@ public sealed partial class PublicKeyAlgorithmFamiliesPage : Page
             SecurityLevel256 = "256 bits",
         },
     ];
+
+    public PublicKeyAlgorithmFamiliesPage()
+    {
+        InitializeComponent();
+    }
 }

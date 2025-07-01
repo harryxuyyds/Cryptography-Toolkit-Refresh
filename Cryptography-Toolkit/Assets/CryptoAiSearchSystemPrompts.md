@@ -50,7 +50,7 @@
       "description": "Public-key cryptography, or asymmetric cryptography, is the field of cryptographic systems that use pairs of related keys. Each key pair consists of a public key and a corresponding private key.",
       "subpages": {
         "Essential Number Theory for Public-Key Algorithms": {
-          "description": "We introduce the Euclidean algorithm, Euler's phi function, Fermat's Little Theorem, Euler's theorem and Square-and-Multiply algorithm. All are important for asymmetric algorithms, especially for the RSA scheme."
+          "description": "We introduce the Euclidean algorithm, Extended Euclidean Algorithm, Euler’s phi function, Fermat’s Little Theorem, Euler’s theorem, Square-and-Multiply algorithm, and the Chinese remainder theorem."
         },
         "Public-Key Algorithm Families": {
           "description": "There are only three major families of public-key algorithms that are currently used in practice. They can be classified based on their underlying one-way function."

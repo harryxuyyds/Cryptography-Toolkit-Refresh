@@ -71,7 +71,7 @@
                     </DropDownButton.Flyout>
                 </DropDownButton>
             </StackPanel>
-            <TextBlock Text="We introduce the Euclidean algorithm, Euler’s phi function, Fermat’s Little Theorem, Euler’s theorem and Square-and-Multiply algorithm. All are important for asymmetric algorithms, especially for the RSA scheme." 
+            <TextBlock Text="We introduce the Euclidean algorithm, Extended Euclidean Algorithm, Euler’s phi function, Fermat’s Little Theorem, Euler’s theorem, Square-and-Multiply algorithm, and the Chinese remainder theorem." 
                TextWrapping="Wrap"
                Margin="0,0,0,12"/>
             <!-- Page Title Format End -->
@@ -79,6 +79,9 @@
             <TextBlock Text="Euclidean Algorithm" 
                        Style="{StaticResource SubtitleTextBlockStyle}" 
                        Margin="0,8,0,8"/>
+
+            <TextBlock Text="An efficient method for computing the greatest common divisor (GCD) of two integers by iteratively applying the division lemma." 
+                       TextWrapping="Wrap"/>
 
             <TextBlock Text="Configuration"
                        Style="{StaticResource BodyStrongTextBlockStyle}"
@@ -135,6 +138,9 @@
                        Style="{StaticResource SubtitleTextBlockStyle}" 
                        Margin="0,32,0,8"/>
 
+            <TextBlock Text="Extends the Euclidean algorithm to find integers x and y such that ax + by = gcd(a, b), essential for solving linear Diophantine equations and modular inverses." 
+                       TextWrapping="Wrap"/>
+
             <TextBlock Text="Configuration"
                        Style="{StaticResource BodyStrongTextBlockStyle}"
                        Margin="0,8,0,8"/>
@@ -188,6 +194,9 @@
             <TextBlock Text="Euler’s Phi Function" 
                        Style="{StaticResource SubtitleTextBlockStyle}" 
                        Margin="0,32,0,8"/>
+
+            <TextBlock Text="A multiplicative function φ(n) that counts the integers up to n coprime with n, fundamental in RSA encryption and number theory." 
+                       TextWrapping="Wrap"/>
 
             <TextBlock Text="Configuration"
                        Style="{StaticResource BodyStrongTextBlockStyle}"
@@ -247,6 +256,13 @@
                        Style="{StaticResource SubtitleTextBlockStyle}" 
                        Margin="0,32,0,8"/>
 
+            <TextBlock Text="An efficient exponentiation technique that decomposes the exponent into binary operations, minimizing computations in modular arithmetic and cryptography." 
+                       TextWrapping="Wrap"/>
+
+            <TextBlock Text="Configuration"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"
+                       Margin="0,8,0,8"/>
+
             <controls:SettingsExpander Description=""
                                        Header="Square-and-Multiply Algorithm Set-up">
                 <controls:SettingsExpander.HeaderIcon>
@@ -298,6 +314,38 @@
             <TextBox x:Name="SquareMultiplyAlgorithmLogTextBox" 
                      Text="The running log generated during the square-and-multiply algorithm will be displayed here."
                      Height="60" 
+                     AcceptsReturn="True"
+                     IsReadOnly="True"
+                     ScrollViewer.VerticalScrollBarVisibility="Auto"
+                     ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+
+            <TextBlock Text="Chinese Remainder Theorem" 
+                       Style="{StaticResource SubtitleTextBlockStyle}" 
+                       Margin="0,32,0,8"/>
+
+            <TextBlock Text="Reconstructs a unique solution modulo the product of pairwise coprime moduli for a system of congruences, optimizing computations in RSA decryption and parallel processing." 
+                       TextWrapping="Wrap"/>
+
+            <TextBlock Text="Configuration"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"
+                       Margin="0,8,0,8"/>
+
+            <TextBox x:Name="ChineseRemainderTheoremModuliTextBox" 
+                     Header="Moduli (Divisors)​" 
+                     Text="3,5,7" />
+
+            <TextBox x:Name="ChineseRemainderTheoremRemaindersTextBox" 
+                     Header="Remainders" 
+                     Text="2,3,2" />
+
+            <Button x:Name="ChineseRemainderTheoremExecuteButton" 
+                    Content="Click to Execute Chinese Remainder Theorem"
+                    Click="ChineseRemainderTheoremExecuteButton_OnClick"
+                    HorizontalAlignment="Stretch"/>
+
+            <TextBox x:Name="ChineseRemainderTheoremLogTextBox" 
+                     Text="The running log generated during the Chinese remainder theorem will be displayed here."
+                     Height="240" 
                      AcceptsReturn="True"
                      IsReadOnly="True"
                      ScrollViewer.VerticalScrollBarVisibility="Auto"

@@ -19,7 +19,7 @@
             <StackPanel Orientation="Vertical" 
                 Spacing="8" 
                 Margin="0,8,0,8">
-                <controls:SettingsCard Description="We introduce the Euclidean algorithm, Euler’s phi function, Fermat’s Little Theorem, Euler’s theorem and Square-and-Multiply algorithm. All are important for asymmetric algorithms, especially for the RSA scheme."
+                <controls:SettingsCard Description="We introduce the Euclidean algorithm, Extended Euclidean Algorithm, Euler’s phi function, Fermat’s Little Theorem, Euler’s theorem, Square-and-Multiply algorithm, and the Chinese remainder theorem."
                                    Header="Essential Number Theory for Public-Key Algorithms">
                     <controls:SettingsCard.HeaderIcon>
                         <FontIcon Glyph="&#xF146;" />
