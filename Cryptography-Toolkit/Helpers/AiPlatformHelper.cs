@@ -53,7 +53,12 @@ namespace Cryptography_Toolkit.Helpers
         {
             var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             var apiKey = localSettings.Values["DeepSeekApiKey"] as string;
-            Debug.WriteLine(apiKey);
+
+            if (string.IsNullOrWhiteSpace(apiKey))
+            {
+                return "API key is missing or invalid.";
+            }
+
             var client = new DeepSeekClient(apiKey);
             var request = new ChatRequest
             {

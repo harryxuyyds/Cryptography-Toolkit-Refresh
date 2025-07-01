@@ -54,6 +54,15 @@ public sealed partial class AIPoweredSearchPage : Page
         var searchMessage = AiSearchInputTextBox.Text;
         var localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
         var apiKey = localSettings.Values["DeepSeekApiKey"] as string;
+
+        if (string.IsNullOrEmpty(apiKey))
+        {
+            AiSearchAnswerTextBlock.Text = "API key is missing. Please configure it in Settings.";
+            AiSearchButton.Content = "Send";
+            AiSearchButton.IsEnabled = true;
+            return;
+        }
+
         var client = new DeepSeekClient(apiKey);
         var request = new ChatRequest
         {
@@ -63,13 +72,12 @@ public sealed partial class AIPoweredSearchPage : Page
             ],
             Model = DeepSeekModels.ChatModel
         };
-        
+
         var chatResponse = await client.ChatAsync(request, CancellationToken.None);
         if (chatResponse is null)
         {
             Debug.WriteLine(client.ErrorMsg);
         }
-        // Debug.WriteLine(chatResponse?.Choices.First().Message?.Content);
         AiSearchAnswerTextBlock.Text = chatResponse?.Choices.First().Message?.Content ?? "No response from AI.";
         AiSearchButton.Content = "Send";
         AiSearchButton.IsEnabled = true;
