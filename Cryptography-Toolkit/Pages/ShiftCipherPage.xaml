@@ -31,9 +31,9 @@
                     </DropDownButton.Content>
                     <DropDownButton.Flyout>
                         <MenuFlyout Placement="Bottom">
-                            <MenuFlyoutItem Text="Send"/>
-                            <MenuFlyoutItem Text="Reply"/>
-                            <MenuFlyoutItem Text="Reply All"/>
+                            <MenuFlyoutItem Text="Currently Unavailable"/>
+                            <MenuFlyoutItem Text="Currently Unavailable"/>
+                            <MenuFlyoutItem Text="Currently Unavailable"/>
                         </MenuFlyout>
                     </DropDownButton.Flyout>
                 </DropDownButton>
@@ -48,9 +48,9 @@
                     </DropDownButton.Content>
                     <DropDownButton.Flyout>
                         <MenuFlyout Placement="Bottom">
-                            <MenuFlyoutItem Text="Send"/>
-                            <MenuFlyoutItem Text="Reply"/>
-                            <MenuFlyoutItem Text="Reply All"/>
+                            <MenuFlyoutItem Text="Currently Unavailable"/>
+                            <MenuFlyoutItem Text="Currently Unavailable"/>
+                            <MenuFlyoutItem Text="Currently Unavailable"/>
                         </MenuFlyout>
                     </DropDownButton.Flyout>
                 </DropDownButton>
@@ -65,9 +65,9 @@
                     </DropDownButton.Content>
                     <DropDownButton.Flyout>
                         <MenuFlyout Placement="Bottom">
-                            <MenuFlyoutItem Text="Send"/>
-                            <MenuFlyoutItem Text="Reply"/>
-                            <MenuFlyoutItem Text="Reply All"/>
+                            <MenuFlyoutItem Text="Currently Unavailable"/>
+                            <MenuFlyoutItem Text="Currently Unavailable"/>
+                            <MenuFlyoutItem Text="Currently Unavailable"/>
                         </MenuFlyout>
                     </DropDownButton.Flyout>
                 </DropDownButton>

@@ -136,8 +136,8 @@
                                            Style="{StaticResource BodyStrongTextBlockStyle}" 
                                            Margin="0,8,0,8"/>
                                 <HyperlinkButton Content="Source code" NavigateUri="https://github.com/harryxuyyds/Cryptography-Toolkit-Refresh"/>
-                                <HyperlinkButton Content="Documentation" NavigateUri=""/>
-                                <HyperlinkButton Content="Feedback" NavigateUri=""/>
+                                <HyperlinkButton IsEnabled="False" Content="Documentation" NavigateUri=""/>
+                                <HyperlinkButton Content="Feedback" NavigateUri="https://github.com/harryxuyyds/Cryptography-Toolkit-Refresh/issues"/>
                             </StackPanel>
                         </controls:SettingsCard>
                     </controls:SettingsExpander.Items>
