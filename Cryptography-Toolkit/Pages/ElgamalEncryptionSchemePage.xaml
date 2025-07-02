@@ -84,126 +84,120 @@
                 Title="Tip"
                 Message="Please enter smaller parameter values. For larger numbers, use Cryptography PowerToys." />
 
-                <TextBlock Text="Elgamal Key Generation"
-                           Style="{StaticResource BodyStrongTextBlockStyle}"
-                           Margin="0,8,0,8"/>
+            <TextBlock Text="Elgamal Key Generation"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"
+                       Margin="0,8,0,8"/>
 
-                <controls:SettingsExpander Description=""
-                                           Header="Elgamal Key Generation">
-                    <controls:SettingsExpander.HeaderIcon>
-                        <FontIcon Glyph="&#xE8D7;" />
-                    </controls:SettingsExpander.HeaderIcon>
-                    <controls:SettingsExpander.Items>
-                        <controls:SettingsCard Description=""
-                                               Header="Prime modulus p">
-                            <NumberBox
-                                x:Name="ElgamalModulusNumberBox"
-                                Value="29"
-                                Minimum="2"
-                                SpinButtonPlacementMode="Inline"
-                                SmallChange="1"
-                                LargeChange="1" />
-                        </controls:SettingsCard>
-                        <controls:SettingsCard Description=""
-                                               Header="Generator g">
-                            <NumberBox
-                                x:Name="ElgamalGeneratorNumberBox"
-                                Value="2"
-                                Minimum="2"
-                                SpinButtonPlacementMode="Inline"
-                                SmallChange="1"
-                                LargeChange="1" />
-                        </controls:SettingsCard>
-                    </controls:SettingsExpander.Items>
-                </controls:SettingsExpander>
+            <controls:SettingsCard Description="A large prime number defining the finite field for modular arithmetic."
+                                   Header="Prime Modulus (p)​">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE961;" />
+                </controls:SettingsCard.HeaderIcon>
+                <NumberBox
+                    x:Name="ElgamalKeyGenerationPrimePNumberBox"
+                    Value="19"
+                    Minimum="3"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
 
-                <TextBlock Text="Encryption and Decryption"
-                           Style="{StaticResource BodyStrongTextBlockStyle}"
-                           Margin="0,16,0,8"/>
+            <controls:SettingsCard Description="A primitive root modulo p (i.e., a cyclic group generator of the multiplicative group ℤₚ*)."
+                                   Header="Generator (g)​">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE961;" />
+                </controls:SettingsCard.HeaderIcon>
+                <NumberBox
+                    x:Name="ElgamalKeyGenerationGeneratorGNumberBox"
+                    Value="2"
+                    Minimum="2"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
 
-                <controls:SettingsExpander Description=""
-                                           Header="RSA Encryption">
-                    <controls:SettingsExpander.HeaderIcon>
-                        <FontIcon Glyph="&#xE72E;" />
-                    </controls:SettingsExpander.HeaderIcon>
-                    <controls:SettingsExpander.Items>
-                        <controls:SettingsCard Description=""
-                                               Header="Plaintext">
-                            <NumberBox
-                                x:Name="RsaEncryptionPlaintextNumberBox"
-                                Minimum="1"
-                                SpinButtonPlacementMode="Inline"
-                                SmallChange="1"
-                                LargeChange="1" />
-                        </controls:SettingsCard>
-                        <controls:SettingsCard Description=""
-                                               Header="Public Key n">
-                            <NumberBox
-                                x:Name="RsaEncryptionPublicKeyNNumberBox"
-                                Minimum="1"
-                                SpinButtonPlacementMode="Inline"
-                                SmallChange="1"
-                                LargeChange="1" />
-                        </controls:SettingsCard>
-                        <controls:SettingsCard Description=""
-                                               Header="Public Key e">
-                            <NumberBox
-                                x:Name="RsaEncryptionPublicKeyENumberBox"
-                                Minimum="1"
-                                SpinButtonPlacementMode="Inline"
-                                SmallChange="1"
-                                LargeChange="1" />
-                        </controls:SettingsCard>
-                    </controls:SettingsExpander.Items>
-                </controls:SettingsExpander>
+            <controls:SettingsCard Description="A randomly chosen integer where 1 &lt; x &lt; p-1. Must be kept secret."
+                                   Header="Private Key (x)​">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE961;" />
+                </controls:SettingsCard.HeaderIcon>
+                <NumberBox
+                    x:Name="ElgamalKeyGenerationKeyPrXNumberBox"
+                    Value="2"
+                    Minimum="2"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
 
-                <controls:SettingsExpander Description=""
-                                           Header="RSA Decryption">
-                    <controls:SettingsExpander.HeaderIcon>
-                        <FontIcon Glyph="&#xE785;" />
-                    </controls:SettingsExpander.HeaderIcon>
-                    <controls:SettingsExpander.Items>
-                        <controls:SettingsCard Description=""
-                                               Header="Ciphertext">
-                            <NumberBox
-                                x:Name="RsaDecryptionCiphertextNumberBox"
-                                Minimum="1"
-                                SpinButtonPlacementMode="Inline"
-                                SmallChange="1"
-                                LargeChange="1" />
-                        </controls:SettingsCard>
-                        <controls:SettingsCard Description=""
-                                               Header="Public Key n">
-                            <NumberBox
-                                x:Name="RsaDecryptionPublicKeyNNumberBox"
-                                Minimum="1"
-                                SpinButtonPlacementMode="Inline"
-                                SmallChange="1"
-                                LargeChange="1" />
-                        </controls:SettingsCard>
-                        <controls:SettingsCard Description=""
-                                               Header="Private Key d">
-                            <NumberBox
-                                x:Name="RsaDecryptionPrivateKeyDNumberBox"
-                                Minimum="1"
-                                SpinButtonPlacementMode="Inline"
-                                SmallChange="1"
-                                LargeChange="1" />
-                        </controls:SettingsCard>
-                    </controls:SettingsExpander.Items>
-                </controls:SettingsExpander>
+            <controls:SettingsCard Description="Computed as y = g^x mod p. Shared publicly for encryption."
+                                   Header="Public Key (y)​​">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE718;" />
+                </controls:SettingsCard.HeaderIcon>
+                <TextBlock x:Name="KeyGenerationKeyPubYTextBlock" Text=""/>
+            </controls:SettingsCard>
 
-                <TextBlock Text="RSA Encryption and Decryption Output"
-                           Style="{StaticResource BodyStrongTextBlockStyle}"
-                           Margin="0,8,0,8"/>
+            <TextBlock Text="Elgamal Encryption"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"
+                       Margin="0,16,0,8"/>
 
-                <TextBox x:Name="RsaEncryptionDecryptionLogTextBox" 
-                         Text="The running log generated during the RSA encryption and decryption will be displayed here."
-                         Height="120" 
-                         AcceptsReturn="True"
-                         IsReadOnly="True"
-                         ScrollViewer.VerticalScrollBarVisibility="Auto"
-                         ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+            <controls:SettingsCard Description=""
+                                   Header="Plaintext​​">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE961;" />
+                </controls:SettingsCard.HeaderIcon>
+                <NumberBox
+                    x:Name="ElgamalEncryptionPlaintextMNumberBox"
+                    Value="1"
+                    Minimum="1"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
+
+            <controls:SettingsCard Description="A per-message random integer where 1 &lt; k &lt; p-1. ​Must never be reused."
+                                   Header="Random Nonce (k)​​">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE961;" />
+                </controls:SettingsCard.HeaderIcon>
+                <NumberBox
+                    x:Name="ElgamalEncryptionNonceKNumberBox"
+                    Value="2"
+                    Minimum="2"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
+
+            <controls:SettingsCard Description="Ephemeral public key and masked message."
+                                   Header="Ciphertext ((c₁, c₂))​">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE718;" />
+                </controls:SettingsCard.HeaderIcon>
+                <TextBlock x:Name="ElgamalEncryptionCiphertextTextBlock" Text=""/>
+            </controls:SettingsCard>
+
+            <TextBlock Text="Elgamal Decryption"
+                       Style="{StaticResource BodyStrongTextBlockStyle}"
+                       Margin="0,16,0,8"/>
+
+            <controls:SettingsCard Description="Computed as s = c₁^x mod p = g^(kx) mod p."
+                                   Header="​Shared Secret (s)​">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE718;" />
+                </controls:SettingsCard.HeaderIcon>
+                <TextBlock x:Name="ElgamalDecryptionSecretSTextBlock" Text=""/>
+            </controls:SettingsCard>
+
+            <controls:SettingsCard Description="Plaintext: m = c₂ * s⁻¹ mod p."
+                                   Header="​Plaintext">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE718;" />
+                </controls:SettingsCard.HeaderIcon>
+                <TextBlock x:Name="ElgamalDecryptionPlaintextTextBlock" Text=""/>
+            </controls:SettingsCard>
+
         </StackPanel>
     </ScrollViewer>
 </Page>

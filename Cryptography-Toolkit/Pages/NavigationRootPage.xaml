@@ -115,11 +115,11 @@
                 </NavigationViewItem>
 
                 <NavigationViewItemHeader Content="Components" />
-                <NavigationViewItem x:Name="FavoritesItem" Content="Favorites" IsEnabled="False">
-                    <NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xE734;" />
-                    </NavigationViewItem.Icon>
-                </NavigationViewItem>
+                <!-- <NavigationViewItem x:Name="FavoritesItem" Content="Favorites" IsEnabled="False"> -->
+                <!--     <NavigationViewItem.Icon> -->
+                <!--         <FontIcon Glyph="&#xE734;" /> -->
+                <!--     </NavigationViewItem.Icon> -->
+                <!-- </NavigationViewItem> -->
                 <NavigationViewItem x:Name="AllComponentsItem" Content="All" Tag="AllComponentsPage">
                     <NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE8A9;" />
