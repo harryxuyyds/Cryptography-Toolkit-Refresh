@@ -84,47 +84,165 @@
                 Title="Tip"
                 Message="Please enter smaller parameter values. For larger numbers, use Cryptography PowerToys." />
 
-            <TextBlock Text="The DSA Algorithm" 
+            <TextBlock Text="Schoolbook DSA Digital Signature" 
                        Style="{StaticResource SubtitleTextBlockStyle}" 
                        Margin="0,8,0,8"/>
 
-            <TextBlock Text="Key Generation"
-                       Style="{StaticResource BodyStrongTextBlockStyle}"
+            <TextBlock Text="Key Generation for DSA" 
+                       Style="{StaticResource BodyStrongTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
+            <controls:SettingsCard Description="A large prime number defining the finite field for modular arithmetic."
+                                   Header="Prime Modulus (p)​">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE961;" />
+                </controls:SettingsCard.HeaderIcon>
+                <NumberBox
+                    x:Name="DsaPrimePNumberBox"
+                    Value="59"
+                    Minimum="3"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
+
+            <controls:SettingsCard Description="A prime factor of p-1, determining the cyclic subgroup size for signatures."
+                                   Header="Prime Subgroup Order (q)​">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE961;" />
+                </controls:SettingsCard.HeaderIcon>
+                <NumberBox
+                    x:Name="DsaPrimeQNumberBox"
+                    Value="29"
+                    Minimum="3"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
+
+            <controls:SettingsCard Description="Derived as g = h^((p-1)/q) mod p (where 1 &lt; h &lt; p-1), used to generate public keys."
+                                   Header="​Generator (g)​">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE961;" />
+                </controls:SettingsCard.HeaderIcon>
+                <NumberBox
+                    x:Name="DsaGeneratorGNumberBox"
+                    Value="3"
+                    Minimum="3"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
+
+            <controls:SettingsCard Description="A randomly generated integer (0 &lt; x &lt; q), kept secret for signing."
+                                   Header="​Private Key (x)​​">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE961;" />
+                </controls:SettingsCard.HeaderIcon>
+                <NumberBox
+                    x:Name="DsaKeyPrXNumberBox"
+                    Value="7"
+                    Minimum="2"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
+
+            <controls:SettingsCard Description="Computed as y = g^x mod p, shared publicly for verification."
+                                   Header="Public Key (y)​">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE718;" />
+                </controls:SettingsCard.HeaderIcon>
+                <TextBlock x:Name="DsaKeyPubYTextBlock" Text=""/>
+            </controls:SettingsCard>
+
+            <InfoBar
+                x:Name="DsaKeyGenerationCheckInfoBar"
+                IsOpen="True"
+                IsIconVisible="True"
+                IsClosable="False"
+                Severity="Informational"
+                Title="Status"
+                Message="Pending Validation (Enter correct parameters to check)​" />
+
+            <TextBlock Text="DSA Signature Generation" 
+                       Style="{StaticResource BodyStrongTextBlockStyle}" 
+                       Margin="0,8,0,8"/>
+
+            <controls:SettingsCard Description="The data to be signed (hashed before signing)."
+                                   Header="Message ​​​Hash Function (H)​">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE961;" />
+                </controls:SettingsCard.HeaderIcon>
+                <NumberBox
+                    x:Name="SignatureGenerationMessageHashNumberBox"
+                    Value="1"
+                    Minimum="1"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
+
+            <controls:SettingsCard Description="A per-signature random integer (0 &lt; k &lt; q). Reuse compromises security."
+                                   Header="​​Ephemeral Key (k)​​​">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE961;" />
+                </controls:SettingsCard.HeaderIcon>
+                <NumberBox
+                    x:Name="SignatureGenerationEphemeralKeyNumberBox"
+                    Value="1"
+                    Minimum="1"
+                    SpinButtonPlacementMode="Inline"
+                    SmallChange="1"
+                    LargeChange="1" />
+            </controls:SettingsCard>
+
+            <controls:SettingsCard Description="The DSA signature"
+                                   Header="Signature (r, s)​">
+                <controls:SettingsCard.HeaderIcon>
+                    <FontIcon Glyph="&#xE718;" />
+                </controls:SettingsCard.HeaderIcon>
+                <TextBlock x:Name="SignatureGenerationSignatureTextBlock" Text=""/>
+            </controls:SettingsCard>
+
+
+            <TextBlock Text="DSA Signature Verification" 
+                       Style="{StaticResource BodyStrongTextBlockStyle}" 
                        Margin="0,8,0,8"/>
 
             <controls:SettingsExpander Description=""
-                                       Header="Key Generation for DSA">
+                                       Header="DSA Signature Verification Auxiliary Value">
                 <controls:SettingsExpander.HeaderIcon>
-                    <FontIcon Glyph="&#xE8D7;" />
+                    <FontIcon Glyph="&#xE712;" />
                 </controls:SettingsExpander.HeaderIcon>
                 <controls:SettingsExpander.Items>
-
+                    <controls:SettingsCard Description=""
+                                           Header="w">
+                        <TextBlock x:Name="SignatureVerificationWTextBlock" Text=""/>
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                                           Header="u_1">
+                        <TextBlock x:Name="SignatureVerificationUTextBlock" Text=""/>
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                                           Header="u_2">
+                        <TextBlock x:Name="SignatureVerificationUuTextBlock" Text=""/>
+                    </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                                           Header="V">
+                        <TextBlock x:Name="SignatureVerificationVTextBlock" Text=""/>
+                    </controls:SettingsCard>
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
 
-            <TextBlock Text="Signing and Verification"
-                       Style="{StaticResource BodyStrongTextBlockStyle}"
-                       Margin="0,8,0,8"/>
-
-            <controls:SettingsExpander Description=""
-                                       Header="DSA Signature Generation">
-                <controls:SettingsExpander.HeaderIcon>
-                    <FontIcon Glyph="&#xEF3F;" />
-                </controls:SettingsExpander.HeaderIcon>
-                <controls:SettingsExpander.Items>
-
-                </controls:SettingsExpander.Items>
-            </controls:SettingsExpander>
-
-            <controls:SettingsExpander Description=""
-                                       Header="DSA Signature Verification">
-                <controls:SettingsExpander.HeaderIcon>
-                    <FontIcon Glyph="&#xF32A;" />
-                </controls:SettingsExpander.HeaderIcon>
-                <controls:SettingsExpander.Items>
-
-                </controls:SettingsExpander.Items>
-            </controls:SettingsExpander>
+            <InfoBar
+                x:Name="SignatureVerificationInfoBar"
+                IsOpen="True"
+                IsIconVisible="True"
+                IsClosable="False"
+                Severity="Informational"
+                Title="Status"
+                Message="Pending Verification (Enter correct parameters to check)​" />
 
         </StackPanel>
     </ScrollViewer>

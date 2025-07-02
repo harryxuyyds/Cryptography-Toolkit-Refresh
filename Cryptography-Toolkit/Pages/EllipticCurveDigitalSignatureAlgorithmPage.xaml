@@ -266,16 +266,14 @@
                                            Header="u_2">
                         <TextBlock x:Name="SignatureVerificationUuTextBlock" Text=""/>
                     </controls:SettingsCard>
+                    <controls:SettingsCard Description=""
+                                           Header="P">
+                        <TextBlock x:Name="SignatureVerificationPTextBlock" Text=""/>
+                    </controls:SettingsCard>
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
 
-            <controls:SettingsCard Description=""
-                                   Header="P">
-                <controls:SettingsCard.HeaderIcon>
-                    <FontIcon Glyph="&#xE718;" />
-                </controls:SettingsCard.HeaderIcon>
-                <TextBlock x:Name="SignatureVerificationPTextBlock" Text=""/>
-            </controls:SettingsCard>
+            
 
             <InfoBar
                 x:Name="SignatureVerificationInfoBar"

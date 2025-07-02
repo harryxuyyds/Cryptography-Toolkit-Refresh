@@ -366,7 +366,6 @@ public sealed partial class EllipticCurveDigitalSignatureAlgorithmPage : Page
             SignatureVerificationInfoBar.Message = "s and n are not coprime, cannot compute inverse";
             return;
         }
-        // w = (w % n + n) % n;
         SignatureVerificationWTextBlock.Text = w.ToString();
 
         // Compute u = m * w mod n, uu = r * w mod n
@@ -377,53 +376,37 @@ public sealed partial class EllipticCurveDigitalSignatureAlgorithmPage : Page
 
         // Compute u*G + uu*Q
         var ellipticCurveHelper = new Helpers.EllipticCurveHelper();
-        int[] gPoint = [gx, gy];
-        int[] qPoint = [qx, qy];
+        int[] gPoint = { gx, gy };
+        int[] qPoint = { qx, qy };
 
         // Compute u*G
-        int[] uG = [gx, gy];
-        if (u == 0)
+        int[] uG = u == 0 ? Array.Empty<int>() : gPoint;
+        for (int i = 1; i < u; i++)
         {
-            uG = null;
-        }
-        else
-        {
-            uG = [gx, gy];
-            for (int i = 1; i < u; i++)
-            {
-                uG = ellipticCurveHelper.PointAddCalc(uG[0], uG[1], gx, gy, a, p);
-            }
+            uG = ellipticCurveHelper.PointAddCalc(uG[0], uG[1], gx, gy, a, p);
         }
 
         // Compute uu*Q
-        int[] uuQ = [qx, qy];
-        if (uu == 0)
+        int[] uuQ = uu == 0 ? Array.Empty<int>() : qPoint;
+        for (int i = 1; i < uu; i++)
         {
-            uuQ = null;
-        }
-        else
-        {
-            uuQ = [qx, qy];
-            for (int i = 1; i < uu; i++)
-            {
-                uuQ = ellipticCurveHelper.PointAddCalc(uuQ[0], uuQ[1], qx, qy, a, p);
-            }
+            uuQ = ellipticCurveHelper.PointAddCalc(uuQ[0], uuQ[1], qx, qy, a, p);
         }
 
         // Compute P = uG + uuQ
-        int[] pPoint = null;
-        if (uG == null && uuQ == null)
+        int[] pPoint;
+        if (uG.Length == 0 && uuQ.Length == 0)
         {
             SignatureVerificationPTextBlock.Text = "Point at infinity";
             SignatureVerificationInfoBar.Severity = InfoBarSeverity.Error;
             SignatureVerificationInfoBar.Message = "P is the point at infinity, signature invalid";
             return;
         }
-        else if (uG == null)
+        else if (uG.Length == 0)
         {
             pPoint = uuQ;
         }
-        else if (uuQ == null)
+        else if (uuQ.Length == 0)
         {
             pPoint = uG;
         }

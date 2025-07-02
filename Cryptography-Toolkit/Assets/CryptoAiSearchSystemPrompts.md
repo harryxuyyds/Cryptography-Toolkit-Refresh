@@ -71,9 +71,6 @@
         },
         "Attacks against RSA": {
           "description": "Attacks typically exploit weaknesses in the way RSA is implemented or used rather than the RSA itself. There are three general families: protocol attacks, mathematical attacks, side-channel attack."
-        },
-        "Rabin Scheme": {
-          "description": "In contrast to RSA, Rabin scheme can be shown that the Rabin scheme is equivalent to factoring. Thus, it is said that the cryptosystem is provably secure."
         }
       }
     },
